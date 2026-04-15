@@ -77,7 +77,7 @@ layout: page
 
 # Secrets of Strixhaven (SOS) -- Set Analysis
 
-**Total unique cards:** 271
+**Total unique cards:** 266
 **Release date:** April 24, 2026
 **Source:** Scryfall API (`e:sos`)
 
@@ -90,37 +90,37 @@ layout: page
 
 | Type | W | U | B | R | G | MC | NC |
 |------|---|---|---|---|---|---|---|
-| Total | 33 | 35 | 35 | 33 | 33 | 87 | 15 |
+| Total | 32 | 34 | 34 | 32 | 32 | 87 | 15 |
 | Creatures | 18 | 17 | 19 | 17 | 18 | 42 | 7 |
 | Instants | 7 | 16 | 6 | 6 | 5 | 13 | 0 |
 | Sorceries | 11 | 9 | 15 | 13 | 11 | 23 | 1 |
 | Enchantments | 2 | 0 | 0 | 1 | 2 | 0 | 0 |
 | Artifacts | 0 | 0 | 0 | 1 | 0 | 4 | 6 |
 | Planeswalkers | 0 | 0 | 1 | 0 | 0 | 1 | 0 |
-| Lands | 1 | 1 | 1 | 1 | 1 | 10 | 4 |
+| Lands | 0 | 0 | 0 | 0 | 0 | 10 | 4 |
 
 ### Card Count by Rarity
 
 | Type | C | U | R | M |
 |------|---|---|---|---|
-| Total | 91 | 100 | 60 | 20 |
+| Total | 86 | 100 | 60 | 20 |
 | Creatures | 45 | 53 | 29 | 11 |
 | Instants | 19 | 21 | 10 | 3 |
 | Sorceries | 24 | 32 | 18 | 9 |
 | Enchantments | 0 | 4 | 1 | 0 |
 | Artifacts | 4 | 4 | 3 | 0 |
 | Planeswalkers | 0 | 0 | 0 | 2 |
-| Lands | 11 | 1 | 7 | 0 |
+| Lands | 6 | 1 | 7 | 0 |
 
 ### Color x Rarity Matrix
 
 | Color | C | U | R | M | Total |
 |-------|---|---|---|---|-------|
-| W | 13 | 12 | 6 | 2 | 33 |
-| U | 13 | 12 | 7 | 3 | 35 |
-| B | 13 | 12 | 6 | 4 | 35 |
-| R | 13 | 12 | 6 | 2 | 33 |
-| G | 13 | 12 | 6 | 2 | 33 |
+| W | 12 | 12 | 6 | 2 | 32 |
+| U | 12 | 12 | 7 | 3 | 34 |
+| B | 12 | 12 | 6 | 4 | 34 |
+| R | 12 | 12 | 6 | 2 | 32 |
+| G | 12 | 12 | 6 | 2 | 32 |
 | MC | 20 | 35 | 26 | 6 | 87 |
 | NC | 6 | 5 | 3 | 1 | 15 |
 
@@ -741,7 +741,7 @@ layout: page
 
 | Card | P/T | Rarity | CMC | Categories | Effect Summary |
 |------|-----|--------|-----|------------|----------------|
-| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | - | C | 1 | P/T Buff, Grants Hexproof, Protection | target creature you control gets +0/+3 and gains hexproof until end of turn. (it |
+| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | - | C | 1 | P/T Buff, Protection, Grants Hexproof | target creature you control gets +0/+3 and gains hexproof until end of turn. (it |
 | <a href="https://scryfall.com/card/sos/50/fractal-anomaly" class="card-link" target="_blank">Fractal Anomaly<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/1/e1975a61-aef0-49a6-a6d6-c3a37e2e2b22.jpg?1775937257" alt="Fractal Anomaly"></span></a> | - | U | 1 | Counters | create a 0/0 green and blue fractal creature token and put x +1/+1 counters on i |
 | <a href="https://scryfall.com/card/sos/46/encouraging-aviator-jump" class="card-link" target="_blank">Encouraging Aviator // Jump<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/2/72654b84-9902-41db-92ab-a3499c31221c.jpg?1775937230" alt="Encouraging Aviator // Jump"></span></a> | 2/3 | U | 3 | Grants Flying | target creature gains flying until end of turn. |
 | <a href="https://scryfall.com/card/sos/67/skycoach-conductor-all-aboard" class="card-link" target="_blank">Skycoach Conductor // All Aboard<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/4/e/4ecbca71-9a1d-44c5-b709-d6f565941d5e.jpg?1775937376" alt="Skycoach Conductor // All Aboard"></span></a> | 2/3 | R | 3 | Blink | flash flying, vigilance this creature enters prepared. (while it's prepared, you |
@@ -766,7 +766,7 @@ layout: page
 |------|-----|--------|-----|------------|----------------|
 | <a href="https://scryfall.com/card/sos/141/burrog-barrage" class="card-link" target="_blank">Burrog Barrage<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/5/95d5b0a8-2b66-418e-9e5e-ecf7b304c31e.jpg?1775937957" alt="Burrog Barrage"></span></a> | - | C | 2 | P/T Buff | target creature you control gets +1/+0 until end of turn if you've cast another  |
 | <a href="https://scryfall.com/card/sos/153/lumarets-favor" class="card-link" target="_blank">Lumaret's Favor<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/c/5/c5e7c856-8b71-44e6-8998-0b0b3ff0ef99.jpg?1775938045" alt="Lumaret's Favor"></span></a> | - | U | 2 | P/T Buff | target creature gets +2/+4 until end of turn. |
-| <a href="https://scryfall.com/card/sos/144/efflorescence" class="card-link" target="_blank">Efflorescence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79b9ace7-eceb-4f97-9ee7-d5ee3e0b3515.jpg?1775937979" alt="Efflorescence"></span></a> | - | C | 3 | Counters, Grants Trample | put two +1/+1 counters on target creature. |
+| <a href="https://scryfall.com/card/sos/144/efflorescence" class="card-link" target="_blank">Efflorescence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79b9ace7-eceb-4f97-9ee7-d5ee3e0b3515.jpg?1775937979" alt="Efflorescence"></span></a> | - | C | 3 | Grants Trample, Counters | put two +1/+1 counters on target creature. |
 
 #### Multicolor
 
@@ -860,10 +860,10 @@ These uncommon gold cards hint at supported archetypes.
 | Card | P/T | Color | CMC | Categories |
 |------|-----|-------|-----|------------|
 | <a href="https://scryfall.com/card/sos/22/interjection" class="card-link" target="_blank">Interjection<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/5/0534cff6-299c-4155-b318-eb7581989e8a.jpg?1775937061" alt="Interjection"></span></a> | - | W | 1 | P/T Buff, Grants First Strike |
-| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | - | U | 1 | P/T Buff, Grants Hexproof, Protection |
+| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | - | U | 1 | P/T Buff, Protection, Grants Hexproof |
 | <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | - | B | 1 | P/T Buff, Grants Indestructible, Protection |
 | <a href="https://scryfall.com/card/sos/141/burrog-barrage" class="card-link" target="_blank">Burrog Barrage<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/5/95d5b0a8-2b66-418e-9e5e-ecf7b304c31e.jpg?1775937957" alt="Burrog Barrage"></span></a> | - | G | 2 | P/T Buff |
-| <a href="https://scryfall.com/card/sos/144/efflorescence" class="card-link" target="_blank">Efflorescence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79b9ace7-eceb-4f97-9ee7-d5ee3e0b3515.jpg?1775937979" alt="Efflorescence"></span></a> | - | G | 3 | Counters, Grants Trample |
+| <a href="https://scryfall.com/card/sos/144/efflorescence" class="card-link" target="_blank">Efflorescence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79b9ace7-eceb-4f97-9ee7-d5ee3e0b3515.jpg?1775937979" alt="Efflorescence"></span></a> | - | G | 3 | Grants Trample, Counters |
 
 ### Uncommon Removal
 
@@ -896,11 +896,6 @@ These uncommon gold cards hint at supported archetypes.
 
 | Card | Color | Rarity | Type |
 |------|-------|--------|------|
-| <a href="https://scryfall.com/card/sos/272/plains" class="card-link" target="_blank">Plains<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/8/d85d0f25-a24a-4de0-9b8b-93fb5017bce9.jpg?1775938910" alt="Plains"></span></a> | W | C | Basic Land — Plains |
-| <a href="https://scryfall.com/card/sos/274/island" class="card-link" target="_blank">Island<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/7/77b88bb8-6bd9-4632-b937-89468fcb5e6a.jpg?1775938923" alt="Island"></span></a> | U | C | Basic Land — Island |
-| <a href="https://scryfall.com/card/sos/276/swamp" class="card-link" target="_blank">Swamp<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/1/51fe930f-2b5a-4b1e-9007-6ee74fb44715.jpg?1775938936" alt="Swamp"></span></a> | B | C | Basic Land — Swamp |
-| <a href="https://scryfall.com/card/sos/278/mountain" class="card-link" target="_blank">Mountain<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/6/a642c7b1-d4d1-4125-a66d-560438e5ee51.jpg?1775938951" alt="Mountain"></span></a> | R | C | Basic Land — Mountain |
-| <a href="https://scryfall.com/card/sos/280/forest" class="card-link" target="_blank">Forest<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/1/f169dfb2-e4c8-46e9-8591-e51bb82da082.jpg?1775938964" alt="Forest"></span></a> | G | C | Basic Land — Forest |
 | <a href="https://scryfall.com/card/sos/253/deathcap-glade" class="card-link" target="_blank">Deathcap Glade<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/8/78897104-80e1-4d8a-9958-145b40f679e8.jpg?1775938766" alt="Deathcap Glade"></span></a> | MC | R | Land |
 | <a href="https://scryfall.com/card/sos/254/dreamroot-cascade" class="card-link" target="_blank">Dreamroot Cascade<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/f/ef662b92-5a7f-48c9-bcc1-14b55e091aef.jpg?1775938773" alt="Dreamroot Cascade"></span></a> | MC | R | Land |
 | <a href="https://scryfall.com/card/sos/255/fields-of-strife" class="card-link" target="_blank">Fields of Strife<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/d/3dc7a4c3-c356-4fba-bea0-e8788da3eb57.jpg?1775938780" alt="Fields of Strife"></span></a> | MC | C | Land |

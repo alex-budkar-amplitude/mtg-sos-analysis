@@ -57,10 +57,21 @@ TRACKED_KEYWORDS = [
 # ── Helpers ──────────────────────────────────────────────────────────────
 
 
+BASIC_LAND_NAMES = {"Plains", "Island", "Swamp", "Mountain", "Forest"}
+
+
+def is_standard_basic(card):
+    """Return True for the five standard basic lands (not Snow, Wastes, etc.)."""
+    return card.get("name") in BASIC_LAND_NAMES and "Basic Land" in card.get(
+        "type_line", ""
+    )
+
+
 def load_cards():
     path = os.path.join(DATA_DIR, "all_cards.json")
     with open(path) as f:
-        return json.load(f)
+        all_cards = json.load(f)
+    return [c for c in all_cards if not is_standard_basic(c)]
 
 
 def card_color_bucket(card):
