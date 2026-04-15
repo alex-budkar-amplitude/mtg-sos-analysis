@@ -452,6 +452,42 @@ def puts_counters_on_own_creatures(card):
     return True
 
 
+def classify_pump(card):
+    """Classify as a pump spell (puts +1/+1 counters on own creatures at sorcery speed).
+
+    Cards that do this at instant/flash speed are tricks instead.
+    Returns list of categories or [].
+    """
+    if not puts_counters_on_own_creatures(card):
+        return []
+
+    tl = get_type_line(card)
+    ot = get_oracle_text(card)
+    is_instant = "instant" in tl.lower()
+    has_flash = "flash" in card.get("keywords", []) or "flash" in ot
+
+    # Instant-speed counter givers are tricks, not pumps
+    if is_instant or has_flash:
+        return []
+
+    # Creatures with counter ETBs are already in creature section -- include them
+    # as pumps too since they buff your board
+    categories = []
+
+    ot_lower = ot.lower()
+    # Determine what gets counters
+    if re.search(r"each creature you control", ot_lower):
+        categories.append("Counters (all)")
+    elif re.search(r"double the number of", ot_lower):
+        categories.append("Counters (double)")
+    elif re.search(r"(target|up to \w+) creature(s)? you control", ot_lower):
+        categories.append("Counters (target)")
+    else:
+        categories.append("Counters")
+
+    return categories
+
+
 def get_keyword_display(d):
     """Return a short comma-separated list of notable keywords."""
     kws = d["keywords"]
@@ -652,15 +688,15 @@ def classify_combat_trick(card):
     if is_blink and not is_exile_until_leaves:
         categories.append("Blink")
 
-    # ── +1/+1 counters on own creatures (any speed) ──
-    if puts_counters_on_own_creatures(card):
-        categories.append("Counters")
-
     # ── Instant-speed tricks (require instant or flash) ──
     is_instant = "instant" in tl.lower()
     has_flash = "flash" in card.get("keywords", []) or "flash" in ot
 
     if is_instant or has_flash:
+        # +1/+1 counters at instant speed → trick
+        if puts_counters_on_own_creatures(card):
+            categories.append("Counters")
+
         # Power/toughness buff
         if re.search(r"gets? \+\d+/\+\d+", ot) or re.search(
             r"each get \+\d+/\+\d+", ot
@@ -725,6 +761,7 @@ def build_report(cards):
         ot = get_oracle_text(c)
         removal_cats, burn_cats = classify_removal_and_burn(c)
         trick_cats = classify_combat_trick(c)
+        pump_cats = classify_pump(c)
         token_cats = classify_token_creator(c)
         pt = get_power_toughness(c)
         cmc = get_cmc(c)
@@ -755,6 +792,7 @@ def build_report(cards):
                 "removal_cats": removal_cats,
                 "burn_cats": burn_cats,
                 "trick_cats": trick_cats,
+                "pump_cats": pump_cats,
                 "token_cats": token_cats,
                 "pt": pt,
                 "cmc": cmc,
@@ -1288,6 +1326,55 @@ def build_report(cards):
             )
         w("")
 
+    # ── Pump Spells sub-section ──────────────────────────────────────
+    w("### Pump Spells (+1/+1 Counters)")
+    w("")
+    w(
+        "*Non-instant-speed spells that put +1/+1 counters on your creatures. Instant-speed counter givers are in Combat Tricks above.*"
+    )
+    w("")
+
+    pump_cards = [d for d in card_data if d["pump_cats"]]
+
+    # Summary by color
+    pump_by_color = {c: [d for d in pump_cards if d["color"] == c] for c in COLOR_ORDER}
+    active_pump_colors = [c for c in COLOR_ORDER if pump_by_color[c]]
+    if active_pump_colors:
+        active_hdr = [COLOR_SHORT[c] for c in active_pump_colors]
+        w("| Category | " + " | ".join(active_hdr) + " |")
+        w("|----------|" + "|".join("---" for _ in active_pump_colors) + "|")
+        w(
+            "| **Total** | "
+            + " | ".join(str(len(pump_by_color[c])) for c in active_pump_colors)
+            + " |"
+        )
+        all_pump_cats = sorted(set(cat for d in pump_cards for cat in d["pump_cats"]))
+        for cat in all_pump_cats:
+            counts = [
+                str(sum(1 for d in pump_by_color[c] if cat in d["pump_cats"]))
+                for c in active_pump_colors
+            ]
+            w(f"| {cat} | " + " | ".join(counts) + " |")
+        w("")
+
+    # Full pump list by color
+    for color in COLOR_ORDER:
+        subset = [d for d in pump_cards if d["color"] == color]
+        if not subset:
+            continue
+        cname = COLOR_NAMES.get(color, color) if color in COLOR_NAMES else color
+        w(f"#### {cname}")
+        w("")
+        w("| Card | P/T | Rarity | CMC | Type | Categories |")
+        w("|------|-----|--------|-----|------|------------|")
+        for d in sorted(subset, key=lambda x: x["cmc"]):
+            rarity_char = d["rarity"][0].upper()
+            cats = ", ".join(d["pump_cats"])
+            w(
+                f"| {d['linked_name']} | {d['pt_display']} | {rarity_char} | {d['cmc']:.0f} | {short_type(d)} | {cats} |"
+            )
+        w("")
+
     # ── Token Creators sub-section ───────────────────────────────────
     w("### Token Creators")
     w("")
@@ -1396,6 +1483,19 @@ def build_report(cards):
         )
     w("")
 
+    w("### Common Pump Spells")
+    w("")
+    common_pumps = [d for d in pump_cards if d["rarity"] == "common"]
+    w("| Card | P/T | Color | CMC | Categories |")
+    w("|------|-----|-------|-----|------------|")
+    for d in sorted(common_pumps, key=lambda x: x["cmc"]):
+        cshort = COLOR_SHORT.get(d["color"], d["color"])
+        cats = ", ".join(d["pump_cats"])
+        w(
+            f"| {d['linked_name']} | {d['pt_display']} | {cshort} | {d['cmc']:.0f} | {cats} |"
+        )
+    w("")
+
     w("### Uncommon Removal")
     w("")
     unc_removal = [d for d in removal_cards if d["rarity"] == "uncommon"]
@@ -1438,6 +1538,7 @@ def build_report(cards):
             or d["removal_cats"]
             or d["burn_cats"]
             or d["trick_cats"]
+            or d["pump_cats"]
             or d["token_cats"]
             or d["is_land"]
         ):

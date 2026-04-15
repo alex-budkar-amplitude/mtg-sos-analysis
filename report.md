@@ -692,37 +692,37 @@
 
 ### Combat Trick Count by Color
 
-| Category | W | U | B | R | G | MC | NC |
-|----------|---|---|---|---|---|---|---|
-| **Total** | 9 | 8 | 6 | 3 | 11 | 17 | 1 |
-| Blink | 2 | 1 | 0 | 0 | 0 | 1 | 0 |
-| Counters | 7 | 5 | 3 | 2 | 9 | 15 | 1 |
-| Falter | 0 | 0 | 0 | 1 | 0 | 0 | 0 |
-| Grants First Strike | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Grants Flying | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
-| Grants Hexproof | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
-| Grants Indestructible | 0 | 0 | 1 | 0 | 0 | 0 | 0 |
-| Grants Trample | 0 | 0 | 0 | 0 | 1 | 1 | 0 |
-| P/T Buff | 1 | 1 | 3 | 0 | 2 | 0 | 0 |
-| P/T Buff (Team) | 0 | 0 | 0 | 0 | 0 | 1 | 0 |
-| Protection | 0 | 1 | 1 | 0 | 0 | 0 | 0 |
+| Category | W | U | B | R | G | MC |
+|----------|---|---|---|---|---|---|
+| **Total** | 6 | 4 | 3 | 1 | 3 | 3 |
+| Blink | 2 | 1 | 0 | 0 | 0 | 1 |
+| Counters | 3 | 1 | 0 | 0 | 1 | 1 |
+| Falter | 0 | 0 | 0 | 1 | 0 | 0 |
+| Grants First Strike | 1 | 0 | 0 | 0 | 0 | 0 |
+| Grants Flying | 0 | 1 | 0 | 0 | 0 | 0 |
+| Grants Hexproof | 0 | 1 | 0 | 0 | 0 | 0 |
+| Grants Indestructible | 0 | 0 | 1 | 0 | 0 | 0 |
+| Grants Trample | 0 | 0 | 0 | 0 | 1 | 1 |
+| P/T Buff | 1 | 1 | 3 | 0 | 2 | 0 |
+| P/T Buff (Team) | 0 | 0 | 0 | 0 | 0 | 1 |
+| Protection | 0 | 1 | 1 | 0 | 0 | 0 |
 
 ### Combat Trick Count by Rarity
 
-| Category | C | U | R | M |
-|----------|---|---|---|---|
-| **Total** | 16 | 24 | 14 | 1 |
-| Blink | 0 | 2 | 2 | 0 |
-| Counters | 12 | 17 | 12 | 1 |
-| Falter | 0 | 1 | 0 | 0 |
-| Grants First Strike | 1 | 0 | 0 | 0 |
-| Grants Flying | 0 | 1 | 0 | 0 |
-| Grants Hexproof | 1 | 0 | 0 | 0 |
-| Grants Indestructible | 1 | 0 | 0 | 0 |
-| Grants Trample | 1 | 1 | 0 | 0 |
-| P/T Buff | 4 | 3 | 0 | 0 |
-| P/T Buff (Team) | 0 | 1 | 0 | 0 |
-| Protection | 2 | 0 | 0 | 0 |
+| Category | C | U | R |
+|----------|---|---|---|
+| **Total** | 6 | 10 | 4 |
+| Blink | 0 | 2 | 2 |
+| Counters | 2 | 2 | 2 |
+| Falter | 0 | 1 | 0 |
+| Grants First Strike | 1 | 0 | 0 |
+| Grants Flying | 0 | 1 | 0 |
+| Grants Hexproof | 1 | 0 | 0 |
+| Grants Indestructible | 1 | 0 | 0 |
+| Grants Trample | 1 | 1 | 0 |
+| P/T Buff | 4 | 3 | 0 |
+| P/T Buff (Team) | 0 | 1 | 0 |
+| Protection | 2 | 0 | 0 |
 
 ### Full Combat Tricks List by Color
 
@@ -732,89 +732,132 @@
 |------|-----|--------|-----|------------|----------------|
 | <a href="https://scryfall.com/card/sos/9/daydream" class="card-link" target="_blank">Daydream<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/2/e2b16cb2-b8b2-45df-9695-3c16e9d89e28.jpg?1775936973" alt="Daydream"></span></a> | - | U | 1 | Blink | exile target creature you control, then return that card to the battlefield unde |
 | <a href="https://scryfall.com/card/sos/10/dig-site-inventory" class="card-link" target="_blank">Dig Site Inventory<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/5/e52464ee-df8b-41ec-af93-4b0eb004383e.jpg?1775936980" alt="Dig Site Inventory"></span></a> | - | C | 1 | Counters | put a +1/+1 counter on target creature you control. it gains vigilance until end |
-| <a href="https://scryfall.com/card/sos/16/graduation-day" class="card-link" target="_blank">Graduation Day<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/b/db1cea01-123e-4b23-8b98-f94cabce3912.jpg?1775937020" alt="Graduation Day"></span></a> | - | U | 1 | Counters | repartee — whenever you cast an instant or sorcery spell that targets a creature |
 | <a href="https://scryfall.com/card/sos/22/interjection" class="card-link" target="_blank">Interjection<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/5/0534cff6-299c-4155-b318-eb7581989e8a.jpg?1775937061" alt="Interjection"></span></a> | - | C | 1 | Grants First Strike, P/T Buff | target creature gets +2/+2 and gains first strike until end of turn. |
-| <a href="https://scryfall.com/card/sos/14/ennis-debate-moderator" class="card-link" target="_blank">Ennis, Debate Moderator<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/2/d2ef31b4-24fa-4443-9f05-c8e99c3522e5.jpg?1775937005" alt="Ennis, Debate Moderator"></span></a> | 1/1 | U | 2 | Counters, Blink | at the beginning of your end step, if one or more cards were put into exile this |
+| <a href="https://scryfall.com/card/sos/14/ennis-debate-moderator" class="card-link" target="_blank">Ennis, Debate Moderator<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/2/d2ef31b4-24fa-4443-9f05-c8e99c3522e5.jpg?1775937005" alt="Ennis, Debate Moderator"></span></a> | 1/1 | U | 2 | Blink | at the beginning of your end step, if one or more cards were put into exile this |
 | <a href="https://scryfall.com/card/sos/7/antiquities-on-the-loose" class="card-link" target="_blank">Antiquities on the Loose<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/8/68ee92cd-51af-4de5-bcc8-34d0bb2fd398.jpg?1775936960" alt="Antiquities on the Loose"></span></a> | - | R | 3 | Counters | create two 2/2 red and white spirit creature tokens. then if this spell was cast |
 | <a href="https://scryfall.com/card/sos/25/practiced-offense" class="card-link" target="_blank">Practiced Offense<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79c7cf94-c0a1-432d-90d7-7f0599c2e7a8.jpg?1775937087" alt="Practiced Offense"></span></a> | - | R | 3 | Counters | put a +1/+1 counter on each creature target player controls. target creature gai |
-| <a href="https://scryfall.com/card/sos/35/stirring-hopesinger" class="card-link" target="_blank">Stirring Hopesinger<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/2/1/21375667-b318-47f8-a482-9c8c2b5b14c0.jpg?1775937157" alt="Stirring Hopesinger"></span></a> | 1/3 | R | 3 | Counters | repartee — whenever you cast an instant or sorcery spell that targets a creature |
-| <a href="https://scryfall.com/card/sos/8/ascendant-dustspeaker" class="card-link" target="_blank">Ascendant Dustspeaker<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/e/de3de40b-a7ac-455e-add2-4e451b602d17.jpg?1776000359" alt="Ascendant Dustspeaker"></span></a> | 3/4 | C | 5 | Counters | when this creature enters, put a +1/+1 counter on another target creature you co |
 
 #### Blue
 
 | Card | P/T | Rarity | CMC | Categories | Effect Summary |
 |------|-----|--------|-----|------------|----------------|
-| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | - | C | 1 | Protection, Grants Hexproof, P/T Buff | target creature you control gets +0/+3 and gains hexproof until end of turn. (it |
+| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | - | C | 1 | Protection, P/T Buff, Grants Hexproof | target creature you control gets +0/+3 and gains hexproof until end of turn. (it |
 | <a href="https://scryfall.com/card/sos/50/fractal-anomaly" class="card-link" target="_blank">Fractal Anomaly<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/1/e1975a61-aef0-49a6-a6d6-c3a37e2e2b22.jpg?1775937257" alt="Fractal Anomaly"></span></a> | - | U | 1 | Counters | create a 0/0 green and blue fractal creature token and put x +1/+1 counters on i |
-| <a href="https://scryfall.com/card/sos/69/tester-of-the-tangential" class="card-link" target="_blank">Tester of the Tangential<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/b/bbd708ec-eef4-4f45-99dd-60e1cec4b991.jpg?1775937389" alt="Tester of the Tangential"></span></a> | 1/1 | U | 2 | Counters | increment (whenever you cast a spell, if the amount of mana you spent is greater |
 | <a href="https://scryfall.com/card/sos/46/encouraging-aviator-jump" class="card-link" target="_blank">Encouraging Aviator // Jump<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/2/72654b84-9902-41db-92ab-a3499c31221c.jpg?1775937230" alt="Encouraging Aviator // Jump"></span></a> | 2/3 | U | 3 | Grants Flying | target creature gains flying until end of turn. |
-| <a href="https://scryfall.com/card/sos/55/jadzi-steward-of-fate-oracles-gift" class="card-link" target="_blank">Jadzi, Steward of Fate // Oracle's Gift<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/9/a95b6baf-01e6-49c3-9a26-394b127d53c3.jpg?1775937293" alt="Jadzi, Steward of Fate // Oracle's Gift"></span></a> | 2/4 | R | 3 | Counters | create x 0/0 green and blue fractal creature tokens, then put x +1/+1 counters o |
-| <a href="https://scryfall.com/card/sos/63/pensive-professor" class="card-link" target="_blank">Pensive Professor<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/6/66d47940-84f9-4479-8562-45e5148435d4.jpg?1775937349" alt="Pensive Professor"></span></a> | 0/2 | R | 3 | Counters | increment (whenever you cast a spell, if the amount of mana you spent is greater |
 | <a href="https://scryfall.com/card/sos/67/skycoach-conductor-all-aboard" class="card-link" target="_blank">Skycoach Conductor // All Aboard<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/4/e/4ecbca71-9a1d-44c5-b709-d6f565941d5e.jpg?1775937376" alt="Skycoach Conductor // All Aboard"></span></a> | 2/3 | R | 3 | Blink | flash flying, vigilance this creature enters prepared. (while it's prepared, you |
-| <a href="https://scryfall.com/card/sos/70/textbook-tabulator" class="card-link" target="_blank">Textbook Tabulator<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/6/56f54fee-b48d-4582-8982-ca4c7b8ef553.jpg?1776000387" alt="Textbook Tabulator"></span></a> | 0/3 | C | 3 | Counters | increment (whenever you cast a spell, if the amount of mana you spent is greater |
 
 #### Black
 
 | Card | P/T | Rarity | CMC | Categories | Effect Summary |
 |------|-----|--------|-----|------------|----------------|
 | <a href="https://scryfall.com/card/sos/79/dissection-practice" class="card-link" target="_blank">Dissection Practice<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/d/ddbf1242-6832-475e-9a77-65dd9b4bb32a.jpg?1775937462" alt="Dissection Practice"></span></a> | - | U | 1 | P/T Buff | up to one target creature gets +1/+1 until end of turn. |
-| <a href="https://scryfall.com/card/sos/87/lecturing-scornmage" class="card-link" target="_blank">Lecturing Scornmage<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/d/ad07091e-8c24-43af-8ce8-031847bcaf30.jpg?1775937516" alt="Lecturing Scornmage"></span></a> | 1/1 | U | 1 | Counters | repartee — whenever you cast an instant or sorcery spell that targets a creature |
 | <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | - | C | 1 | Grants Indestructible, Protection, P/T Buff | target creature you control gets +1/+0 and gains indestructible until end of tur |
 | <a href="https://scryfall.com/card/sos/96/rabid-attack" class="card-link" target="_blank">Rabid Attack<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/5/f5e67560-3135-4b27-a344-5859edf8bcd9.jpg?1775937579" alt="Rabid Attack"></span></a> | - | U | 2 | P/T Buff | until end of turn, any number of target creatures you control each get +1/+0 and |
-| <a href="https://scryfall.com/card/sos/72/adventurous-eater-have-a-bite" class="card-link" target="_blank">Adventurous Eater // Have a Bite<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/4/d40cc7da-c731-418e-8547-7033d1939450.jpg?1775937412" alt="Adventurous Eater // Have a Bite"></span></a> | 3/2 | C | 3 | Counters | put a +1/+1 counter on target creature. you gain 1 life. |
-| <a href="https://scryfall.com/card/sos/77/cost-of-brilliance" class="card-link" target="_blank">Cost of Brilliance<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/a/3a46816b-9f75-4c72-9ec6-cded6a4a0d01.jpg?1775937447" alt="Cost of Brilliance"></span></a> | - | C | 3 | Counters | target player draws two cards and loses 2 life. put a +1/+1 counter on up to one |
 
 #### Red
 
 | Card | P/T | Rarity | CMC | Categories | Effect Summary |
 |------|-----|--------|-----|------------|----------------|
 | <a href="https://scryfall.com/card/sos/112/duel-tactics" class="card-link" target="_blank">Duel Tactics<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/f/8f3a1675-0cc7-4dfd-a12e-4740a2cf81e8.jpg?1775937718" alt="Duel Tactics"></span></a> | - | U | 1 | Falter | duel tactics deals 1 damage to target creature. it can't block this turn. |
-| <a href="https://scryfall.com/card/sos/125/molten-core-maestro" class="card-link" target="_blank">Molten-Core Maestro<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/2/326dfe32-3674-4a11-acd8-5ba62371235a.jpg?1775937832" alt="Molten-Core Maestro"></span></a> | 2/2 | R | 2 | Counters | opus — whenever you cast an instant or sorcery spell, put a +1/+1 counter on thi |
-| <a href="https://scryfall.com/card/sos/133/tackle-artist" class="card-link" target="_blank">Tackle Artist<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/8/b87e2474-98c1-4c1a-91ed-340b72d31653.jpg?1775937898" alt="Tackle Artist"></span></a> | 4/3 | C | 4 | Counters | opus — whenever you cast an instant or sorcery spell, put a +1/+1 counter on thi |
 
 #### Green
 
 | Card | P/T | Rarity | CMC | Categories | Effect Summary |
 |------|-----|--------|-----|------------|----------------|
-| <a href="https://scryfall.com/card/sos/140/ambitious-augmenter" class="card-link" target="_blank">Ambitious Augmenter<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/5/85629088-2007-4db5-9397-bac12a3d7498.jpg?1775937950" alt="Ambitious Augmenter"></span></a> | 1/1 | R | 1 | Counters | increment (whenever you cast a spell, if the amount of mana you spent is greater |
-| <a href="https://scryfall.com/card/sos/167/wild-hypothesis" class="card-link" target="_blank">Wild Hypothesis<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/4/04fdfabc-c247-4384-a5bb-f49035f8aae0.jpg?1775938142" alt="Wild Hypothesis"></span></a> | - | C | 1 | Counters | create a 0/0 green and blue fractal creature token. put x +1/+1 counters on it. |
 | <a href="https://scryfall.com/card/sos/141/burrog-barrage" class="card-link" target="_blank">Burrog Barrage<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/5/95d5b0a8-2b66-418e-9e5e-ecf7b304c31e.jpg?1775937957" alt="Burrog Barrage"></span></a> | - | C | 2 | P/T Buff | target creature you control gets +1/+0 until end of turn if you've cast another  |
 | <a href="https://scryfall.com/card/sos/153/lumarets-favor" class="card-link" target="_blank">Lumaret's Favor<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/c/5/c5e7c856-8b71-44e6-8998-0b0b3ff0ef99.jpg?1775938045" alt="Lumaret's Favor"></span></a> | - | U | 2 | P/T Buff | target creature gets +2/+4 until end of turn. |
-| <a href="https://scryfall.com/card/sos/144/efflorescence" class="card-link" target="_blank">Efflorescence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79b9ace7-eceb-4f97-9ee7-d5ee3e0b3515.jpg?1775937979" alt="Efflorescence"></span></a> | - | C | 3 | Counters, Grants Trample | put two +1/+1 counters on target creature. |
-| <a href="https://scryfall.com/card/sos/146/emil-vastlands-roamer" class="card-link" target="_blank">Emil, Vastlands Roamer<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/6/3654416d-8558-4af2-9e10-18dbc8f2b376.jpg?1775937993" alt="Emil, Vastlands Roamer"></span></a> | 3/3 | U | 3 | Counters | creatures you control with +1/+1 counters on them have trample. |
-| <a href="https://scryfall.com/card/sos/165/topiary-lecturer" class="card-link" target="_blank">Topiary Lecturer<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/4/f/4f16a1c2-0a80-45e4-b025-3aa0c0b03812.jpg?1776000370" alt="Topiary Lecturer"></span></a> | 1/2 | U | 3 | Counters | increment (whenever you cast a spell, if the amount of mana you spent is greater |
-| <a href="https://scryfall.com/card/sos/151/hungry-graffalon" class="card-link" target="_blank">Hungry Graffalon<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/3/030b1272-5990-4bc9-8fc1-82cc05602060.jpg?1775938030" alt="Hungry Graffalon"></span></a> | 3/4 | C | 4 | Counters | increment (whenever you cast a spell, if the amount of mana you spent is greater |
-| <a href="https://scryfall.com/card/sos/139/additive-evolution" class="card-link" target="_blank">Additive Evolution<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/4/b44ec684-d558-45eb-bcd6-8119428634c2.jpg?1775937943" alt="Additive Evolution"></span></a> | - | U | 5 | Counters | when this enchantment enters, create a 0/0 green and blue fractal creature token |
-| <a href="https://scryfall.com/card/sos/149/germination-practicum" class="card-link" target="_blank">Germination Practicum<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/b/abe8332f-c76e-44e2-9427-d1228453abec.jpg?1775938016" alt="Germination Practicum"></span></a> | - | M | 5 | Counters | put two +1/+1 counters on each creature you control. |
-| <a href="https://scryfall.com/card/sos/161/snarl-song" class="card-link" target="_blank">Snarl Song<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/c/fc4c7fa2-aebb-4636-9afd-f1010c923316.jpg?1775938101" alt="Snarl Song"></span></a> | - | U | 6 | Counters | converge — create two 0/0 green and blue fractal creature tokens. put x +1/+1 co |
+| <a href="https://scryfall.com/card/sos/144/efflorescence" class="card-link" target="_blank">Efflorescence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79b9ace7-eceb-4f97-9ee7-d5ee3e0b3515.jpg?1775937979" alt="Efflorescence"></span></a> | - | C | 3 | Grants Trample, Counters | put two +1/+1 counters on target creature. |
 
 #### Multicolor
 
 | Card | P/T | Rarity | CMC | Categories | Effect Summary |
 |------|-----|--------|-----|------------|----------------|
 | <a href="https://scryfall.com/card/sos/183/cuboid-colony" class="card-link" target="_blank">Cuboid Colony<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/3/6384d135-7780-4d75-9e95-71bce506948e.jpg?1775938265" alt="Cuboid Colony"></span></a> | 1/1 | U | 2 | Counters | increment (whenever you cast a spell, if the amount of mana you spent is greater |
-| <a href="https://scryfall.com/card/sos/193/growth-curve" class="card-link" target="_blank">Growth Curve<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/6/1675a445-86ae-413b-b95a-a1c254a7f252.jpg?1775938339" alt="Growth Curve"></span></a> | - | U | 2 | Counters | put a +1/+1 counter on target creature you control, then double the number of +1 |
-| <a href="https://scryfall.com/card/sos/194/hardened-academic" class="card-link" target="_blank">Hardened Academic<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06c9e8a7-2840-4cff-90af-c6636e598f78.jpg?1775938346" alt="Hardened Academic"></span></a> | 2/1 | R | 2 | Counters | discard a card: this creature gains lifelink until end of turn. |
-| <a href="https://scryfall.com/card/sos/198/kirol-history-buff-pack-a-punch" class="card-link" target="_blank">Kirol, History Buff // Pack a Punch<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/7/676ba521-66e4-42cf-a315-70d03cb7334e.jpg?1775938375" alt="Kirol, History Buff // Pack a Punch"></span></a> | 2/3 | U | 2 | Counters | mill a card. put two +1/+1 counters on target creature. it gains trample until e |
-| <a href="https://scryfall.com/card/sos/200/lorehold-charm" class="card-link" target="_blank">Lorehold Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/f/5fe70295-e550-4577-a341-dab6c25aabfd.jpg?1775938389" alt="Lorehold Charm"></span></a> | - | U | 2 | Grants Trample, P/T Buff (Team) | creatures you control get +1/+1 and gain trample until end of turn. |
-| <a href="https://scryfall.com/card/sos/224/scolding-administrator" class="card-link" target="_blank">Scolding Administrator<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/9/69757177-aefa-44a6-81db-5ae9b5d2f117.jpg?1775938562" alt="Scolding Administrator"></span></a> | 2/2 | U | 2 | Counters | repartee — whenever you cast an instant or sorcery spell that targets a creature |
-| <a href="https://scryfall.com/card/sos/230/spirit-mascot" class="card-link" target="_blank">Spirit Mascot<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/2/123f1fde-d8de-4640-baa1-bb3781713168.jpg?1775938605" alt="Spirit Mascot"></span></a> | 2/2 | C | 2 | Counters | whenever one or more cards leave your graveyard, put a +1/+1 counter on this cre |
-| <a href="https://scryfall.com/card/sos/170/abigale-poet-laureate-heroic-stanza" class="card-link" target="_blank">Abigale, Poet Laureate // Heroic Stanza<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/7/77285d12-e658-4eb3-ba13-ff202afab9c8.jpg?1775938164" alt="Abigale, Poet Laureate // Heroic Stanza"></span></a> | 2/3 | U | 3 | Counters | put a +1/+1 counter on target creature. |
-| <a href="https://scryfall.com/card/sos/176/blech-loafing-pest" class="card-link" target="_blank">Blech, Loafing Pest<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/5/f588fa50-7cc5-41ba-90df-2d252eb5c785.jpg?1775938208" alt="Blech, Loafing Pest"></span></a> | 3/4 | R | 3 | Counters | whenever you gain life, put a +1/+1 counter on each pest, bat, insect, snake, an |
-| <a href="https://scryfall.com/card/sos/206/nita-forum-conciliator" class="card-link" target="_blank">Nita, Forum Conciliator<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/d/fd80a87d-35d3-4ad1-8172-c85e93032d1d.jpg?1775938431" alt="Nita, Forum Conciliator"></span></a> | 2/3 | R | 3 | Counters | whenever you cast a spell you don't own, put a +1/+1 counter on each creature yo |
-| <a href="https://scryfall.com/card/sos/209/pest-mascot" class="card-link" target="_blank">Pest Mascot<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/8/d882beb9-6766-4818-afbb-f6fd7a2d5b70.jpg?1775938452" alt="Pest Mascot"></span></a> | 2/3 | C | 3 | Counters | whenever you gain life, put a +1/+1 counter on this creature. |
-| <a href="https://scryfall.com/card/sos/172/applied-geometry" class="card-link" target="_blank">Applied Geometry<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/1/f109f2eb-895b-44a6-b6b5-81bf3831ccd5.jpg?1775938180" alt="Applied Geometry"></span></a> | - | R | 4 | Counters | create a token that's a copy of target non-aura permanent you control, except it |
-| <a href="https://scryfall.com/card/sos/175/berta-wise-extrapolator" class="card-link" target="_blank">Berta, Wise Extrapolator<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/5/75f89c36-c81d-4580-9a5c-218fed0c5c9a.jpg?1775938201" alt="Berta, Wise Extrapolator"></span></a> | 1/4 | R | 4 | Counters | increment (whenever you cast a spell, if the amount of mana you spent is greater |
+| <a href="https://scryfall.com/card/sos/200/lorehold-charm" class="card-link" target="_blank">Lorehold Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/f/5fe70295-e550-4577-a341-dab6c25aabfd.jpg?1775938389" alt="Lorehold Charm"></span></a> | - | U | 2 | P/T Buff (Team), Grants Trample | creatures you control get +1/+1 and gain trample until end of turn. |
 | <a href="https://scryfall.com/card/sos/182/conciliators-duelist" class="card-link" target="_blank">Conciliator's Duelist<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/2/e225929b-6197-4550-969e-3c4a97206a68.jpg?1775938257" alt="Conciliator's Duelist"></span></a> | 4/3 | R | 4 | Blink | when this creature enters, draw a card. each player loses 1 life. repartee — whe |
-| <a href="https://scryfall.com/card/sos/207/old-growth-educator" class="card-link" target="_blank">Old-Growth Educator<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/b/eb7e858a-9b85-49b2-a379-ee656b64935a.jpg?1775938438" alt="Old-Growth Educator"></span></a> | 4/4 | U | 4 | Counters | infusion — when this creature enters, put two +1/+1 counters on it if you gained |
-| <a href="https://scryfall.com/card/sos/229/spectacular-skywhale" class="card-link" target="_blank">Spectacular Skywhale<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/c/9/c90366d5-b4ba-4772-a3c5-f138bbe7f305.jpg?1775938597" alt="Spectacular Skywhale"></span></a> | 1/4 | U | 4 | Counters | opus — whenever you cast an instant or sorcery spell, this creature gets +3/+0 u |
-| <a href="https://scryfall.com/card/sos/190/fractal-tender" class="card-link" target="_blank">Fractal Tender<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/a/ea7f5262-4ddb-410a-be72-4bac6af9b4ec.jpg?1775938318" alt="Fractal Tender"></span></a> | 3/3 | U | 5 | Counters | increment (whenever you cast a spell, if the amount of mana you spent is greater |
+
+### Pump Spells (+1/+1 Counters)
+
+*Non-instant-speed spells that put +1/+1 counters on your creatures. Instant-speed counter givers are in Combat Tricks above.*
+
+| Category | W | U | B | R | G | MC | NC |
+|----------|---|---|---|---|---|---|---|
+| **Total** | 4 | 4 | 3 | 2 | 8 | 14 | 1 |
+| Counters | 0 | 4 | 3 | 2 | 6 | 11 | 1 |
+| Counters (all) | 1 | 0 | 0 | 0 | 1 | 1 | 0 |
+| Counters (double) | 0 | 0 | 0 | 0 | 0 | 1 | 0 |
+| Counters (target) | 3 | 0 | 0 | 0 | 1 | 1 | 0 |
+
+#### White
+
+| Card | P/T | Rarity | CMC | Type | Categories |
+|------|-----|--------|-----|------|------------|
+| <a href="https://scryfall.com/card/sos/16/graduation-day" class="card-link" target="_blank">Graduation Day<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/b/db1cea01-123e-4b23-8b98-f94cabce3912.jpg?1775937020" alt="Graduation Day"></span></a> | - | U | 1 | Ench | Counters (target) |
+| <a href="https://scryfall.com/card/sos/14/ennis-debate-moderator" class="card-link" target="_blank">Ennis, Debate Moderator<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/2/d2ef31b4-24fa-4443-9f05-c8e99c3522e5.jpg?1775937005" alt="Ennis, Debate Moderator"></span></a> | 1/1 | U | 2 | Crea | Counters (target) |
+| <a href="https://scryfall.com/card/sos/35/stirring-hopesinger" class="card-link" target="_blank">Stirring Hopesinger<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/2/1/21375667-b318-47f8-a482-9c8c2b5b14c0.jpg?1775937157" alt="Stirring Hopesinger"></span></a> | 1/3 | R | 3 | Crea | Counters (all) |
+| <a href="https://scryfall.com/card/sos/8/ascendant-dustspeaker" class="card-link" target="_blank">Ascendant Dustspeaker<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/e/de3de40b-a7ac-455e-add2-4e451b602d17.jpg?1776000359" alt="Ascendant Dustspeaker"></span></a> | 3/4 | C | 5 | Crea | Counters (target) |
+
+#### Blue
+
+| Card | P/T | Rarity | CMC | Type | Categories |
+|------|-----|--------|-----|------|------------|
+| <a href="https://scryfall.com/card/sos/69/tester-of-the-tangential" class="card-link" target="_blank">Tester of the Tangential<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/b/bbd708ec-eef4-4f45-99dd-60e1cec4b991.jpg?1775937389" alt="Tester of the Tangential"></span></a> | 1/1 | U | 2 | Crea | Counters |
+| <a href="https://scryfall.com/card/sos/55/jadzi-steward-of-fate-oracles-gift" class="card-link" target="_blank">Jadzi, Steward of Fate // Oracle's Gift<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/9/a95b6baf-01e6-49c3-9a26-394b127d53c3.jpg?1775937293" alt="Jadzi, Steward of Fate // Oracle's Gift"></span></a> | 2/4 | R | 3 | Sorc/Crea | Counters |
+| <a href="https://scryfall.com/card/sos/63/pensive-professor" class="card-link" target="_blank">Pensive Professor<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/6/66d47940-84f9-4479-8562-45e5148435d4.jpg?1775937349" alt="Pensive Professor"></span></a> | 0/2 | R | 3 | Crea | Counters |
+| <a href="https://scryfall.com/card/sos/70/textbook-tabulator" class="card-link" target="_blank">Textbook Tabulator<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/6/56f54fee-b48d-4582-8982-ca4c7b8ef553.jpg?1776000387" alt="Textbook Tabulator"></span></a> | 0/3 | C | 3 | Crea | Counters |
+
+#### Black
+
+| Card | P/T | Rarity | CMC | Type | Categories |
+|------|-----|--------|-----|------|------------|
+| <a href="https://scryfall.com/card/sos/87/lecturing-scornmage" class="card-link" target="_blank">Lecturing Scornmage<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/d/ad07091e-8c24-43af-8ce8-031847bcaf30.jpg?1775937516" alt="Lecturing Scornmage"></span></a> | 1/1 | U | 1 | Crea | Counters |
+| <a href="https://scryfall.com/card/sos/72/adventurous-eater-have-a-bite" class="card-link" target="_blank">Adventurous Eater // Have a Bite<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/4/d40cc7da-c731-418e-8547-7033d1939450.jpg?1775937412" alt="Adventurous Eater // Have a Bite"></span></a> | 3/2 | C | 3 | Sorc/Crea | Counters |
+| <a href="https://scryfall.com/card/sos/77/cost-of-brilliance" class="card-link" target="_blank">Cost of Brilliance<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/a/3a46816b-9f75-4c72-9ec6-cded6a4a0d01.jpg?1775937447" alt="Cost of Brilliance"></span></a> | - | C | 3 | Sorc | Counters |
+
+#### Red
+
+| Card | P/T | Rarity | CMC | Type | Categories |
+|------|-----|--------|-----|------|------------|
+| <a href="https://scryfall.com/card/sos/125/molten-core-maestro" class="card-link" target="_blank">Molten-Core Maestro<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/2/326dfe32-3674-4a11-acd8-5ba62371235a.jpg?1775937832" alt="Molten-Core Maestro"></span></a> | 2/2 | R | 2 | Crea | Counters |
+| <a href="https://scryfall.com/card/sos/133/tackle-artist" class="card-link" target="_blank">Tackle Artist<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/8/b87e2474-98c1-4c1a-91ed-340b72d31653.jpg?1775937898" alt="Tackle Artist"></span></a> | 4/3 | C | 4 | Crea | Counters |
+
+#### Green
+
+| Card | P/T | Rarity | CMC | Type | Categories |
+|------|-----|--------|-----|------|------------|
+| <a href="https://scryfall.com/card/sos/140/ambitious-augmenter" class="card-link" target="_blank">Ambitious Augmenter<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/5/85629088-2007-4db5-9397-bac12a3d7498.jpg?1775937950" alt="Ambitious Augmenter"></span></a> | 1/1 | R | 1 | Crea | Counters |
+| <a href="https://scryfall.com/card/sos/167/wild-hypothesis" class="card-link" target="_blank">Wild Hypothesis<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/4/04fdfabc-c247-4384-a5bb-f49035f8aae0.jpg?1775938142" alt="Wild Hypothesis"></span></a> | - | C | 1 | Sorc | Counters |
+| <a href="https://scryfall.com/card/sos/146/emil-vastlands-roamer" class="card-link" target="_blank">Emil, Vastlands Roamer<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/6/3654416d-8558-4af2-9e10-18dbc8f2b376.jpg?1775937993" alt="Emil, Vastlands Roamer"></span></a> | 3/3 | U | 3 | Crea | Counters |
+| <a href="https://scryfall.com/card/sos/165/topiary-lecturer" class="card-link" target="_blank">Topiary Lecturer<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/4/f/4f16a1c2-0a80-45e4-b025-3aa0c0b03812.jpg?1776000370" alt="Topiary Lecturer"></span></a> | 1/2 | U | 3 | Crea | Counters |
+| <a href="https://scryfall.com/card/sos/151/hungry-graffalon" class="card-link" target="_blank">Hungry Graffalon<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/3/030b1272-5990-4bc9-8fc1-82cc05602060.jpg?1775938030" alt="Hungry Graffalon"></span></a> | 3/4 | C | 4 | Crea | Counters |
+| <a href="https://scryfall.com/card/sos/139/additive-evolution" class="card-link" target="_blank">Additive Evolution<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/4/b44ec684-d558-45eb-bcd6-8119428634c2.jpg?1775937943" alt="Additive Evolution"></span></a> | - | U | 5 | Ench | Counters (target) |
+| <a href="https://scryfall.com/card/sos/149/germination-practicum" class="card-link" target="_blank">Germination Practicum<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/b/abe8332f-c76e-44e2-9427-d1228453abec.jpg?1775938016" alt="Germination Practicum"></span></a> | - | M | 5 | Sorc | Counters (all) |
+| <a href="https://scryfall.com/card/sos/161/snarl-song" class="card-link" target="_blank">Snarl Song<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/c/fc4c7fa2-aebb-4636-9afd-f1010c923316.jpg?1775938101" alt="Snarl Song"></span></a> | - | U | 6 | Sorc | Counters |
+
+#### Multicolor
+
+| Card | P/T | Rarity | CMC | Type | Categories |
+|------|-----|--------|-----|------|------------|
+| <a href="https://scryfall.com/card/sos/193/growth-curve" class="card-link" target="_blank">Growth Curve<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/6/1675a445-86ae-413b-b95a-a1c254a7f252.jpg?1775938339" alt="Growth Curve"></span></a> | - | U | 2 | Sorc | Counters (double) |
+| <a href="https://scryfall.com/card/sos/194/hardened-academic" class="card-link" target="_blank">Hardened Academic<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06c9e8a7-2840-4cff-90af-c6636e598f78.jpg?1775938346" alt="Hardened Academic"></span></a> | 2/1 | R | 2 | Crea | Counters (target) |
+| <a href="https://scryfall.com/card/sos/198/kirol-history-buff-pack-a-punch" class="card-link" target="_blank">Kirol, History Buff // Pack a Punch<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/7/676ba521-66e4-42cf-a315-70d03cb7334e.jpg?1775938375" alt="Kirol, History Buff // Pack a Punch"></span></a> | 2/3 | U | 2 | Sorc/Crea | Counters |
+| <a href="https://scryfall.com/card/sos/224/scolding-administrator" class="card-link" target="_blank">Scolding Administrator<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/9/69757177-aefa-44a6-81db-5ae9b5d2f117.jpg?1775938562" alt="Scolding Administrator"></span></a> | 2/2 | U | 2 | Crea | Counters |
+| <a href="https://scryfall.com/card/sos/230/spirit-mascot" class="card-link" target="_blank">Spirit Mascot<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/2/123f1fde-d8de-4640-baa1-bb3781713168.jpg?1775938605" alt="Spirit Mascot"></span></a> | 2/2 | C | 2 | Crea | Counters |
+| <a href="https://scryfall.com/card/sos/170/abigale-poet-laureate-heroic-stanza" class="card-link" target="_blank">Abigale, Poet Laureate // Heroic Stanza<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/7/77285d12-e658-4eb3-ba13-ff202afab9c8.jpg?1775938164" alt="Abigale, Poet Laureate // Heroic Stanza"></span></a> | 2/3 | U | 3 | Sorc/Crea | Counters |
+| <a href="https://scryfall.com/card/sos/176/blech-loafing-pest" class="card-link" target="_blank">Blech, Loafing Pest<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/5/f588fa50-7cc5-41ba-90df-2d252eb5c785.jpg?1775938208" alt="Blech, Loafing Pest"></span></a> | 3/4 | R | 3 | Crea | Counters |
+| <a href="https://scryfall.com/card/sos/206/nita-forum-conciliator" class="card-link" target="_blank">Nita, Forum Conciliator<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/d/fd80a87d-35d3-4ad1-8172-c85e93032d1d.jpg?1775938431" alt="Nita, Forum Conciliator"></span></a> | 2/3 | R | 3 | Crea | Counters (all) |
+| <a href="https://scryfall.com/card/sos/209/pest-mascot" class="card-link" target="_blank">Pest Mascot<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/8/d882beb9-6766-4818-afbb-f6fd7a2d5b70.jpg?1775938452" alt="Pest Mascot"></span></a> | 2/3 | C | 3 | Crea | Counters |
+| <a href="https://scryfall.com/card/sos/172/applied-geometry" class="card-link" target="_blank">Applied Geometry<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/1/f109f2eb-895b-44a6-b6b5-81bf3831ccd5.jpg?1775938180" alt="Applied Geometry"></span></a> | - | R | 4 | Sorc | Counters |
+| <a href="https://scryfall.com/card/sos/175/berta-wise-extrapolator" class="card-link" target="_blank">Berta, Wise Extrapolator<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/5/75f89c36-c81d-4580-9a5c-218fed0c5c9a.jpg?1775938201" alt="Berta, Wise Extrapolator"></span></a> | 1/4 | R | 4 | Crea | Counters |
+| <a href="https://scryfall.com/card/sos/207/old-growth-educator" class="card-link" target="_blank">Old-Growth Educator<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/b/eb7e858a-9b85-49b2-a379-ee656b64935a.jpg?1775938438" alt="Old-Growth Educator"></span></a> | 4/4 | U | 4 | Crea | Counters |
+| <a href="https://scryfall.com/card/sos/229/spectacular-skywhale" class="card-link" target="_blank">Spectacular Skywhale<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/c/9/c90366d5-b4ba-4772-a3c5-f138bbe7f305.jpg?1775938597" alt="Spectacular Skywhale"></span></a> | 1/4 | U | 4 | Crea | Counters |
+| <a href="https://scryfall.com/card/sos/190/fractal-tender" class="card-link" target="_blank">Fractal Tender<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/a/ea7f5262-4ddb-410a-be72-4bac6af9b4ec.jpg?1775938318" alt="Fractal Tender"></span></a> | 3/3 | U | 5 | Crea | Counters |
 
 #### Colorless
 
-| Card | P/T | Rarity | CMC | Categories | Effect Summary |
-|------|-----|--------|-----|------------|----------------|
-| <a href="https://scryfall.com/card/sos/249/mage-tower-referee" class="card-link" target="_blank">Mage Tower Referee<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/c/1ceb704a-97a8-49f9-b799-30f001404144.jpg?1775938737" alt="Mage Tower Referee"></span></a> | 2/1 | C | 2 | Counters | whenever you cast a multicolored spell, put a +1/+1 counter on this creature. |
+| Card | P/T | Rarity | CMC | Type | Categories |
+|------|-----|--------|-----|------|------------|
+| <a href="https://scryfall.com/card/sos/249/mage-tower-referee" class="card-link" target="_blank">Mage Tower Referee<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/c/1ceb704a-97a8-49f9-b799-30f001404144.jpg?1775938737" alt="Mage Tower Referee"></span></a> | 2/1 | C | 2 | Crea/Arti | Counters |
 
 ### Token Creators
 
@@ -964,20 +1007,25 @@ These uncommon gold cards hint at supported archetypes.
 |------|-----|-------|-----|------------|
 | <a href="https://scryfall.com/card/sos/10/dig-site-inventory" class="card-link" target="_blank">Dig Site Inventory<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/5/e52464ee-df8b-41ec-af93-4b0eb004383e.jpg?1775936980" alt="Dig Site Inventory"></span></a> | - | W | 1 | Counters |
 | <a href="https://scryfall.com/card/sos/22/interjection" class="card-link" target="_blank">Interjection<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/5/0534cff6-299c-4155-b318-eb7581989e8a.jpg?1775937061" alt="Interjection"></span></a> | - | W | 1 | Grants First Strike, P/T Buff |
-| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | - | U | 1 | Protection, Grants Hexproof, P/T Buff |
+| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | - | U | 1 | Protection, P/T Buff, Grants Hexproof |
 | <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | - | B | 1 | Grants Indestructible, Protection, P/T Buff |
-| <a href="https://scryfall.com/card/sos/167/wild-hypothesis" class="card-link" target="_blank">Wild Hypothesis<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/4/04fdfabc-c247-4384-a5bb-f49035f8aae0.jpg?1775938142" alt="Wild Hypothesis"></span></a> | - | G | 1 | Counters |
 | <a href="https://scryfall.com/card/sos/141/burrog-barrage" class="card-link" target="_blank">Burrog Barrage<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/5/95d5b0a8-2b66-418e-9e5e-ecf7b304c31e.jpg?1775937957" alt="Burrog Barrage"></span></a> | - | G | 2 | P/T Buff |
+| <a href="https://scryfall.com/card/sos/144/efflorescence" class="card-link" target="_blank">Efflorescence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79b9ace7-eceb-4f97-9ee7-d5ee3e0b3515.jpg?1775937979" alt="Efflorescence"></span></a> | - | G | 3 | Grants Trample, Counters |
+
+### Common Pump Spells
+
+| Card | P/T | Color | CMC | Categories |
+|------|-----|-------|-----|------------|
+| <a href="https://scryfall.com/card/sos/167/wild-hypothesis" class="card-link" target="_blank">Wild Hypothesis<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/4/04fdfabc-c247-4384-a5bb-f49035f8aae0.jpg?1775938142" alt="Wild Hypothesis"></span></a> | - | G | 1 | Counters |
 | <a href="https://scryfall.com/card/sos/230/spirit-mascot" class="card-link" target="_blank">Spirit Mascot<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/2/123f1fde-d8de-4640-baa1-bb3781713168.jpg?1775938605" alt="Spirit Mascot"></span></a> | 2/2 | MC | 2 | Counters |
 | <a href="https://scryfall.com/card/sos/249/mage-tower-referee" class="card-link" target="_blank">Mage Tower Referee<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/c/1ceb704a-97a8-49f9-b799-30f001404144.jpg?1775938737" alt="Mage Tower Referee"></span></a> | 2/1 | NC | 2 | Counters |
 | <a href="https://scryfall.com/card/sos/70/textbook-tabulator" class="card-link" target="_blank">Textbook Tabulator<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/6/56f54fee-b48d-4582-8982-ca4c7b8ef553.jpg?1776000387" alt="Textbook Tabulator"></span></a> | 0/3 | U | 3 | Counters |
 | <a href="https://scryfall.com/card/sos/72/adventurous-eater-have-a-bite" class="card-link" target="_blank">Adventurous Eater // Have a Bite<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/4/d40cc7da-c731-418e-8547-7033d1939450.jpg?1775937412" alt="Adventurous Eater // Have a Bite"></span></a> | 3/2 | B | 3 | Counters |
 | <a href="https://scryfall.com/card/sos/77/cost-of-brilliance" class="card-link" target="_blank">Cost of Brilliance<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/a/3a46816b-9f75-4c72-9ec6-cded6a4a0d01.jpg?1775937447" alt="Cost of Brilliance"></span></a> | - | B | 3 | Counters |
-| <a href="https://scryfall.com/card/sos/144/efflorescence" class="card-link" target="_blank">Efflorescence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79b9ace7-eceb-4f97-9ee7-d5ee3e0b3515.jpg?1775937979" alt="Efflorescence"></span></a> | - | G | 3 | Counters, Grants Trample |
 | <a href="https://scryfall.com/card/sos/209/pest-mascot" class="card-link" target="_blank">Pest Mascot<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/8/d882beb9-6766-4818-afbb-f6fd7a2d5b70.jpg?1775938452" alt="Pest Mascot"></span></a> | 2/3 | MC | 3 | Counters |
 | <a href="https://scryfall.com/card/sos/133/tackle-artist" class="card-link" target="_blank">Tackle Artist<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/8/b87e2474-98c1-4c1a-91ed-340b72d31653.jpg?1775937898" alt="Tackle Artist"></span></a> | 4/3 | R | 4 | Counters |
 | <a href="https://scryfall.com/card/sos/151/hungry-graffalon" class="card-link" target="_blank">Hungry Graffalon<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/3/030b1272-5990-4bc9-8fc1-82cc05602060.jpg?1775938030" alt="Hungry Graffalon"></span></a> | 3/4 | G | 4 | Counters |
-| <a href="https://scryfall.com/card/sos/8/ascendant-dustspeaker" class="card-link" target="_blank">Ascendant Dustspeaker<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/e/de3de40b-a7ac-455e-add2-4e451b602d17.jpg?1776000359" alt="Ascendant Dustspeaker"></span></a> | 3/4 | W | 5 | Counters |
+| <a href="https://scryfall.com/card/sos/8/ascendant-dustspeaker" class="card-link" target="_blank">Ascendant Dustspeaker<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/e/de3de40b-a7ac-455e-add2-4e451b602d17.jpg?1776000359" alt="Ascendant Dustspeaker"></span></a> | 3/4 | W | 5 | Counters (target) |
 
 ### Uncommon Removal
 
