@@ -271,24 +271,37 @@ def classify_removal(card):
             categories.append("Destroy")
 
     # Destroy all / board wipe
-    if re.search(r"destroy all creatures", ot) or re.search(
-        r"all creatures get -\d+/-\d+", ot
-    ):
+    wipe_debuff = re.search(r"all creatures get (-\d+/-\d+)", ot)
+    has_destroy_all = re.search(r"destroy all creatures", ot)
+    if has_destroy_all and wipe_debuff:
+        categories.append(f"Board Wipe / {wipe_debuff.group(1)}")
+    elif has_destroy_all:
         categories.append("Board Wipe")
+    elif wipe_debuff:
+        categories.append(f"Board Wipe ({wipe_debuff.group(1)})")
 
     # Exile-based removal
     if re.search(r"exile target (creature|permanent|nonland permanent)", ot):
         categories.append("Exile")
 
-    # Damage to creature/any target
-    if re.search(
-        r"deals? \d+ damage to (target|any target|each creature|each opponent)", ot
-    ):
-        categories.append("Damage")
-    if re.search(r"deals? damage equal to", ot):
-        categories.append("Damage")
-    if re.search(r"deals? x damage", ot):
-        categories.append("Damage")
+    # Damage to creature/any target -- extract value
+    dmg_fixed = re.findall(
+        r"deals? (\d+) damage to (target|any target|up to one target|each creature|each opponent|target creature|target creature or planeswalker)",
+        ot,
+    )
+    dmg_equal = re.search(r"deals? damage equal to", ot)
+    dmg_x = re.search(r"deals? x damage", ot)
+    if dmg_fixed:
+        # Pick the highest targeted damage value (some cards have multiple modes)
+        vals = [int(m[0]) for m in dmg_fixed]
+        categories.append(f"Damage: {max(vals)}")
+    elif dmg_equal:
+        if re.search(r"deals? damage equal to its power", ot):
+            categories.append("Damage: P")
+        else:
+            categories.append("Damage: X")
+    elif dmg_x:
+        categories.append("Damage: X")
 
     # Fight / bite
     if re.search(r"fights? (up to one )?target", ot) or re.search(
@@ -298,18 +311,14 @@ def classify_removal(card):
     if re.search(r"deals damage equal to its power to (up to one )?target", ot):
         categories.append("Bite")
 
-    # -X/-X
-    if (
-        re.search(r"gets? -\d+/-\d+", ot) and "you control" not in ot.split("gets")[0]
-        if "gets" in ot
-        else True
-    ):
-        # Try to exclude self-buff like "gets -1/-1 counter" on own creatures
-        if re.search(r"target creature gets -\d+/-\d+", ot) or re.search(
-            r"all creatures get -", ot
-        ):
-            if "Board Wipe" not in categories:
-                categories.append("-X/-X")
+    # -X/-X -- extract value
+    debuff_targeted = re.search(r"target creature.*?gets? (-\d+/-\d+)", ot)
+    debuff_all = re.search(r"all creatures get (-\d+/-\d+)", ot)
+    if debuff_all:
+        if not any(c.startswith("Board Wipe") for c in categories):
+            categories.append(f"{debuff_all.group(1)}")
+    elif debuff_targeted:
+        categories.append(f"{debuff_targeted.group(1)}")
 
     # Bounce
     if re.search(
