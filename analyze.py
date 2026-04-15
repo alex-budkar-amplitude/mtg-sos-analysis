@@ -12,6 +12,7 @@ from collections import defaultdict
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 REPORT_PATH = os.path.join(os.path.dirname(__file__), "report.md")
+INDEX_PATH = os.path.join(os.path.dirname(__file__), "index.md")
 
 COLOR_NAMES = {"W": "White", "U": "Blue", "B": "Black", "R": "Red", "G": "Green"}
 COLOR_ORDER = ["W", "U", "B", "R", "G", "Multicolor", "Colorless"]
@@ -114,6 +115,78 @@ def is_type(card, card_type):
 
 def get_cmc(card):
     return card.get("cmc", 0)
+
+
+def get_scryfall_uri(card):
+    """Get the Scryfall page URL (strip utm params)."""
+    uri = card.get("scryfall_uri", "")
+    if "?" in uri:
+        uri = uri.split("?")[0]
+    return uri
+
+
+def get_image_url(card):
+    """Get the normal-size card image URL."""
+    imgs = card.get("image_uris", {})
+    return imgs.get("normal", "")
+
+
+def card_link(name, scryfall_uri, image_url):
+    """Return HTML for a card name that links to Scryfall with hover image preview."""
+    if not scryfall_uri:
+        return name
+    # Escape quotes in name for HTML attributes
+    safe_name = name.replace('"', "&quot;")
+    if image_url:
+        return (
+            f'<a href="{scryfall_uri}" class="card-link" target="_blank">'
+            f"{name}"
+            f'<span class="card-preview"><img src="{image_url}" alt="{safe_name}"></span>'
+            f"</a>"
+        )
+    return f'<a href="{scryfall_uri}" target="_blank">{name}</a>'
+
+
+# CSS for hover card previews
+HOVER_CSS = """\
+<style>
+.card-link {
+  position: relative;
+  text-decoration: none;
+  border-bottom: 1px dotted #666;
+  color: inherit;
+  white-space: nowrap;
+}
+.card-link:hover {
+  color: #1a6baa;
+}
+.card-preview {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  padding: 4px;
+  pointer-events: none;
+}
+.card-link:hover .card-preview {
+  display: block;
+}
+.card-preview img {
+  width: 244px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+/* Keep preview in viewport */
+td:first-child .card-preview,
+td:nth-child(1) .card-preview {
+  left: 0;
+  transform: translateX(0);
+}
+</style>
+"""
 
 
 # ── Classification ───────────────────────────────────────────────────────
@@ -273,11 +346,15 @@ def build_report(cards):
     lines = []
     w = lines.append
 
+    w(HOVER_CSS)
+    w("")
     w("# Secrets of Strixhaven (SOS) -- Set Analysis")
     w("")
     w(f"**Total unique cards:** {len(cards)}")
     w(f"**Release date:** April 24, 2026")
     w(f"**Source:** Scryfall API (`e:sos`)")
+    w("")
+    w("*Hover over card names to preview the card image. Click to open on Scryfall.*")
     w("")
 
     # Pre-classify all cards
@@ -292,10 +369,16 @@ def build_report(cards):
         pt = get_power_toughness(c)
         cmc = get_cmc(c)
 
+        scryfall_uri = get_scryfall_uri(c)
+        image_url = get_image_url(c)
+        name = c.get("name", "?")
+        linked_name = card_link(name, scryfall_uri, image_url)
+
         card_data.append(
             {
                 "card": c,
-                "name": c.get("name", "?"),
+                "name": name,
+                "linked_name": linked_name,
                 "color": color,
                 "rarity": rarity,
                 "type_line": tl,
@@ -579,7 +662,7 @@ def build_report(cards):
                 if t.lower() in tl.lower():
                     short_type.append(t[:4])
             w(
-                f"| {d['name']} | {rarity_char} | {d['cmc']:.0f} | {'/'.join(short_type)} | {cats} |"
+                f"| {d['linked_name']} | {rarity_char} | {d['cmc']:.0f} | {'/'.join(short_type)} | {cats} |"
             )
         w("")
 
@@ -665,7 +748,7 @@ def build_report(cards):
             summary = ot[:80]
         summary = summary.replace("|", "/")
         w(
-            f"| {d['name']} | {cname} | {rarity_char} | {d['cmc']:.0f} | {cats} | {summary} |"
+            f"| {d['linked_name']} | {cname} | {rarity_char} | {d['cmc']:.0f} | {cats} | {summary} |"
         )
     w("")
 
@@ -692,7 +775,7 @@ def build_report(cards):
             if mech in ot or mech in d["keywords"]:
                 mechanics[mech] += 1
                 if len(mechanic_examples[mech]) < 3:
-                    mechanic_examples[mech].append(d["name"])
+                    mechanic_examples[mech].append(d["linked_name"])
 
     w("| Mechanic | Card Count | Examples |")
     w("|----------|------------|----------|")
@@ -716,7 +799,7 @@ def build_report(cards):
         colors = ",".join(d["card"].get("colors", []))
         tl = d["type_line"].split("//")[0].strip()
         short_ot = d["oracle_text"].replace("\n", " ")[:100].replace("|", "/")
-        w(f"| {d['name']} | {colors} | {tl} | {d['cmc']:.0f} | {short_ot} |")
+        w(f"| {d['linked_name']} | {colors} | {tl} | {d['cmc']:.0f} | {short_ot} |")
     w("")
 
     # ── SECTION 8: Top Limited Picks ─────────────────────────────────
@@ -731,7 +814,7 @@ def build_report(cards):
     for d in sorted(common_removal, key=lambda x: x["cmc"]):
         cname = COLOR_NAMES.get(d["color"], d["color"])
         cats = ", ".join(d["removal_cats"])
-        w(f"| {d['name']} | {cname} | {d['cmc']:.0f} | {cats} |")
+        w(f"| {d['linked_name']} | {cname} | {d['cmc']:.0f} | {cats} |")
     w("")
 
     w("### Common Combat Tricks")
@@ -742,7 +825,7 @@ def build_report(cards):
     for d in sorted(common_tricks, key=lambda x: x["cmc"]):
         cname = COLOR_NAMES.get(d["color"], d["color"])
         cats = ", ".join(d["trick_cats"])
-        w(f"| {d['name']} | {cname} | {d['cmc']:.0f} | {cats} |")
+        w(f"| {d['linked_name']} | {cname} | {d['cmc']:.0f} | {cats} |")
     w("")
 
     w("### Uncommon Removal")
@@ -753,14 +836,22 @@ def build_report(cards):
     for d in sorted(unc_removal, key=lambda x: x["cmc"]):
         cname = COLOR_NAMES.get(d["color"], d["color"])
         cats = ", ".join(d["removal_cats"])
-        w(f"| {d['name']} | {cname} | {d['cmc']:.0f} | {cats} |")
+        w(f"| {d['linked_name']} | {cname} | {d['cmc']:.0f} | {cats} |")
     w("")
 
-    # Write to file
+    report_content = "\n".join(lines) + "\n"
+
+    # Write report.md (raw, no front matter)
     with open(REPORT_PATH, "w") as f:
-        f.write("\n".join(lines) + "\n")
+        f.write(report_content)
+
+    # Write index.md with Jekyll front matter for GitHub Pages
+    with open(INDEX_PATH, "w") as f:
+        f.write("---\nlayout: default\n---\n\n")
+        f.write(report_content)
 
     print(f"Report written to {REPORT_PATH}")
+    print(f"Index written to {INDEX_PATH}")
     print(f"  Total cards analyzed: {len(card_data)}")
     print(f"  Removal spells found: {len(removal_cards)}")
     print(f"  Combat tricks found: {len(trick_cards)}")
