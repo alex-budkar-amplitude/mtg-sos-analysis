@@ -488,6 +488,102 @@ def classify_pump(card):
     return categories
 
 
+def classify_card_draw(card):
+    """Classify card draw/selection effects.
+
+    Categories:
+      Card Advantage (2+) -- net positive: draw 2+ cards, or look at N put 2+ in hand
+      Loot                -- draw then discard
+      Rummage             -- discard then draw
+      Selection           -- surveil, scry, look at top N put 1 in hand, draw 1 with no discard
+
+    A card can have multiple categories (e.g. a modal spell with one mode that loots and
+    another that gives card advantage).
+    Cards that only draw 1 with no other filter go in Selection (neutral).
+    """
+    ot = get_oracle_text(card)
+    otl = ot.lower()
+    cats = set()
+
+    # ── Pure draw counts ──
+    # "draw 2 cards", "draw X cards", "draw 2^X cards" (Mathemagics)
+    multi_draw = bool(
+        re.search(r"draw[s]? (\d*[2-9]\d*|x) cards?", otl)
+        or re.search(r"draws? 2.{0,3}cards?", otl)  # "draw 2ˣ cards"
+        or re.search(r"draw[s]? two cards?", otl)
+    )
+    single_draw = bool(re.search(r"draw[s]? (a|one) card", otl))
+    any_draw = multi_draw or single_draw
+
+    # ── Discard detection ──
+    # Loot: draw THEN discard ("draw a card, then discard", "draw ... discard")
+    loot = bool(re.search(r"draw.{0,40}discard", otl, re.DOTALL))
+    # Rummage: discard THEN draw ("discard ... draw", "{T}, discard a card: draw")
+    rummage = bool(re.search(r"discard.{0,60}draw", otl, re.DOTALL) and not loot)
+
+    # Distinguish: if both patterns match in one line it's loot (draw first)
+    # Check line-by-line for rummage activated abilities
+    for line in otl.split("\n"):
+        if re.search(r"discard.{0,40}draw", line) and not re.search(
+            r"draw.{0,20}discard", line
+        ):
+            rummage = True
+        if re.search(r"draw.{0,40}discard", line):
+            loot = True
+
+    # ── Look at top N cards ──
+    look_match = re.search(r"look at the top (\d+|x) cards?", otl)
+    # "put up to N" or "put N of them" into hand
+    look_put_multi = bool(
+        re.search(
+            r"(put|reveal) up to (two|three|\d+|x).{0,40}(into your hand|hand)", otl
+        )
+    )
+    look_put_one = bool(
+        re.search(r"(put|reveal) one of (them|those).{0,30}(into your hand|hand)", otl)
+        or re.search(r"(put|reveal).{0,10}(one|a).{0,20}(into your hand|hand)", otl)
+    )
+
+    # Zimone's: "put up to two creature and/or land cards" -- card advantage
+    if look_match and look_put_multi:
+        cats.add("Card Advantage (2+)")
+    elif look_match and look_put_one:
+        cats.add("Selection")
+
+    # ── Surveil ──
+    surveil_match = re.search(r"surveil (\d+|x)", otl)
+    if surveil_match:
+        cats.add("Selection")  # Surveil is always selection (look + optional yard)
+
+    # ── Scry ──
+    scry_match = re.search(r"scry (\d+)", otl)
+    if scry_match:
+        cats.add("Selection")
+
+    # ── Apply draw categories ──
+    # Special case: "discard X, draw X plus 1" (Colossus) -- net +1 = Card Advantage
+    rummage_plus = bool(
+        re.search(r"discard any number.{0,60}draw that many.{0,10}plus one", otl)
+    )
+    if rummage_plus:
+        cats.add("Card Advantage (2+)")
+    elif loot:
+        cats.add("Loot")
+    elif rummage:
+        cats.add("Rummage")
+    elif multi_draw:
+        cats.add("Card Advantage (2+)")
+    elif single_draw:
+        cats.add("Selection")  # draw 1 = neutral
+
+    # Exclude lands (Surveil lands are lands first, not draw cards)
+    tl = get_type_line(card)
+    if "land" in tl.lower():
+        cats.discard("Selection")
+
+    return sorted(cats)
+
+
 def get_keyword_display(d):
     """Return a short comma-separated list of notable keywords."""
     kws = d["keywords"]
@@ -763,6 +859,7 @@ def build_report(cards):
         trick_cats = classify_combat_trick(c)
         pump_cats = classify_pump(c)
         token_cats = classify_token_creator(c)
+        draw_cats = classify_card_draw(c)
         pt = get_power_toughness(c)
         cmc = get_cmc(c)
 
@@ -794,6 +891,7 @@ def build_report(cards):
                 "trick_cats": trick_cats,
                 "pump_cats": pump_cats,
                 "token_cats": token_cats,
+                "draw_cats": draw_cats,
                 "pt": pt,
                 "cmc": cmc,
                 "keywords": [kw.lower() for kw in c.get("keywords", [])],
@@ -1246,9 +1344,100 @@ def build_report(cards):
             )
         w("")
 
-    # ── SECTION 6: Combat Tricks ─────────────────────────────────────
+    # ── SECTION 6: Card Draw & Selection ─────────────────────────────
     w("---")
-    w("## 6. Combat Tricks")
+    w("## 6. Card Draw & Selection")
+    w("")
+    w(
+        "**Card Advantage (2+)** = net positive (draws 2+, or looks at N puts 2+ in hand).  "
+    )
+    w(
+        "**Selection** = net neutral card quality (draw 1, Surveil, Scry, Impulse/look put 1).  "
+    )
+    w("**Loot** = draw then discard.  ")
+    w("**Rummage** = discard then draw.  ")
+    w("")
+
+    draw_cards = [d for d in card_data if d["draw_cats"]]
+    draw_by_color = {c: [d for d in draw_cards if d["color"] == c] for c in COLOR_ORDER}
+    draw_by_rar = {r: [d for d in draw_cards if d["rarity"] == r] for r in RARITY_ORDER}
+
+    DRAW_CAT_ORDER = ["Card Advantage (2+)", "Loot", "Rummage", "Selection"]
+
+    # Summary by color
+    w("### Card Draw by Color")
+    w("")
+    active_draw_colors = [c for c in COLOR_ORDER if draw_by_color[c]]
+    active_hdr = [COLOR_SHORT[c] for c in active_draw_colors]
+    w("| Category | " + " | ".join(active_hdr) + " |")
+    w("|----------|" + "|".join("---" for _ in active_draw_colors) + "|")
+    w(
+        "| **Total** | "
+        + " | ".join(str(len(draw_by_color[c])) for c in active_draw_colors)
+        + " |"
+    )
+    for cat in DRAW_CAT_ORDER:
+        counts = [
+            str(sum(1 for d in draw_by_color[c] if cat in d["draw_cats"]))
+            for c in active_draw_colors
+        ]
+        if any(x != "0" for x in counts):
+            w(f"| {cat} | " + " | ".join(counts) + " |")
+    w("")
+
+    # Summary by rarity
+    w("### Card Draw by Rarity")
+    w("")
+    active_draw_rars = [r for r in RARITY_ORDER if draw_by_rar[r]]
+    active_rhdr = [RARITY_SHORT[r] for r in active_draw_rars]
+    w("| Category | " + " | ".join(active_rhdr) + " |")
+    w("|----------|" + "|".join("---" for _ in active_draw_rars) + "|")
+    w(
+        "| **Total** | "
+        + " | ".join(str(len(draw_by_rar[r])) for r in active_draw_rars)
+        + " |"
+    )
+    for cat in DRAW_CAT_ORDER:
+        counts = [
+            str(sum(1 for d in draw_by_rar[r] if cat in d["draw_cats"]))
+            for r in active_draw_rars
+        ]
+        if any(x != "0" for x in counts):
+            w(f"| {cat} | " + " | ".join(counts) + " |")
+    w("")
+
+    # Full list by color
+    w("### Full Card Draw List by Color")
+    w("")
+    for color in COLOR_ORDER:
+        subset = [d for d in draw_cards if d["color"] == color]
+        if not subset:
+            continue
+        cname = COLOR_NAMES.get(color, color) if color in COLOR_NAMES else color
+        w(f"#### {cname}")
+        w("")
+        w("| Card | P/T | Rarity | CMC | Type | Category |")
+        w("|------|-----|--------|-----|------|----------|")
+        for d in sorted(
+            subset,
+            key=lambda x: (
+                DRAW_CAT_ORDER.index(d["draw_cats"][0])
+                if d["draw_cats"] and d["draw_cats"][0] in DRAW_CAT_ORDER
+                else 99,
+                x["cmc"],
+                x["name"],
+            ),
+        ):
+            rarity_char = d["rarity"][0].upper()
+            cats = ", ".join(d["draw_cats"])
+            w(
+                f"| {d['linked_name']} | {d['pt_display']} | {rarity_char} | {d['cmc']:.0f} | {short_type(d)} | {cats} |"
+            )
+        w("")
+
+    # ── SECTION 7: Combat Tricks ─────────────────────────────────────
+    w("---")
+    w("## 7. Combat Tricks")
     w("")
 
     trick_cards = [d for d in card_data if d["trick_cats"]]
@@ -1403,7 +1592,7 @@ def build_report(cards):
 
     # ── SECTION 7: Notable Cycles & Mechanics ────────────────────────
     w("---")
-    w("## 7. Set Mechanics")
+    w("## 8. Set Mechanics")
     w("")
 
     # Detect mechanics from keywords
@@ -1435,7 +1624,7 @@ def build_report(cards):
 
     # ── SECTION 8: Draft Signposts (Uncommon Gold) ───────────────────
     w("---")
-    w("## 8. Draft Signposts (Uncommon Multicolor)")
+    w("## 9. Draft Signposts (Uncommon Multicolor)")
     w("")
     w("These uncommon gold cards hint at supported archetypes.")
     w("")
@@ -1455,7 +1644,7 @@ def build_report(cards):
 
     # ── SECTION 9: Top Limited Picks ─────────────────────────────────
     w("---")
-    w("## 9. Notable Cards for Limited (by Rarity)")
+    w("## 10. Notable Cards for Limited (by Rarity)")
     w("")
     w("### Common Removal")
     w("")
@@ -1511,7 +1700,7 @@ def build_report(cards):
 
     # ── SECTION 10: Lands ────────────────────────────────────────────
     w("---")
-    w("## 10. Lands")
+    w("## 11. Lands")
     w("")
 
     land_cards = [d for d in card_data if d["is_land"]]
@@ -1526,7 +1715,7 @@ def build_report(cards):
 
     # ── SECTION 11: Other Cards ──────────────────────────────────────
     w("---")
-    w("## 11. Other Cards")
+    w("## 12. Other Cards")
     w("")
     w("*Cards not classified as creatures, removal, burn, combat tricks, or lands.*")
     w("")
@@ -1540,6 +1729,7 @@ def build_report(cards):
             or d["trick_cats"]
             or d["pump_cats"]
             or d["token_cats"]
+            or d["draw_cats"]
             or d["is_land"]
         ):
             classified_names.add(d["name"])
