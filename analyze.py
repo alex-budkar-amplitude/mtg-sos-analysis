@@ -1224,6 +1224,65 @@ def build_report(cards):
         )
     w("")
 
+    # ── SECTION 10: Lands ────────────────────────────────────────────
+    w("---")
+    w("## 10. Lands")
+    w("")
+
+    land_cards = [d for d in card_data if d["is_land"]]
+    if land_cards:
+        w("| Card | Color | Rarity | Type |")
+        w("|------|-------|--------|------|")
+        for d in sorted(
+            land_cards,
+            key=lambda x: (
+                COLOR_ORDER.index(x["color"]) if x["color"] in COLOR_ORDER else 99,
+                x["name"],
+            ),
+        ):
+            cshort = COLOR_SHORT.get(d["color"], d["color"])
+            rarity_char = d["rarity"][0].upper()
+            tl = d["type_line"].replace("|", "/")
+            w(f"| {d['linked_name']} | {cshort} | {rarity_char} | {tl} |")
+        w("")
+
+    # ── SECTION 11: Other Cards ──────────────────────────────────────
+    w("---")
+    w("## 11. Other Cards")
+    w("")
+    w("*Cards not classified as creatures, removal, burn, combat tricks, or lands.*")
+    w("")
+
+    classified_names = set()
+    for d in card_data:
+        if (
+            d["is_creature"]
+            or d["removal_cats"]
+            or d["burn_cats"]
+            or d["trick_cats"]
+            or d["is_land"]
+        ):
+            classified_names.add(d["name"])
+    other_cards = [d for d in card_data if d["name"] not in classified_names]
+
+    if other_cards:
+        for color in COLOR_ORDER:
+            subset = [d for d in other_cards if d["color"] == color]
+            if not subset:
+                continue
+            cname = COLOR_NAMES.get(color, color) if color in COLOR_NAMES else color
+            w(f"#### {cname}")
+            w("")
+            w("| Card | Rarity | CMC | Type |")
+            w("|------|--------|-----|------|")
+            for d in sorted(subset, key=lambda x: (x["cmc"], x["name"])):
+                rarity_char = d["rarity"][0].upper()
+                w(
+                    f"| {d['linked_name']} | {rarity_char} | {d['cmc']:.0f} | {short_type(d)} |"
+                )
+            w("")
+    w("")
+
     report_content = "\n".join(lines) + "\n"
 
     # Write report.md (raw, no front matter)

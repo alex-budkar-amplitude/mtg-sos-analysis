@@ -730,14 +730,14 @@
 | Card | P/T | Rarity | CMC | Categories | Effect Summary |
 |------|-----|--------|-----|------------|----------------|
 | <a href="https://scryfall.com/card/sos/9/daydream" class="card-link" target="_blank">Daydream<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/2/e2b16cb2-b8b2-45df-9695-3c16e9d89e28.jpg?1775936973" alt="Daydream"></span></a> | - | U | 1 | Blink | exile target creature you control, then return that card to the battlefield unde |
-| <a href="https://scryfall.com/card/sos/22/interjection" class="card-link" target="_blank">Interjection<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/5/0534cff6-299c-4155-b318-eb7581989e8a.jpg?1775937061" alt="Interjection"></span></a> | - | C | 1 | Grants First Strike, P/T Buff | target creature gets +2/+2 and gains first strike until end of turn. |
+| <a href="https://scryfall.com/card/sos/22/interjection" class="card-link" target="_blank">Interjection<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/5/0534cff6-299c-4155-b318-eb7581989e8a.jpg?1775937061" alt="Interjection"></span></a> | - | C | 1 | P/T Buff, Grants First Strike | target creature gets +2/+2 and gains first strike until end of turn. |
 | <a href="https://scryfall.com/card/sos/14/ennis-debate-moderator" class="card-link" target="_blank">Ennis, Debate Moderator<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/2/d2ef31b4-24fa-4443-9f05-c8e99c3522e5.jpg?1775937005" alt="Ennis, Debate Moderator"></span></a> | 1/1 | U | 2 | Blink | at the beginning of your end step, if one or more cards were put into exile this |
 
 #### Blue
 
 | Card | P/T | Rarity | CMC | Categories | Effect Summary |
 |------|-----|--------|-----|------------|----------------|
-| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | - | C | 1 | Grants Hexproof, P/T Buff, Protection | target creature you control gets +0/+3 and gains hexproof until end of turn. (it |
+| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | - | C | 1 | P/T Buff, Grants Hexproof, Protection | target creature you control gets +0/+3 and gains hexproof until end of turn. (it |
 | <a href="https://scryfall.com/card/sos/50/fractal-anomaly" class="card-link" target="_blank">Fractal Anomaly<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/1/e1975a61-aef0-49a6-a6d6-c3a37e2e2b22.jpg?1775937257" alt="Fractal Anomaly"></span></a> | - | U | 1 | Counters | create a 0/0 green and blue fractal creature token and put x +1/+1 counters on i |
 | <a href="https://scryfall.com/card/sos/46/encouraging-aviator-jump" class="card-link" target="_blank">Encouraging Aviator // Jump<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/2/72654b84-9902-41db-92ab-a3499c31221c.jpg?1775937230" alt="Encouraging Aviator // Jump"></span></a> | 2/3 | U | 3 | Grants Flying | target creature gains flying until end of turn. |
 | <a href="https://scryfall.com/card/sos/67/skycoach-conductor-all-aboard" class="card-link" target="_blank">Skycoach Conductor // All Aboard<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/4/e/4ecbca71-9a1d-44c5-b709-d6f565941d5e.jpg?1775937376" alt="Skycoach Conductor // All Aboard"></span></a> | 2/3 | R | 3 | Blink | flash flying, vigilance this creature enters prepared. (while it's prepared, you |
@@ -747,7 +747,7 @@
 | Card | P/T | Rarity | CMC | Categories | Effect Summary |
 |------|-----|--------|-----|------------|----------------|
 | <a href="https://scryfall.com/card/sos/79/dissection-practice" class="card-link" target="_blank">Dissection Practice<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/d/ddbf1242-6832-475e-9a77-65dd9b4bb32a.jpg?1775937462" alt="Dissection Practice"></span></a> | - | U | 1 | P/T Buff | up to one target creature gets +1/+1 until end of turn. |
-| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | - | C | 1 | Protection, P/T Buff, Grants Indestructible | target creature you control gets +1/+0 and gains indestructible until end of tur |
+| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | - | C | 1 | P/T Buff, Grants Indestructible, Protection | target creature you control gets +1/+0 and gains indestructible until end of tur |
 | <a href="https://scryfall.com/card/sos/96/rabid-attack" class="card-link" target="_blank">Rabid Attack<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/5/f5e67560-3135-4b27-a344-5859edf8bcd9.jpg?1775937579" alt="Rabid Attack"></span></a> | - | U | 2 | P/T Buff | until end of turn, any number of target creatures you control each get +1/+0 and |
 
 #### Red
@@ -855,9 +855,9 @@ These uncommon gold cards hint at supported archetypes.
 
 | Card | P/T | Color | CMC | Categories |
 |------|-----|-------|-----|------------|
-| <a href="https://scryfall.com/card/sos/22/interjection" class="card-link" target="_blank">Interjection<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/5/0534cff6-299c-4155-b318-eb7581989e8a.jpg?1775937061" alt="Interjection"></span></a> | - | W | 1 | Grants First Strike, P/T Buff |
-| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | - | U | 1 | Grants Hexproof, P/T Buff, Protection |
-| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | - | B | 1 | Protection, P/T Buff, Grants Indestructible |
+| <a href="https://scryfall.com/card/sos/22/interjection" class="card-link" target="_blank">Interjection<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/5/0534cff6-299c-4155-b318-eb7581989e8a.jpg?1775937061" alt="Interjection"></span></a> | - | W | 1 | P/T Buff, Grants First Strike |
+| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | - | U | 1 | P/T Buff, Grants Hexproof, Protection |
+| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | - | B | 1 | P/T Buff, Grants Indestructible, Protection |
 | <a href="https://scryfall.com/card/sos/141/burrog-barrage" class="card-link" target="_blank">Burrog Barrage<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/5/95d5b0a8-2b66-418e-9e5e-ecf7b304c31e.jpg?1775937957" alt="Burrog Barrage"></span></a> | - | G | 2 | P/T Buff |
 | <a href="https://scryfall.com/card/sos/144/efflorescence" class="card-link" target="_blank">Efflorescence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79b9ace7-eceb-4f97-9ee7-d5ee3e0b3515.jpg?1775937979" alt="Efflorescence"></span></a> | - | G | 3 | Counters, Grants Trample |
 
@@ -886,4 +886,132 @@ These uncommon gold cards hint at supported archetypes.
 | <a href="https://scryfall.com/card/sos/235/stress-dream" class="card-link" target="_blank">Stress Dream<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/e/1ec40a1b-51e7-4a35-966c-ab2a10f21a80.jpg?1775938641" alt="Stress Dream"></span></a> | - | MC | 5 | Damage: 5 |
 | <a href="https://scryfall.com/card/sos/3/sundering-archaic" class="card-link" target="_blank">Sundering Archaic<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/c/3/c35b57e4-2358-46c0-8f09-cd27c10eaf2d.jpg?1775936933" alt="Sundering Archaic"></span></a> | 3/3 | NC | 6 | Exile |
 | <a href="https://scryfall.com/card/sos/53/homesickness" class="card-link" target="_blank">Homesickness<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/e/6e4a1f82-b0b1-4608-91f8-130bee731435.jpg?1775937280" alt="Homesickness"></span></a> | - | U | 6 | Tap/Stun |
+
+---
+## 10. Lands
+
+| Card | Color | Rarity | Type |
+|------|-------|--------|------|
+| <a href="https://scryfall.com/card/sos/272/plains" class="card-link" target="_blank">Plains<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/8/d85d0f25-a24a-4de0-9b8b-93fb5017bce9.jpg?1775938910" alt="Plains"></span></a> | W | C | Basic Land — Plains |
+| <a href="https://scryfall.com/card/sos/274/island" class="card-link" target="_blank">Island<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/7/77b88bb8-6bd9-4632-b937-89468fcb5e6a.jpg?1775938923" alt="Island"></span></a> | U | C | Basic Land — Island |
+| <a href="https://scryfall.com/card/sos/276/swamp" class="card-link" target="_blank">Swamp<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/1/51fe930f-2b5a-4b1e-9007-6ee74fb44715.jpg?1775938936" alt="Swamp"></span></a> | B | C | Basic Land — Swamp |
+| <a href="https://scryfall.com/card/sos/278/mountain" class="card-link" target="_blank">Mountain<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/6/a642c7b1-d4d1-4125-a66d-560438e5ee51.jpg?1775938951" alt="Mountain"></span></a> | R | C | Basic Land — Mountain |
+| <a href="https://scryfall.com/card/sos/280/forest" class="card-link" target="_blank">Forest<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/1/f169dfb2-e4c8-46e9-8591-e51bb82da082.jpg?1775938964" alt="Forest"></span></a> | G | C | Basic Land — Forest |
+| <a href="https://scryfall.com/card/sos/253/deathcap-glade" class="card-link" target="_blank">Deathcap Glade<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/8/78897104-80e1-4d8a-9958-145b40f679e8.jpg?1775938766" alt="Deathcap Glade"></span></a> | MC | R | Land |
+| <a href="https://scryfall.com/card/sos/254/dreamroot-cascade" class="card-link" target="_blank">Dreamroot Cascade<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/f/ef662b92-5a7f-48c9-bcc1-14b55e091aef.jpg?1775938773" alt="Dreamroot Cascade"></span></a> | MC | R | Land |
+| <a href="https://scryfall.com/card/sos/255/fields-of-strife" class="card-link" target="_blank">Fields of Strife<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/d/3dc7a4c3-c356-4fba-bea0-e8788da3eb57.jpg?1775938780" alt="Fields of Strife"></span></a> | MC | C | Land |
+| <a href="https://scryfall.com/card/sos/256/forum-of-amity" class="card-link" target="_blank">Forum of Amity<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/d/1de6c6cc-0c55-4997-8623-d7f796bd9ab8.jpg?1775938787" alt="Forum of Amity"></span></a> | MC | C | Land |
+| <a href="https://scryfall.com/card/sos/258/paradox-gardens" class="card-link" target="_blank">Paradox Gardens<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/b/dbc3447e-1329-4ea1-b4ca-b321b0ffec8f.jpg?1775938801" alt="Paradox Gardens"></span></a> | MC | C | Land |
+| <a href="https://scryfall.com/card/sos/260/shattered-sanctum" class="card-link" target="_blank">Shattered Sanctum<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/a/5aa0c810-3b7d-4661-979e-e84fb327742d.jpg?1775938816" alt="Shattered Sanctum"></span></a> | MC | R | Land |
+| <a href="https://scryfall.com/card/sos/262/spectacle-summit" class="card-link" target="_blank">Spectacle Summit<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/0/a0a66f7b-eab4-45da-8895-c2c2c7eb05f8.jpg?1775938830" alt="Spectacle Summit"></span></a> | MC | C | Land |
+| <a href="https://scryfall.com/card/sos/263/stormcarved-coast" class="card-link" target="_blank">Stormcarved Coast<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/d/bd3ae4fa-4c97-410a-8c0a-bd203342595d.jpg?1775938837" alt="Stormcarved Coast"></span></a> | MC | R | Land |
+| <a href="https://scryfall.com/card/sos/264/sundown-pass" class="card-link" target="_blank">Sundown Pass<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/3/b34000e9-ff20-4fb4-9d0b-03a172a92457.jpg?1775938845" alt="Sundown Pass"></span></a> | MC | R | Land |
+| <a href="https://scryfall.com/card/sos/266/titans-grave" class="card-link" target="_blank">Titan's Grave<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/9/a9ab41c8-3ee2-4676-9b8b-20c34d9f5f21.jpg?1775938861" alt="Titan's Grave"></span></a> | MC | C | Land |
+| <a href="https://scryfall.com/card/sos/257/great-hall-of-the-biblioplex" class="card-link" target="_blank">Great Hall of the Biblioplex<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/4/2/42d92674-2664-411c-b9c5-b04da7c845f4.jpg?1775938794" alt="Great Hall of the Biblioplex"></span></a> | NC | R | Land |
+| <a href="https://scryfall.com/card/sos/259/petrified-hamlet" class="card-link" target="_blank">Petrified Hamlet<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/5/355dd460-b0e9-41f2-a058-b7f7e39ac387.jpg?1775938807" alt="Petrified Hamlet"></span></a> | NC | R | Land |
+| <a href="https://scryfall.com/card/sos/261/skycoach-waypoint" class="card-link" target="_blank">Skycoach Waypoint<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/7/6747657b-5ce4-4dbd-b924-ca1f7119faf7.jpg?1775938823" alt="Skycoach Waypoint"></span></a> | NC | U | Land |
+| <a href="https://scryfall.com/card/sos/265/terramorphic-expanse" class="card-link" target="_blank">Terramorphic Expanse<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/a/9a4c5629-fadd-42b9-850f-9f8586a2ca50.jpg?1775938853" alt="Terramorphic Expanse"></span></a> | NC | C | Land |
+
+---
+## 11. Other Cards
+
+*Cards not classified as creatures, removal, burn, combat tricks, or lands.*
+
+#### White
+
+| Card | Rarity | CMC | Type |
+|------|--------|-----|------|
+| <a href="https://scryfall.com/card/sos/10/dig-site-inventory" class="card-link" target="_blank">Dig Site Inventory<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/5/e52464ee-df8b-41ec-af93-4b0eb004383e.jpg?1775936980" alt="Dig Site Inventory"></span></a> | C | 1 | Sorc |
+| <a href="https://scryfall.com/card/sos/16/graduation-day" class="card-link" target="_blank">Graduation Day<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/b/db1cea01-123e-4b23-8b98-f94cabce3912.jpg?1775937020" alt="Graduation Day"></span></a> | U | 1 | Ench |
+| <a href="https://scryfall.com/card/sos/17/group-project" class="card-link" target="_blank">Group Project<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/8/e8abc1eb-6225-4b18-8502-b5324b818aed.jpg?1775937026" alt="Group Project"></span></a> | U | 2 | Sorc |
+| <a href="https://scryfall.com/card/sos/7/antiquities-on-the-loose" class="card-link" target="_blank">Antiquities on the Loose<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/8/68ee92cd-51af-4de5-bcc8-34d0bb2fd398.jpg?1775936960" alt="Antiquities on the Loose"></span></a> | R | 3 | Sorc |
+| <a href="https://scryfall.com/card/sos/25/practiced-offense" class="card-link" target="_blank">Practiced Offense<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79c7cf94-c0a1-432d-90d7-7f0599c2e7a8.jpg?1775937087" alt="Practiced Offense"></span></a> | R | 3 | Sorc |
+| <a href="https://scryfall.com/card/sos/26/primary-research" class="card-link" target="_blank">Primary Research<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/6/f6fdb814-45c6-4d14-afff-7f5bd1bd10a1.jpg?1775937094" alt="Primary Research"></span></a> | U | 5 | Ench |
+| <a href="https://scryfall.com/card/sos/30/restoration-seminar" class="card-link" target="_blank">Restoration Seminar<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/e/9ebc4ecf-2fa2-4ab8-afde-3b91cf5eadb6.jpg?1775937123" alt="Restoration Seminar"></span></a> | M | 7 | Sorc |
+
+#### Blue
+
+| Card | Rarity | CMC | Type |
+|------|--------|-----|------|
+| <a href="https://scryfall.com/card/sos/43/divergent-equation" class="card-link" target="_blank">Divergent Equation<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/2/6/26295e25-f1bf-4665-ba00-dad35c49bbc2.jpg?1775937210" alt="Divergent Equation"></span></a> | U | 1 | Inst |
+| <a href="https://scryfall.com/card/sos/51/fractalize" class="card-link" target="_blank">Fractalize<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/3/e3c3b19b-01b6-4f5a-b428-513b778c5d89.jpg?1775937264" alt="Fractalize"></span></a> | U | 1 | Inst |
+| <a href="https://scryfall.com/card/sos/49/flow-state" class="card-link" target="_blank">Flow State<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/4/7/47d6093b-b1b6-4956-8bfd-02cce899f832.jpg?1775937249" alt="Flow State"></span></a> | U | 2 | Sorc |
+| <a href="https://scryfall.com/card/sos/58/mathemagics" class="card-link" target="_blank">Mathemagics<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/c/d/cd3cc172-5609-4bc8-9d84-50680fed6df9.jpg?1775937314" alt="Mathemagics"></span></a> | M | 2 | Sorc |
+| <a href="https://scryfall.com/card/sos/65/quick-study" class="card-link" target="_blank">Quick Study<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/2/d/2d4f0bc7-da7c-4749-a24c-b01f3eb5860c.jpg?1775937363" alt="Quick Study"></span></a> | C | 3 | Inst |
+| <a href="https://scryfall.com/card/sos/61/muses-encouragement" class="card-link" target="_blank">Muse's Encouragement<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/c/5/c59e0004-1d6a-42a1-8ce4-31da2af2e1bf.jpg?1775937336" alt="Muse's Encouragement"></span></a> | C | 5 | Inst |
+| <a href="https://scryfall.com/card/sos/44/echocasting-symposium" class="card-link" target="_blank">Echocasting Symposium<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/d/5d7086a7-dc42-468a-a2cf-a6f89030f947.jpg?1775937216" alt="Echocasting Symposium"></span></a> | M | 6 | Sorc |
+| <a href="https://scryfall.com/card/sos/71/wisdom-of-ages" class="card-link" target="_blank">Wisdom of Ages<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/2/b227ef04-33e4-44e8-a357-0ea3dfe5d49b.jpg?1775937405" alt="Wisdom of Ages"></span></a> | R | 7 | Sorc |
+
+#### Black
+
+| Card | Rarity | CMC | Type |
+|------|--------|-----|------|
+| <a href="https://scryfall.com/card/sos/100/send-in-the-pest" class="card-link" target="_blank">Send in the Pest<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/2/8/283b508b-89f0-4c23-9686-b049e402b73c.jpg?1775937607" alt="Send in the Pest"></span></a> | C | 2 | Sorc |
+| <a href="https://scryfall.com/card/sos/77/cost-of-brilliance" class="card-link" target="_blank">Cost of Brilliance<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/a/3a46816b-9f75-4c72-9ec6-cded6a4a0d01.jpg?1775937447" alt="Cost of Brilliance"></span></a> | C | 3 | Sorc |
+| <a href="https://scryfall.com/card/sos/95/pull-from-the-grave" class="card-link" target="_blank">Pull from the Grave<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/7/d73612fe-8992-4650-a7e3-c7b662da6a03.jpg?1775937572" alt="Pull from the Grave"></span></a> | C | 3 | Sorc |
+| <a href="https://scryfall.com/card/sos/97/ral-zarek-guest-lecturer" class="card-link" target="_blank">Ral Zarek, Guest Lecturer<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/f/8fbad757-4081-42f7-a460-68ac03e77510.jpg?1775937587" alt="Ral Zarek, Guest Lecturer"></span></a> | M | 3 | Plan |
+| <a href="https://scryfall.com/card/sos/73/arcane-omens" class="card-link" target="_blank">Arcane Omens<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/3/d357d997-9d4e-4ade-81f2-37629853f13a.jpg?1775937419" alt="Arcane Omens"></span></a> | U | 5 | Sorc |
+| <a href="https://scryfall.com/card/sos/78/decorum-dissertation" class="card-link" target="_blank">Decorum Dissertation<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/4/f4ab2d9b-c73d-478d-aac7-4d3bb24296d2.jpg?1775937454" alt="Decorum Dissertation"></span></a> | M | 5 | Sorc |
+| <a href="https://scryfall.com/card/sos/94/pox-plague" class="card-link" target="_blank">Pox Plague<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/c/9c99c17b-ad3a-4859-97e8-469718b81cd9.jpg?1775937566" alt="Pox Plague"></span></a> | R | 5 | Sorc |
+
+#### Red
+
+| Card | Rarity | CMC | Type |
+|------|--------|-----|------|
+| <a href="https://scryfall.com/card/sos/106/ancestral-anger" class="card-link" target="_blank">Ancestral Anger<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/c/6c5a93d6-d4ab-4062-bb3c-1b5330bf15ad.jpg?1775937666" alt="Ancestral Anger"></span></a> | C | 1 | Sorc |
+| <a href="https://scryfall.com/card/sos/115/flashback" class="card-link" target="_blank">Flashback<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/b/1b832fda-d7c4-4566-884c-2a8b6da15488.jpg?1775937742" alt="Flashback"></span></a> | R | 1 | Inst |
+| <a href="https://scryfall.com/card/sos/111/choreographed-sparks" class="card-link" target="_blank">Choreographed Sparks<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/c/0cda4235-4dce-48fe-a8a5-2a952dedbe25.jpg?1775937707" alt="Choreographed Sparks"></span></a> | R | 2 | Inst |
+| <a href="https://scryfall.com/card/sos/121/living-history" class="card-link" target="_blank">Living History<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/2/0/2028792c-fd60-40d4-bff7-3b82dbe1ffb5.jpg?1775937797" alt="Living History"></span></a> | U | 2 | Ench |
+| <a href="https://scryfall.com/card/sos/129/seize-the-spoils" class="card-link" target="_blank">Seize the Spoils<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/4/d/4ddf4e34-a1f9-4636-942d-0a08e9f94320.jpg?1775937868" alt="Seize the Spoils"></span></a> | C | 3 | Sorc |
+| <a href="https://scryfall.com/card/sos/132/tablet-of-discovery" class="card-link" target="_blank">Tablet of Discovery<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/3/13059664-a940-4a66-8100-0c90b884bab4.jpg?1775937891" alt="Tablet of Discovery"></span></a> | U | 3 | Arti |
+| <a href="https://scryfall.com/card/sos/120/improvisation-capstone" class="card-link" target="_blank">Improvisation Capstone<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/0/d01fe6e9-49ee-4708-833e-75cd5a9f167c.jpg?1775937787" alt="Improvisation Capstone"></span></a> | M | 7 | Sorc |
+
+#### Green
+
+| Card | Rarity | CMC | Type |
+|------|--------|-----|------|
+| <a href="https://scryfall.com/card/sos/156/oracles-restoration" class="card-link" target="_blank">Oracle's Restoration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/8/0863a19d-4511-4a78-98dd-d194afd1c39b.jpg?1775938067" alt="Oracle's Restoration"></span></a> | C | 1 | Sorc |
+| <a href="https://scryfall.com/card/sos/167/wild-hypothesis" class="card-link" target="_blank">Wild Hypothesis<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/4/04fdfabc-c247-4384-a5bb-f49035f8aae0.jpg?1775938142" alt="Wild Hypothesis"></span></a> | C | 1 | Sorc |
+| <a href="https://scryfall.com/card/sos/143/comforting-counsel" class="card-link" target="_blank">Comforting Counsel<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/2/5223a04f-6b47-4379-80ce-8489c4a91734.jpg?1775937970" alt="Comforting Counsel"></span></a> | R | 2 | Ench |
+| <a href="https://scryfall.com/card/sos/148/follow-the-lumarets" class="card-link" target="_blank">Follow the Lumarets<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/9/f9488480-2b6c-40bc-a93e-29fb1292a2e4.jpg?1775938009" alt="Follow the Lumarets"></span></a> | C | 2 | Sorc |
+| <a href="https://scryfall.com/card/sos/158/planar-engineering" class="card-link" target="_blank">Planar Engineering<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/c/8/c83b96a3-ddfd-4d11-8a85-5bf62087cbb9.jpg?1775938080" alt="Planar Engineering"></span></a> | R | 4 | Sorc |
+| <a href="https://scryfall.com/card/sos/169/zimones-experiment" class="card-link" target="_blank">Zimone's Experiment<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/6/a6597852-4267-4ea6-a391-f927e4833be2.jpg?1775938156" alt="Zimone's Experiment"></span></a> | U | 4 | Sorc |
+| <a href="https://scryfall.com/card/sos/139/additive-evolution" class="card-link" target="_blank">Additive Evolution<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/4/b44ec684-d558-45eb-bcd6-8119428634c2.jpg?1775937943" alt="Additive Evolution"></span></a> | U | 5 | Ench |
+| <a href="https://scryfall.com/card/sos/149/germination-practicum" class="card-link" target="_blank">Germination Practicum<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/b/abe8332f-c76e-44e2-9427-d1228453abec.jpg?1775938016" alt="Germination Practicum"></span></a> | M | 5 | Sorc |
+| <a href="https://scryfall.com/card/sos/161/snarl-song" class="card-link" target="_blank">Snarl Song<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/c/fc4c7fa2-aebb-4636-9afd-f1010c923316.jpg?1775938101" alt="Snarl Song"></span></a> | U | 6 | Sorc |
+
+#### Multicolor
+
+| Card | Rarity | CMC | Type |
+|------|--------|-----|------|
+| <a href="https://scryfall.com/card/sos/193/growth-curve" class="card-link" target="_blank">Growth Curve<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/6/1675a445-86ae-413b-b95a-a1c254a7f252.jpg?1775938339" alt="Growth Curve"></span></a> | U | 2 | Sorc |
+| <a href="https://scryfall.com/card/sos/197/killians-confidence" class="card-link" target="_blank">Killian's Confidence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/5/55ff776a-fc3b-4338-8864-d57a85b3f123.jpg?1775938369" alt="Killian's Confidence"></span></a> | U | 2 | Sorc |
+| <a href="https://scryfall.com/card/sos/202/mind-into-matter" class="card-link" target="_blank">Mind into Matter<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/a/0a7f0fdf-1d4b-4458-a19c-274611e8a59a.jpg?1775938403" alt="Mind into Matter"></span></a> | R | 2 | Sorc |
+| <a href="https://scryfall.com/card/sos/204/molten-note" class="card-link" target="_blank">Molten Note<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/0/506f69aa-7dc4-4dd7-990a-7371fc1762c0.jpg?1775938416" alt="Molten Note"></span></a> | U | 2 | Sorc |
+| <a href="https://scryfall.com/card/sos/216/pursue-the-past" class="card-link" target="_blank">Pursue the Past<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/4/5/4584d5f7-b1f1-4c8e-80c5-ad35e44a968e.jpg?1775938502" alt="Pursue the Past"></span></a> | C | 2 | Sorc |
+| <a href="https://scryfall.com/card/sos/179/cauldron-of-essence" class="card-link" target="_blank">Cauldron of Essence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/7/b7091740-e70c-4cf2-8d3d-b8e1ac1fbbdd.jpg?1775938230" alt="Cauldron of Essence"></span></a> | R | 3 | Arti |
+| <a href="https://scryfall.com/card/sos/184/dinas-guidance" class="card-link" target="_blank">Dina's Guidance<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/7/775c1e50-08a4-413f-ab0f-f1c2a79cfe94.jpg?1775938273" alt="Dina's Guidance"></span></a> | R | 3 | Inst |
+| <a href="https://scryfall.com/card/sos/192/grapple-with-death" class="card-link" target="_blank">Grapple with Death<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/2/62842fb4-8bd3-4d80-b4f9-5bc3c5cebd3a.jpg?1775938332" alt="Grapple with Death"></span></a> | C | 3 | Sorc |
+| <a href="https://scryfall.com/card/sos/203/mind-roots" class="card-link" target="_blank">Mind Roots<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/d/9d5fdbda-ebbe-45d6-a668-5ddee057a063.jpg?1775938410" alt="Mind Roots"></span></a> | U | 3 | Sorc |
+| <a href="https://scryfall.com/card/sos/228/social-snub" class="card-link" target="_blank">Social Snub<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/0/a04b6900-0436-4920-a0d4-c0186d605ae3.jpg?1775938590" alt="Social Snub"></span></a> | U | 3 | Sorc |
+| <a href="https://scryfall.com/card/sos/172/applied-geometry" class="card-link" target="_blank">Applied Geometry<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/1/f109f2eb-895b-44a6-b6b5-81bf3831ccd5.jpg?1775938180" alt="Applied Geometry"></span></a> | R | 4 | Sorc |
+| <a href="https://scryfall.com/card/sos/178/borrowed-knowledge" class="card-link" target="_blank">Borrowed Knowledge<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/3/a3226e14-554d-47c9-b8b6-dfeb53cc41ba.jpg?1775938224" alt="Borrowed Knowledge"></span></a> | U | 4 | Sorc |
+| <a href="https://scryfall.com/card/sos/188/fix-whats-broken" class="card-link" target="_blank">Fix What's Broken<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/c/0/c0cd1d71-8e4a-4e00-80cd-83aec231fa57.jpg?1775938304" alt="Fix What's Broken"></span></a> | R | 4 | Sorc |
+| <a href="https://scryfall.com/card/sos/213/proctors-gaze" class="card-link" target="_blank">Proctor's Gaze<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/1/b127d543-0a90-4af6-9410-94d5cd30389e.jpg?1775938479" alt="Proctor's Gaze"></span></a> | U | 4 | Inst |
+| <a href="https://scryfall.com/card/sos/220/render-speechless" class="card-link" target="_blank">Render Speechless<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/2/5/25bbb1c7-14e8-444f-ab98-e95f50927460.jpg?1775938531" alt="Render Speechless"></span></a> | C | 4 | Sorc |
+| <a href="https://scryfall.com/card/sos/221/resonating-lute" class="card-link" target="_blank">Resonating Lute<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/e/6ef168d6-28f2-4c24-9bfa-82c35663b729.jpg?1775938538" alt="Resonating Lute"></span></a> | R | 4 | Arti |
+| <a href="https://scryfall.com/card/sos/241/vicious-rivalry" class="card-link" target="_blank">Vicious Rivalry<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/f/6fa9cd18-3181-4373-ab65-49bf9de9487f.jpg?1775938681" alt="Vicious Rivalry"></span></a> | R | 4 | Sorc |
+| <a href="https://scryfall.com/card/sos/186/embrace-the-paradox" class="card-link" target="_blank">Embrace the Paradox<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/c/0/c0cf5e0f-3668-46f2-850d-d91a538e8ead.jpg?1775938288" alt="Embrace the Paradox"></span></a> | C | 5 | Inst |
+| <a href="https://scryfall.com/card/sos/222/root-manipulation" class="card-link" target="_blank">Root Manipulation<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/3/5390a79c-bc4b-4edb-a845-0d3514986401.jpg?1775938546" alt="Root Manipulation"></span></a> | U | 5 | Sorc |
+| <a href="https://scryfall.com/card/sos/219/rapturous-moment" class="card-link" target="_blank">Rapturous Moment<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/2/1/21afe19d-881a-48cb-863e-22942bea5ebe.jpg?1775938524" alt="Rapturous Moment"></span></a> | U | 6 | Sorc |
+| <a href="https://scryfall.com/card/sos/242/visionarys-dance" class="card-link" target="_blank">Visionary's Dance<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/4/846a0e79-a530-429e-8f7f-4b87f1b0156e.jpg?1776000377" alt="Visionary's Dance"></span></a> | C | 7 | Sorc |
+
+#### Colorless
+
+| Card | Rarity | CMC | Type |
+|------|--------|-----|------|
+| <a href="https://scryfall.com/card/sos/248/diary-of-dreams" class="card-link" target="_blank">Diary of Dreams<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/e/ee1e0a96-af80-444e-a456-5b256cf60625.jpg?1775938731" alt="Diary of Dreams"></span></a> | U | 2 | Arti |
+| <a href="https://scryfall.com/card/sos/251/potioners-trove" class="card-link" target="_blank">Potioner's Trove<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/2/1/2123b349-4649-4a15-a8b5-b54414d2b1b7.jpg?1775938752" alt="Potioner's Trove"></span></a> | C | 3 | Arti |
+| <a href="https://scryfall.com/card/sos/252/strixhaven-skycoach" class="card-link" target="_blank">Strixhaven Skycoach<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/7/87741fbb-b426-4f83-a358-587b0907f081.jpg?1775938759" alt="Strixhaven Skycoach"></span></a> | U | 3 | Arti |
+
 
