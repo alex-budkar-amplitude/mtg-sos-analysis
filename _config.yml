@@ -1,3 +1,7 @@
 title: "Secrets of Strixhaven - Set Analysis"
 description: "MTG Secrets of Strixhaven (SOS) analysis for Limited/Draft"
-theme: jekyll-theme-cayman
+remote_theme: jekyll/minima
+plugins:
+  - jekyll-remote-theme
+minima:
+  skin: auto

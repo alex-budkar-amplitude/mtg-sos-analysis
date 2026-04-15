@@ -177,7 +177,7 @@ HOVER_CSS = """\
 <style>
 .card-link {
   text-decoration: none;
-  border-bottom: 1px dotted #666;
+  border-bottom: 1px dotted #888;
   color: inherit;
   white-space: nowrap;
 }
@@ -197,6 +197,18 @@ HOVER_CSS = """\
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .card-link {
+    border-bottom-color: #666;
+  }
+  .card-link:hover {
+    color: #6db3f2;
+  }
+  #card-hover-img {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+  }
 }
 </style>
 
@@ -900,7 +912,7 @@ def build_report(cards):
 
     # Write index.md with Jekyll front matter for GitHub Pages
     with open(INDEX_PATH, "w") as f:
-        f.write("---\nlayout: default\n---\n\n")
+        f.write("---\nlayout: page\n---\n\n")
         f.write(report_content)
 
     print(f"Report written to {REPORT_PATH}")
