@@ -339,6 +339,119 @@ def is_mana_producer(d):
     return bool(re.search(r"add \{", ot) or "add one mana" in ot)
 
 
+# Number words used in token creation
+_NUM_WORDS = {
+    "a": 1,
+    "an": 1,
+    "one": 1,
+    "two": 2,
+    "three": 3,
+    "four": 4,
+    "five": 5,
+    "six": 6,
+    "seven": 7,
+    "eight": 8,
+}
+
+
+def _parse_count(s):
+    """Parse a count token ('two', '3', 'X') into a display string."""
+    s = s.strip().lower()
+    if s in _NUM_WORDS:
+        return str(_NUM_WORDS[s])
+    if s.isdigit():
+        return s
+    return "X"
+
+
+def classify_token_creator(card):
+    """Detect token creation. Returns list of token descriptors like ['2 × 2/2', '1/1'] or [].
+
+    Only counts creature tokens -- ignores Treasure, Clue, Food, etc.
+    """
+    ot = get_oracle_text(card)
+    results = []
+    seen = set()
+
+    for line in ot.split("\n"):
+        ll = line.lower().strip().lstrip("•").strip()
+
+        # Skip if explicitly opponent creates tokens
+        if re.search(r"(each opponent|target opponent) creates?", ll):
+            continue
+
+        # "copy of target creature" tokens -- check before "creature token" filter
+        if re.search(r"token that'?s? a copy of target creature", ll):
+            if "Copy" not in seen:
+                seen.add("Copy")
+                results.append("Copy")
+            continue
+
+        # Skip non-creature tokens (Treasure, Food, Clue, etc.)
+        if not re.search(r"creature token", ll):
+            continue
+
+        # Extract count: "create N/a/two ... token"
+        count_match = re.search(
+            r"create[s]? (a|an|one|two|three|four|five|six|seven|eight|\d+|x) ",
+            ll,
+        )
+        count = _parse_count(count_match.group(1)) if count_match else "1"
+
+        # Extract P/T: "N/N ... creature token"
+        pt_match = re.search(r"(\d+|x)/(\d+|x) .{0,40}creature token", ll)
+        if pt_match:
+            p, t = pt_match.group(1), pt_match.group(2)
+            # Check if counters modify P/T (Fractal tokens)
+            counter_match = re.search(r"put (\d+|x) \+1/\+1 counter", ll) or re.search(
+                r"put (\d+|x) \+1/\+1 counter", ot.lower()
+            )
+            if p == "0" and t == "0" and counter_match:
+                n = counter_match.group(1).upper()
+                pt = f"{n}/{n}"
+            else:
+                pt = f"{p}/{t}"
+        else:
+            pt = "?/?"
+
+        # Build descriptor
+        if count == "1":
+            descriptor = pt
+        else:
+            descriptor = f"{count} × {pt}"
+
+        if descriptor not in seen:
+            seen.add(descriptor)
+            results.append(descriptor)
+
+    return results
+
+
+def creates_creature_tokens(card):
+    """Return True if the card creates creature tokens (for any controller)."""
+    ot = get_oracle_text(card)
+    return bool(re.search(r"creature token", ot.lower()))
+
+
+def puts_counters_on_own_creatures(card):
+    """Return True if the card puts +1/+1 counters on own creatures (not opponents')."""
+    ot = get_oracle_text(card)
+    otl = ot.lower()
+    if not re.search(r"put[s]? .* \+1/\+1 counter", otl):
+        return False
+    # Exclude counters that explicitly target opponent creatures
+    if re.search(
+        r"(opponent|creature you don't control|creature an opponent controls)", otl
+    ):
+        # Allow if there's ALSO a friendly target
+        if not re.search(
+            r"(target creature you control|each creature you control|your creatures)",
+            otl,
+        ):
+            return False
+    return True
+
+
 def get_keyword_display(d):
     """Return a short comma-separated list of notable keywords."""
     kws = d["keywords"]
@@ -536,6 +649,10 @@ def classify_combat_trick(card):
     if is_blink and not is_exile_until_leaves:
         categories.append("Blink")
 
+    # ── +1/+1 counters on own creatures (any speed) ──
+    if puts_counters_on_own_creatures(card):
+        categories.append("Counters")
+
     # ── Instant-speed tricks (require instant or flash) ──
     is_instant = "instant" in tl.lower()
     has_flash = "flash" in card.get("keywords", []) or "flash" in ot
@@ -551,10 +668,6 @@ def classify_combat_trick(card):
                 categories.append("P/T Buff (Team)")
             elif re.search(r"target creatures you control each get \+", ot):
                 categories.append("P/T Buff (Team)")
-
-        # +1/+1 counters at instant speed
-        if re.search(r"put .* \+1/\+1 counter", ot) and is_instant:
-            categories.append("Counters")
 
         # Keyword grant
         for kw in [
@@ -609,6 +722,7 @@ def build_report(cards):
         ot = get_oracle_text(c)
         removal_cats, burn_cats = classify_removal_and_burn(c)
         trick_cats = classify_combat_trick(c)
+        token_cats = classify_token_creator(c)
         pt = get_power_toughness(c)
         cmc = get_cmc(c)
 
@@ -638,6 +752,7 @@ def build_report(cards):
                 "removal_cats": removal_cats,
                 "burn_cats": burn_cats,
                 "trick_cats": trick_cats,
+                "token_cats": token_cats,
                 "pt": pt,
                 "cmc": cmc,
                 "keywords": [kw.lower() for kw in c.get("keywords", [])],
@@ -861,7 +976,13 @@ def build_report(cards):
         w("|------|-----|-----|--------|----------|")
         for d in sorted(subset, key=lambda x: (x["cmc"], x["name"])):
             rarity_char = d["rarity"][0].upper()
-            kws = get_keyword_display(d)
+            kws_parts = []
+            kw = get_keyword_display(d)
+            if kw != "-":
+                kws_parts.append(kw)
+            if d["token_cats"]:
+                kws_parts.append("Token: " + ", ".join(d["token_cats"]))
+            kws = ", ".join(kws_parts) if kws_parts else "-"
             w(
                 f"| {d['linked_name']} | {d['pt_display']} | {d['cmc']:.0f} | {rarity_char} | {kws} |"
             )
@@ -1164,6 +1285,32 @@ def build_report(cards):
             )
         w("")
 
+    # ── Token Creators sub-section ───────────────────────────────────
+    w("### Token Creators")
+    w("")
+    w(
+        "*Spells and abilities that create creature tokens. P/T shows token size; count prefix when multiple.*"
+    )
+    w("")
+
+    token_cards = [d for d in card_data if d["token_cats"]]
+    for color in COLOR_ORDER:
+        subset = [d for d in token_cards if d["color"] == color]
+        if not subset:
+            continue
+        cname = COLOR_NAMES.get(color, color) if color in COLOR_NAMES else color
+        w(f"#### {cname}")
+        w("")
+        w("| Card | P/T | Rarity | CMC | Type | Tokens |")
+        w("|------|-----|--------|-----|------|--------|")
+        for d in sorted(subset, key=lambda x: x["cmc"]):
+            rarity_char = d["rarity"][0].upper()
+            tokens_str = ", ".join(d["token_cats"])
+            w(
+                f"| {d['linked_name']} | {d['pt_display']} | {rarity_char} | {d['cmc']:.0f} | {short_type(d)} | {tokens_str} |"
+            )
+        w("")
+
     # ── SECTION 7: Notable Cycles & Mechanics ────────────────────────
     w("---")
     w("## 7. Set Mechanics")
@@ -1288,6 +1435,7 @@ def build_report(cards):
             or d["removal_cats"]
             or d["burn_cats"]
             or d["trick_cats"]
+            or d["token_cats"]
             or d["is_land"]
         ):
             classified_names.add(d["name"])
