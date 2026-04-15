@@ -15,8 +15,18 @@ REPORT_PATH = os.path.join(os.path.dirname(__file__), "report.md")
 INDEX_PATH = os.path.join(os.path.dirname(__file__), "index.md")
 
 COLOR_NAMES = {"W": "White", "U": "Blue", "B": "Black", "R": "Red", "G": "Green"}
+COLOR_SHORT = {
+    "W": "W",
+    "U": "U",
+    "B": "B",
+    "R": "R",
+    "G": "G",
+    "Multicolor": "MC",
+    "Colorless": "NC",
+}
 COLOR_ORDER = ["W", "U", "B", "R", "G", "Multicolor", "Colorless"]
 RARITY_ORDER = ["common", "uncommon", "rare", "mythic"]
+RARITY_SHORT = {"common": "C", "uncommon": "U", "rare": "R", "mythic": "M"}
 RARITY_DISPLAY = {
     "common": "Common",
     "uncommon": "Uncommon",
@@ -404,129 +414,108 @@ def build_report(cards):
     w("## 1. Set Overview")
     w("")
 
-    # By color
+    # Precompute per-color and per-rarity subsets
+    by_color = {c: [d for d in card_data if d["color"] == c] for c in COLOR_ORDER}
+    by_rarity = {r: [d for d in card_data if d["rarity"] == r] for r in RARITY_ORDER}
+    col_hdr = [COLOR_SHORT[c] for c in COLOR_ORDER]
+
+    # By color -- transposed: types as rows, colors as columns
     w("### Card Count by Color")
     w("")
-    w(
-        "| Color | Total | Creatures | Instants | Sorceries | Enchantments | Artifacts | Planeswalkers | Lands |"
-    )
-    w(
-        "|-------|-------|-----------|----------|-----------|--------------|-----------|---------------|-------|"
-    )
-    for color in COLOR_ORDER:
-        subset = [d for d in card_data if d["color"] == color]
-        if not subset:
-            continue
-        cname = COLOR_NAMES.get(color, color)
-        total = len(subset)
-        creatures = sum(1 for d in subset if d["is_creature"])
-        instants = sum(1 for d in subset if d["is_instant"])
-        sorceries = sum(1 for d in subset if d["is_sorcery"])
-        enchantments = sum(1 for d in subset if d["is_enchantment"])
-        artifacts = sum(1 for d in subset if d["is_artifact"])
-        planeswalkers = sum(1 for d in subset if d["is_planeswalker"])
-        lands = sum(1 for d in subset if d["is_land"])
-        w(
-            f"| {cname} | {total} | {creatures} | {instants} | {sorceries} | {enchantments} | {artifacts} | {planeswalkers} | {lands} |"
-        )
+    w("| Type | " + " | ".join(col_hdr) + " |")
+    w("|------|" + "|".join("---" for _ in COLOR_ORDER) + "|")
+    type_checks = [
+        ("Total", lambda d: True),
+        ("Creatures", lambda d: d["is_creature"]),
+        ("Instants", lambda d: d["is_instant"]),
+        ("Sorceries", lambda d: d["is_sorcery"]),
+        ("Enchantments", lambda d: d["is_enchantment"]),
+        ("Artifacts", lambda d: d["is_artifact"]),
+        ("Planeswalkers", lambda d: d["is_planeswalker"]),
+        ("Lands", lambda d: d["is_land"]),
+    ]
+    for label, pred in type_checks:
+        counts = [str(sum(1 for d in by_color[c] if pred(d))) for c in COLOR_ORDER]
+        w(f"| {label} | " + " | ".join(counts) + " |")
     w("")
 
-    # By rarity
+    # By rarity -- transposed: types as rows, rarities as columns
     w("### Card Count by Rarity")
     w("")
-    w(
-        "| Rarity | Total | Creatures | Instants | Sorceries | Enchantments | Artifacts |"
-    )
-    w(
-        "|--------|-------|-----------|----------|-----------|--------------|-----------|"
-    )
-    for rarity in RARITY_ORDER:
-        subset = [d for d in card_data if d["rarity"] == rarity]
-        if not subset:
-            continue
-        rname = RARITY_DISPLAY.get(rarity, rarity)
-        total = len(subset)
-        creatures = sum(1 for d in subset if d["is_creature"])
-        instants = sum(1 for d in subset if d["is_instant"])
-        sorceries = sum(1 for d in subset if d["is_sorcery"])
-        enchantments = sum(1 for d in subset if d["is_enchantment"])
-        artifacts = sum(1 for d in subset if d["is_artifact"])
-        w(
-            f"| {rname} | {total} | {creatures} | {instants} | {sorceries} | {enchantments} | {artifacts} |"
-        )
+    rar_hdr = [RARITY_SHORT[r] for r in RARITY_ORDER]
+    w("| Type | " + " | ".join(rar_hdr) + " |")
+    w("|------|" + "|".join("---" for _ in RARITY_ORDER) + "|")
+    for label, pred in type_checks:
+        counts = [str(sum(1 for d in by_rarity[r] if pred(d))) for r in RARITY_ORDER]
+        w(f"| {label} | " + " | ".join(counts) + " |")
     w("")
 
     # Color x Rarity matrix
     w("### Color x Rarity Matrix")
     w("")
-    header = (
-        "| Color | "
-        + " | ".join(RARITY_DISPLAY[r] for r in RARITY_ORDER)
-        + " | Total |"
-    )
-    sep = "|-------|" + "|".join("------" for _ in RARITY_ORDER) + "|-------|"
-    w(header)
-    w(sep)
+    w("| Color | " + " | ".join(rar_hdr) + " | Total |")
+    w("|-------|" + "|".join("---" for _ in RARITY_ORDER) + "|-------|")
     for color in COLOR_ORDER:
-        cname = COLOR_NAMES.get(color, color)
+        cshort = COLOR_SHORT[color]
         counts = []
         for rarity in RARITY_ORDER:
             cnt = sum(
                 1 for d in card_data if d["color"] == color and d["rarity"] == rarity
             )
             counts.append(str(cnt))
-        total = sum(1 for d in card_data if d["color"] == color)
-        w(f"| {cname} | " + " | ".join(counts) + f" | {total} |")
+        total = len(by_color[color])
+        w(f"| {cshort} | " + " | ".join(counts) + f" | {total} |")
     w("")
 
     # ── SECTION 2: Mana Curve ────────────────────────────────────────
     w("---")
-    w("## 2. Mana Curve by Color")
-    w("")
-    cmc_range = range(0, 9)  # 0 through 7+
-    header = (
-        "| Color | "
-        + " | ".join(str(i) if i < 8 else "8+" for i in cmc_range)
-        + " | Avg CMC |"
-    )
-    sep = "|-------|" + "|".join("---" for _ in cmc_range) + "|---------|"
-    w(header)
-    w(sep)
-    for color in COLOR_ORDER:
-        subset = [d for d in card_data if d["color"] == color and not d["is_land"]]
-        if not subset:
-            continue
-        cname = COLOR_NAMES.get(color, color)
-        buckets = []
-        for i in cmc_range:
-            if i < 8:
-                cnt = sum(1 for d in subset if int(d["cmc"]) == i)
-            else:
-                cnt = sum(1 for d in subset if int(d["cmc"]) >= 8)
-            buckets.append(str(cnt))
-        avg = sum(d["cmc"] for d in subset) / len(subset) if subset else 0
-        w(f"| {cname} | " + " | ".join(buckets) + f" | {avg:.2f} |")
+    w("## 2. Mana Curve")
     w("")
 
-    # By rarity
-    w("### Mana Curve by Rarity")
+    # Helper: get nonland cards per group
+    def cmc_count(subset, cmc_val):
+        if cmc_val < 8:
+            return sum(1 for d in subset if int(d["cmc"]) == cmc_val)
+        return sum(1 for d in subset if int(d["cmc"]) >= 8)
+
+    cmc_labels = ["0", "1", "2", "3", "4", "5", "6", "7", "8+"]
+    cmc_vals = list(range(9))
+
+    # By color -- transposed: CMC as rows, colors as columns
+    w("### By Color")
     w("")
-    w(header.replace("Color", "Rarity"))
-    w(sep.replace("Color", "Rarity"))
-    for rarity in RARITY_ORDER:
-        subset = [d for d in card_data if d["rarity"] == rarity and not d["is_land"]]
-        if not subset:
-            continue
-        rname = RARITY_DISPLAY.get(rarity, rarity)
-        buckets = []
-        for i in cmc_range:
-            if i < 8:
-                cnt = sum(1 for d in subset if int(d["cmc"]) == i)
-            else:
-                cnt = sum(1 for d in subset if int(d["cmc"]) >= 8)
-            buckets.append(str(cnt))
-        avg = sum(d["cmc"] for d in subset) / len(subset) if subset else 0
-        w(f"| {rname} | " + " | ".join(buckets) + f" | {avg:.2f} |")
+    nonland_by_color = {
+        c: [d for d in by_color[c] if not d["is_land"]] for c in COLOR_ORDER
+    }
+    w("| CMC | " + " | ".join(col_hdr) + " |")
+    w("|-----|" + "|".join("---" for _ in COLOR_ORDER) + "|")
+    for i, label in zip(cmc_vals, cmc_labels):
+        counts = [str(cmc_count(nonland_by_color[c], i)) for c in COLOR_ORDER]
+        w(f"| {label} | " + " | ".join(counts) + " |")
+    # Avg row
+    avgs = []
+    for c in COLOR_ORDER:
+        s = nonland_by_color[c]
+        avgs.append(f"{sum(d['cmc'] for d in s) / len(s):.1f}" if s else "-")
+    w(f"| **Avg** | " + " | ".join(avgs) + " |")
+    w("")
+
+    # By rarity -- transposed: CMC as rows, rarities as columns
+    w("### By Rarity")
+    w("")
+    nonland_by_rar = {
+        r: [d for d in by_rarity[r] if not d["is_land"]] for r in RARITY_ORDER
+    }
+    w("| CMC | " + " | ".join(rar_hdr) + " |")
+    w("|-----|" + "|".join("---" for _ in RARITY_ORDER) + "|")
+    for i, label in zip(cmc_vals, cmc_labels):
+        counts = [str(cmc_count(nonland_by_rar[r], i)) for r in RARITY_ORDER]
+        w(f"| {label} | " + " | ".join(counts) + " |")
+    avgs = []
+    for r in RARITY_ORDER:
+        s = nonland_by_rar[r]
+        avgs.append(f"{sum(d['cmc'] for d in s) / len(s):.1f}" if s else "-")
+    w(f"| **Avg** | " + " | ".join(avgs) + " |")
     w("")
 
     # ── SECTION 3: Creatures ─────────────────────────────────────────
@@ -536,20 +525,20 @@ def build_report(cards):
 
     w("### Creature Stats by Color")
     w("")
-    w("| Color | Count | Avg P | Avg T | Avg CMC | With Keywords |")
-    w("|-------|-------|-------|-------|---------|---------------|")
+    w("| Color | Count | Avg P | Avg T | Avg CMC | Keywords |")
+    w("|-------|-------|-------|-------|---------|----------|")
     for color in COLOR_ORDER:
         creatures = [d for d in card_data if d["color"] == color and d["is_creature"]]
         if not creatures:
             continue
-        cname = COLOR_NAMES.get(color, color)
+        cshort = COLOR_SHORT[color]
         pts = [d["pt"] for d in creatures if d["pt"]]
         avg_p = sum(p for p, t in pts) / len(pts) if pts else 0
         avg_t = sum(t for p, t in pts) / len(pts) if pts else 0
         avg_cmc = sum(d["cmc"] for d in creatures) / len(creatures)
         with_kw = sum(1 for d in creatures if d["keywords"])
         w(
-            f"| {cname} | {len(creatures)} | {avg_p:.1f} | {avg_t:.1f} | {avg_cmc:.1f} | {with_kw} |"
+            f"| {cshort} | {len(creatures)} | {avg_p:.1f} | {avg_t:.1f} | {avg_cmc:.1f} | {with_kw} |"
         )
     w("")
 
@@ -561,7 +550,7 @@ def build_report(cards):
         creatures = [d for d in card_data if d["rarity"] == rarity and d["is_creature"]]
         if not creatures:
             continue
-        rname = RARITY_DISPLAY.get(rarity, rarity)
+        rname = RARITY_SHORT[rarity]
         pts = [d["pt"] for d in creatures if d["pt"]]
         avg_p = sum(p for p, t in pts) / len(pts) if pts else 0
         avg_t = sum(t for p, t in pts) / len(pts) if pts else 0
@@ -571,8 +560,8 @@ def build_report(cards):
 
     w("### Keyword Frequency (Creatures)")
     w("")
-    w("| Keyword | Total | W | U | B | R | G | Multi | C'less |")
-    w("|---------|-------|---|---|---|---|---|-------|--------|")
+    w("| Keyword | Total | " + " | ".join(col_hdr) + " |")
+    w("|---------|-------|" + "|".join("---" for _ in COLOR_ORDER) + "|")
     for kw in TRACKED_KEYWORDS:
         counts = []
         total = 0
@@ -597,41 +586,49 @@ def build_report(cards):
 
     removal_cards = [d for d in card_data if d["removal_cats"]]
 
+    all_rem_cats = sorted(set(cat for d in removal_cards for cat in d["removal_cats"]))
+    rem_by_color = {
+        c: [d for d in removal_cards if d["color"] == c] for c in COLOR_ORDER
+    }
+    rem_by_rar = {
+        r: [d for d in removal_cards if d["rarity"] == r] for r in RARITY_ORDER
+    }
+
+    # Removal by color -- transposed: categories as rows, colors as columns
     w("### Removal Count by Color")
     w("")
-    all_rem_cats = sorted(set(cat for d in removal_cards for cat in d["removal_cats"]))
-    header = "| Color | Total | " + " | ".join(all_rem_cats) + " |"
-    sep = "|-------|-------|" + "|".join("---" for _ in all_rem_cats) + "|"
-    w(header)
-    w(sep)
-    for color in COLOR_ORDER:
-        subset = [d for d in removal_cards if d["color"] == color]
-        if not subset:
-            continue
-        cname = COLOR_NAMES.get(color, color)
-        cat_counts = []
-        for cat in all_rem_cats:
-            cnt = sum(1 for d in subset if cat in d["removal_cats"])
-            cat_counts.append(str(cnt))
-        w(f"| {cname} | {len(subset)} | " + " | ".join(cat_counts) + " |")
+    w("| Category | " + " | ".join(col_hdr) + " |")
+    w("|----------|" + "|".join("---" for _ in COLOR_ORDER) + "|")
+    # Total row first
+    w(
+        "| **Total** | "
+        + " | ".join(str(len(rem_by_color[c])) for c in COLOR_ORDER)
+        + " |"
+    )
+    for cat in all_rem_cats:
+        counts = [
+            str(sum(1 for d in rem_by_color[c] if cat in d["removal_cats"]))
+            for c in COLOR_ORDER
+        ]
+        w(f"| {cat} | " + " | ".join(counts) + " |")
     w("")
 
+    # Removal by rarity -- transposed: categories as rows, rarities as columns
     w("### Removal Count by Rarity")
     w("")
-    header = "| Rarity | Total | " + " | ".join(all_rem_cats) + " |"
-    sep = "|--------|-------|" + "|".join("---" for _ in all_rem_cats) + "|"
-    w(header)
-    w(sep)
-    for rarity in RARITY_ORDER:
-        subset = [d for d in removal_cards if d["rarity"] == rarity]
-        if not subset:
-            continue
-        rname = RARITY_DISPLAY.get(rarity, rarity)
-        cat_counts = []
-        for cat in all_rem_cats:
-            cnt = sum(1 for d in subset if cat in d["removal_cats"])
-            cat_counts.append(str(cnt))
-        w(f"| {rname} | {len(subset)} | " + " | ".join(cat_counts) + " |")
+    w("| Category | " + " | ".join(rar_hdr) + " |")
+    w("|----------|" + "|".join("---" for _ in RARITY_ORDER) + "|")
+    w(
+        "| **Total** | "
+        + " | ".join(str(len(rem_by_rar[r])) for r in RARITY_ORDER)
+        + " |"
+    )
+    for cat in all_rem_cats:
+        counts = [
+            str(sum(1 for d in rem_by_rar[r] if cat in d["removal_cats"]))
+            for r in RARITY_ORDER
+        ]
+        w(f"| {cat} | " + " | ".join(counts) + " |")
     w("")
 
     w("### Full Removal List by Color")
@@ -640,7 +637,7 @@ def build_report(cards):
         subset = [d for d in removal_cards if d["color"] == color]
         if not subset:
             continue
-        cname = COLOR_NAMES.get(color, color)
+        cname = COLOR_NAMES.get(color, color) if color in COLOR_NAMES else color
         w(f"#### {cname}")
         w("")
         w("| Card | Rarity | CMC | Type | Categories |")
@@ -673,43 +670,54 @@ def build_report(cards):
 
     trick_cards = [d for d in card_data if d["trick_cats"]]
 
+    all_trick_cats = sorted(set(cat for d in trick_cards for cat in d["trick_cats"]))
+    trick_by_color = {
+        c: [d for d in trick_cards if d["color"] == c] for c in COLOR_ORDER
+    }
+    trick_by_rar = {
+        r: [d for d in trick_cards if d["rarity"] == r] for r in RARITY_ORDER
+    }
+
+    # By color -- transposed: categories as rows, colors as columns
     w("### Combat Trick Count by Color")
     w("")
-    all_trick_cats = sorted(set(cat for d in trick_cards for cat in d["trick_cats"]))
     if all_trick_cats:
-        header = "| Color | Total | " + " | ".join(all_trick_cats) + " |"
-        sep = "|-------|-------|" + "|".join("---" for _ in all_trick_cats) + "|"
-        w(header)
-        w(sep)
-        for color in COLOR_ORDER:
-            subset = [d for d in trick_cards if d["color"] == color]
-            if not subset:
-                continue
-            cname = COLOR_NAMES.get(color, color)
-            cat_counts = []
-            for cat in all_trick_cats:
-                cnt = sum(1 for d in subset if cat in d["trick_cats"])
-                cat_counts.append(str(cnt))
-            w(f"| {cname} | {len(subset)} | " + " | ".join(cat_counts) + " |")
+        active_colors = [c for c in COLOR_ORDER if trick_by_color[c]]
+        active_hdr = [COLOR_SHORT[c] for c in active_colors]
+        w("| Category | " + " | ".join(active_hdr) + " |")
+        w("|----------|" + "|".join("---" for _ in active_colors) + "|")
+        w(
+            "| **Total** | "
+            + " | ".join(str(len(trick_by_color[c])) for c in active_colors)
+            + " |"
+        )
+        for cat in all_trick_cats:
+            counts = [
+                str(sum(1 for d in trick_by_color[c] if cat in d["trick_cats"]))
+                for c in active_colors
+            ]
+            w(f"| {cat} | " + " | ".join(counts) + " |")
         w("")
 
+    # By rarity -- transposed
     w("### Combat Trick Count by Rarity")
     w("")
     if all_trick_cats:
-        header = "| Rarity | Total | " + " | ".join(all_trick_cats) + " |"
-        sep = "|--------|-------|" + "|".join("---" for _ in all_trick_cats) + "|"
-        w(header)
-        w(sep)
-        for rarity in RARITY_ORDER:
-            subset = [d for d in trick_cards if d["rarity"] == rarity]
-            if not subset:
-                continue
-            rname = RARITY_DISPLAY.get(rarity, rarity)
-            cat_counts = []
-            for cat in all_trick_cats:
-                cnt = sum(1 for d in subset if cat in d["trick_cats"])
-                cat_counts.append(str(cnt))
-            w(f"| {rname} | {len(subset)} | " + " | ".join(cat_counts) + " |")
+        active_rars = [r for r in RARITY_ORDER if trick_by_rar[r]]
+        active_rhdr = [RARITY_SHORT[r] for r in active_rars]
+        w("| Category | " + " | ".join(active_rhdr) + " |")
+        w("|----------|" + "|".join("---" for _ in active_rars) + "|")
+        w(
+            "| **Total** | "
+            + " | ".join(str(len(trick_by_rar[r])) for r in active_rars)
+            + " |"
+        )
+        for cat in all_trick_cats:
+            counts = [
+                str(sum(1 for d in trick_by_rar[r] if cat in d["trick_cats"]))
+                for r in active_rars
+            ]
+            w(f"| {cat} | " + " | ".join(counts) + " |")
         w("")
 
     w("### Full Combat Tricks List")
@@ -723,12 +731,11 @@ def build_report(cards):
             x["cmc"],
         ),
     ):
-        cname = COLOR_NAMES.get(d["color"], d["color"])
+        cshort = COLOR_SHORT.get(d["color"], d["color"])
         cats = ", ".join(d["trick_cats"])
-        rarity_char = d["rarity"][0].upper()
+        rarity_char = RARITY_SHORT[d["rarity"]]
         # Extract a short effect summary from oracle text
         ot = d["oracle_text"]
-        # Find the key effect line
         summary = ""
         for line in ot.split("\n"):
             if any(
@@ -748,7 +755,7 @@ def build_report(cards):
             summary = ot[:80]
         summary = summary.replace("|", "/")
         w(
-            f"| {d['linked_name']} | {cname} | {rarity_char} | {d['cmc']:.0f} | {cats} | {summary} |"
+            f"| {d['linked_name']} | {cshort} | {rarity_char} | {d['cmc']:.0f} | {cats} | {summary} |"
         )
     w("")
 
@@ -812,9 +819,9 @@ def build_report(cards):
     w("| Card | Color | CMC | Categories |")
     w("|------|-------|-----|------------|")
     for d in sorted(common_removal, key=lambda x: x["cmc"]):
-        cname = COLOR_NAMES.get(d["color"], d["color"])
+        cshort = COLOR_SHORT.get(d["color"], d["color"])
         cats = ", ".join(d["removal_cats"])
-        w(f"| {d['linked_name']} | {cname} | {d['cmc']:.0f} | {cats} |")
+        w(f"| {d['linked_name']} | {cshort} | {d['cmc']:.0f} | {cats} |")
     w("")
 
     w("### Common Combat Tricks")
@@ -823,9 +830,9 @@ def build_report(cards):
     w("| Card | Color | CMC | Categories |")
     w("|------|-------|-----|------------|")
     for d in sorted(common_tricks, key=lambda x: x["cmc"]):
-        cname = COLOR_NAMES.get(d["color"], d["color"])
+        cshort = COLOR_SHORT.get(d["color"], d["color"])
         cats = ", ".join(d["trick_cats"])
-        w(f"| {d['linked_name']} | {cname} | {d['cmc']:.0f} | {cats} |")
+        w(f"| {d['linked_name']} | {cshort} | {d['cmc']:.0f} | {cats} |")
     w("")
 
     w("### Uncommon Removal")
@@ -834,9 +841,9 @@ def build_report(cards):
     w("| Card | Color | CMC | Categories |")
     w("|------|-------|-----|------------|")
     for d in sorted(unc_removal, key=lambda x: x["cmc"]):
-        cname = COLOR_NAMES.get(d["color"], d["color"])
+        cshort = COLOR_SHORT.get(d["color"], d["color"])
         cats = ", ".join(d["removal_cats"])
-        w(f"| {d['linked_name']} | {cname} | {d['cmc']:.0f} | {cats} |")
+        w(f"| {d['linked_name']} | {cshort} | {d['cmc']:.0f} | {cats} |")
     w("")
 
     report_content = "\n".join(lines) + "\n"

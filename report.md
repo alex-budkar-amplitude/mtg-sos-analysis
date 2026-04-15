@@ -50,87 +50,103 @@ td:nth-child(1) .card-preview {
 
 ### Card Count by Color
 
-| Color | Total | Creatures | Instants | Sorceries | Enchantments | Artifacts | Planeswalkers | Lands |
-|-------|-------|-----------|----------|-----------|--------------|-----------|---------------|-------|
-| White | 33 | 18 | 7 | 11 | 2 | 0 | 0 | 1 |
-| Blue | 35 | 17 | 16 | 9 | 0 | 0 | 0 | 1 |
-| Black | 35 | 19 | 6 | 15 | 0 | 0 | 1 | 1 |
-| Red | 33 | 17 | 6 | 13 | 1 | 1 | 0 | 1 |
-| Green | 33 | 18 | 5 | 11 | 2 | 0 | 0 | 1 |
-| Multicolor | 87 | 42 | 13 | 23 | 0 | 4 | 1 | 10 |
-| Colorless | 15 | 7 | 0 | 1 | 0 | 6 | 0 | 4 |
+| Type | W | U | B | R | G | MC | NC |
+|------|---|---|---|---|---|---|---|
+| Total | 33 | 35 | 35 | 33 | 33 | 87 | 15 |
+| Creatures | 18 | 17 | 19 | 17 | 18 | 42 | 7 |
+| Instants | 7 | 16 | 6 | 6 | 5 | 13 | 0 |
+| Sorceries | 11 | 9 | 15 | 13 | 11 | 23 | 1 |
+| Enchantments | 2 | 0 | 0 | 1 | 2 | 0 | 0 |
+| Artifacts | 0 | 0 | 0 | 1 | 0 | 4 | 6 |
+| Planeswalkers | 0 | 0 | 1 | 0 | 0 | 1 | 0 |
+| Lands | 1 | 1 | 1 | 1 | 1 | 10 | 4 |
 
 ### Card Count by Rarity
 
-| Rarity | Total | Creatures | Instants | Sorceries | Enchantments | Artifacts |
-|--------|-------|-----------|----------|-----------|--------------|-----------|
-| Common | 91 | 45 | 19 | 24 | 0 | 4 |
-| Uncommon | 100 | 53 | 21 | 32 | 4 | 4 |
-| Rare | 60 | 29 | 10 | 18 | 1 | 3 |
-| Mythic | 20 | 11 | 3 | 9 | 0 | 0 |
+| Type | C | U | R | M |
+|------|---|---|---|---|
+| Total | 91 | 100 | 60 | 20 |
+| Creatures | 45 | 53 | 29 | 11 |
+| Instants | 19 | 21 | 10 | 3 |
+| Sorceries | 24 | 32 | 18 | 9 |
+| Enchantments | 0 | 4 | 1 | 0 |
+| Artifacts | 4 | 4 | 3 | 0 |
+| Planeswalkers | 0 | 0 | 0 | 2 |
+| Lands | 11 | 1 | 7 | 0 |
 
 ### Color x Rarity Matrix
 
-| Color | Common | Uncommon | Rare | Mythic | Total |
-|-------|------|------|------|------|-------|
-| White | 13 | 12 | 6 | 2 | 33 |
-| Blue | 13 | 12 | 7 | 3 | 35 |
-| Black | 13 | 12 | 6 | 4 | 35 |
-| Red | 13 | 12 | 6 | 2 | 33 |
-| Green | 13 | 12 | 6 | 2 | 33 |
-| Multicolor | 20 | 35 | 26 | 6 | 87 |
-| Colorless | 6 | 5 | 3 | 1 | 15 |
+| Color | C | U | R | M | Total |
+|-------|---|---|---|---|-------|
+| W | 13 | 12 | 6 | 2 | 33 |
+| U | 13 | 12 | 7 | 3 | 35 |
+| B | 13 | 12 | 6 | 4 | 35 |
+| R | 13 | 12 | 6 | 2 | 33 |
+| G | 13 | 12 | 6 | 2 | 33 |
+| MC | 20 | 35 | 26 | 6 | 87 |
+| NC | 6 | 5 | 3 | 1 | 15 |
 
 ---
-## 2. Mana Curve by Color
+## 2. Mana Curve
 
-| Color | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8+ | Avg CMC |
-|-------|---|---|---|---|---|---|---|---|---|---------|
-| White | 0 | 6 | 9 | 9 | 4 | 3 | 0 | 1 | 0 | 2.78 |
-| Blue | 0 | 7 | 8 | 9 | 4 | 3 | 2 | 1 | 0 | 2.94 |
-| Black | 0 | 4 | 8 | 11 | 5 | 5 | 1 | 0 | 0 | 3.06 |
-| Red | 0 | 4 | 8 | 9 | 3 | 5 | 2 | 1 | 0 | 3.22 |
-| Green | 0 | 5 | 9 | 8 | 6 | 3 | 1 | 0 | 0 | 2.88 |
-| Multicolor | 0 | 0 | 24 | 18 | 19 | 7 | 4 | 4 | 1 | 3.55 |
-| Colorless | 0 | 0 | 3 | 2 | 1 | 1 | 2 | 1 | 1 | 4.55 |
+### By Color
 
-### Mana Curve by Rarity
+| CMC | W | U | B | R | G | MC | NC |
+|-----|---|---|---|---|---|---|---|
+| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 1 | 6 | 7 | 4 | 4 | 5 | 0 | 0 |
+| 2 | 9 | 8 | 8 | 8 | 9 | 24 | 3 |
+| 3 | 9 | 9 | 11 | 9 | 8 | 18 | 2 |
+| 4 | 4 | 4 | 5 | 3 | 6 | 19 | 1 |
+| 5 | 3 | 3 | 5 | 5 | 3 | 7 | 1 |
+| 6 | 0 | 2 | 1 | 2 | 1 | 4 | 2 |
+| 7 | 1 | 1 | 0 | 1 | 0 | 4 | 1 |
+| 8+ | 0 | 0 | 0 | 0 | 0 | 1 | 1 |
+| **Avg** | 2.8 | 2.9 | 3.1 | 3.2 | 2.9 | 3.5 | 4.5 |
 
-| Rarity | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8+ | Avg CMC |
-|-------|---|---|---|---|---|---|---|---|---|---------|
-| Common | 0 | 11 | 25 | 20 | 12 | 9 | 2 | 1 | 0 | 2.91 |
-| Uncommon | 0 | 9 | 30 | 24 | 17 | 12 | 6 | 1 | 0 | 3.15 |
-| Rare | 0 | 6 | 12 | 18 | 10 | 2 | 2 | 3 | 0 | 3.15 |
-| Mythic | 0 | 0 | 2 | 4 | 3 | 4 | 2 | 3 | 2 | 4.95 |
+### By Rarity
+
+| CMC | C | U | R | M |
+|-----|---|---|---|---|
+| 0 | 0 | 0 | 0 | 0 |
+| 1 | 11 | 9 | 6 | 0 |
+| 2 | 25 | 30 | 12 | 2 |
+| 3 | 20 | 24 | 18 | 4 |
+| 4 | 12 | 17 | 10 | 3 |
+| 5 | 9 | 12 | 2 | 4 |
+| 6 | 2 | 6 | 2 | 2 |
+| 7 | 1 | 1 | 3 | 3 |
+| 8+ | 0 | 0 | 0 | 2 |
+| **Avg** | 2.9 | 3.2 | 3.2 | 5.0 |
 
 ---
 ## 3. Creature Analysis
 
 ### Creature Stats by Color
 
-| Color | Count | Avg P | Avg T | Avg CMC | With Keywords |
-|-------|-------|-------|-------|---------|---------------|
-| White | 18 | 2.4 | 2.6 | 2.9 | 16 |
-| Blue | 17 | 1.7 | 2.5 | 2.9 | 14 |
-| Black | 19 | 2.9 | 2.7 | 3.2 | 17 |
-| Red | 17 | 2.7 | 3.0 | 3.5 | 15 |
-| Green | 18 | 2.6 | 2.9 | 2.8 | 14 |
-| Multicolor | 42 | 2.9 | 3.4 | 3.6 | 30 |
-| Colorless | 7 | 3.3 | 3.6 | 5.1 | 6 |
+| Color | Count | Avg P | Avg T | Avg CMC | Keywords |
+|-------|-------|-------|-------|---------|----------|
+| W | 18 | 2.4 | 2.6 | 2.9 | 16 |
+| U | 17 | 1.7 | 2.5 | 2.9 | 14 |
+| B | 19 | 2.9 | 2.7 | 3.2 | 17 |
+| R | 17 | 2.7 | 3.0 | 3.5 | 15 |
+| G | 18 | 2.6 | 2.9 | 2.8 | 14 |
+| MC | 42 | 2.9 | 3.4 | 3.6 | 30 |
+| NC | 7 | 3.3 | 3.6 | 5.1 | 6 |
 
 ### Creature Stats by Rarity
 
 | Rarity | Count | Avg P | Avg T | Avg CMC |
 |--------|-------|-------|-------|---------|
-| Common | 45 | 2.4 | 2.6 | 3.1 |
-| Uncommon | 53 | 2.6 | 3.0 | 3.4 |
-| Rare | 29 | 2.3 | 2.8 | 2.8 |
-| Mythic | 11 | 4.7 | 4.7 | 5.2 |
+| C | 45 | 2.4 | 2.6 | 3.1 |
+| U | 53 | 2.6 | 3.0 | 3.4 |
+| R | 29 | 2.3 | 2.8 | 2.8 |
+| M | 11 | 4.7 | 4.7 | 5.2 |
 
 ### Keyword Frequency (Creatures)
 
-| Keyword | Total | W | U | B | R | G | Multi | C'less |
-|---------|-------|---|---|---|---|---|-------|--------|
+| Keyword | Total | W | U | B | R | G | MC | NC |
+|---------|-------|---|---|---|---|---|---|---|
 | Flying | 30 | 8 | 5 | 4 | 1 | 0 | 12 | 0 |
 | Trample | 15 | 0 | 0 | 1 | 2 | 5 | 6 | 1 |
 | Vigilance | 12 | 4 | 1 | 0 | 0 | 2 | 4 | 1 |
@@ -149,24 +165,41 @@ td:nth-child(1) .card-preview {
 
 ### Removal Count by Color
 
-| Color | Total | -X/-X | Bite | Board Wipe | Bounce | Bounce (Library) | Conditional Destroy | Counter | Damage | Destroy | Edict | Exile | Fight | Tap/Stun |
-|-------|-------|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| White | 7 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 3 | 0 | 2 | 0 | 1 |
-| Blue | 8 | 0 | 0 | 0 | 1 | 1 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 3 |
-| Black | 6 | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 1 | 0 | 0 |
-| Red | 10 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 10 | 0 | 0 | 0 | 0 | 0 |
-| Green | 3 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 3 | 0 | 0 | 0 | 1 | 0 |
-| Multicolor | 15 | 0 | 0 | 0 | 1 | 0 | 1 | 1 | 6 | 2 | 1 | 2 | 0 | 1 |
-| Colorless | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 0 |
+| Category | W | U | B | R | G | MC | NC |
+|----------|---|---|---|---|---|---|---|
+| **Total** | 7 | 8 | 6 | 10 | 3 | 15 | 2 |
+| -X/-X | 0 | 0 | 2 | 0 | 0 | 0 | 0 |
+| Bite | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
+| Board Wipe | 0 | 0 | 1 | 0 | 0 | 0 | 0 |
+| Bounce | 0 | 1 | 0 | 0 | 0 | 1 | 0 |
+| Bounce (Library) | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| Conditional Destroy | 1 | 0 | 0 | 0 | 0 | 1 | 0 |
+| Counter | 0 | 3 | 0 | 0 | 0 | 1 | 0 |
+| Damage | 0 | 0 | 0 | 10 | 3 | 6 | 1 |
+| Destroy | 3 | 0 | 1 | 0 | 0 | 2 | 0 |
+| Edict | 0 | 0 | 1 | 0 | 0 | 1 | 0 |
+| Exile | 2 | 0 | 1 | 0 | 0 | 2 | 1 |
+| Fight | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
+| Tap/Stun | 1 | 3 | 0 | 0 | 0 | 1 | 0 |
 
 ### Removal Count by Rarity
 
-| Rarity | Total | -X/-X | Bite | Board Wipe | Bounce | Bounce (Library) | Conditional Destroy | Counter | Damage | Destroy | Edict | Exile | Fight | Tap/Stun |
-|--------|-------|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Common | 17 | 1 | 1 | 0 | 1 | 1 | 0 | 1 | 7 | 1 | 0 | 1 | 0 | 4 |
-| Uncommon | 21 | 1 | 0 | 0 | 1 | 0 | 2 | 2 | 7 | 2 | 2 | 3 | 1 | 1 |
-| Rare | 9 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 5 | 2 | 0 | 1 | 0 | 0 |
-| Mythic | 4 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 1 | 0 | 0 |
+| Category | C | U | R | M |
+|----------|---|---|---|---|
+| **Total** | 17 | 21 | 9 | 4 |
+| -X/-X | 1 | 1 | 0 | 0 |
+| Bite | 1 | 0 | 0 | 0 |
+| Board Wipe | 0 | 0 | 0 | 1 |
+| Bounce | 1 | 1 | 0 | 0 |
+| Bounce (Library) | 1 | 0 | 0 | 0 |
+| Conditional Destroy | 0 | 2 | 0 | 0 |
+| Counter | 1 | 2 | 1 | 0 |
+| Damage | 7 | 7 | 5 | 1 |
+| Destroy | 1 | 2 | 2 | 1 |
+| Edict | 0 | 2 | 0 | 0 |
+| Exile | 1 | 3 | 1 | 1 |
+| Fight | 0 | 1 | 0 | 0 |
+| Tap/Stun | 4 | 1 | 0 | 0 |
 
 ### Full Removal List by Color
 
@@ -261,41 +294,55 @@ td:nth-child(1) .card-preview {
 
 ### Combat Trick Count by Color
 
-| Color | Total | Counters | Falter | Grants First Strike | Grants Flying | Grants Hexproof | Grants Indestructible | Grants Trample | P/T Buff | P/T Buff (Team) | Protection |
-|-------|-------|---|---|---|---|---|---|---|---|---|---|
-| White | 1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
-| Blue | 3 | 1 | 0 | 0 | 1 | 1 | 0 | 0 | 1 | 0 | 1 |
-| Black | 3 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 3 | 0 | 1 |
-| Red | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Green | 3 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 0 |
-| Multicolor | 2 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 1 | 0 |
+| Category | W | U | B | R | G | MC |
+|----------|---|---|---|---|---|---|
+| **Total** | 1 | 3 | 3 | 1 | 3 | 2 |
+| Counters | 0 | 1 | 0 | 0 | 1 | 1 |
+| Falter | 0 | 0 | 0 | 1 | 0 | 0 |
+| Grants First Strike | 1 | 0 | 0 | 0 | 0 | 0 |
+| Grants Flying | 0 | 1 | 0 | 0 | 0 | 0 |
+| Grants Hexproof | 0 | 1 | 0 | 0 | 0 | 0 |
+| Grants Indestructible | 0 | 0 | 1 | 0 | 0 | 0 |
+| Grants Trample | 0 | 0 | 0 | 0 | 1 | 1 |
+| P/T Buff | 1 | 1 | 3 | 0 | 2 | 0 |
+| P/T Buff (Team) | 0 | 0 | 0 | 0 | 0 | 1 |
+| Protection | 0 | 1 | 1 | 0 | 0 | 0 |
 
 ### Combat Trick Count by Rarity
 
-| Rarity | Total | Counters | Falter | Grants First Strike | Grants Flying | Grants Hexproof | Grants Indestructible | Grants Trample | P/T Buff | P/T Buff (Team) | Protection |
-|--------|-------|---|---|---|---|---|---|---|---|---|---|
-| Common | 5 | 1 | 0 | 1 | 0 | 1 | 1 | 1 | 4 | 0 | 2 |
-| Uncommon | 8 | 2 | 1 | 0 | 1 | 0 | 0 | 1 | 3 | 1 | 0 |
+| Category | C | U |
+|----------|---|---|
+| **Total** | 5 | 8 |
+| Counters | 1 | 2 |
+| Falter | 0 | 1 |
+| Grants First Strike | 1 | 0 |
+| Grants Flying | 0 | 1 |
+| Grants Hexproof | 1 | 0 |
+| Grants Indestructible | 1 | 0 |
+| Grants Trample | 1 | 1 |
+| P/T Buff | 4 | 3 |
+| P/T Buff (Team) | 0 | 1 |
+| Protection | 2 | 0 |
 
 ### Full Combat Tricks List
 
 | Card | Color | Rarity | CMC | Categories | Effect Summary |
 |------|-------|--------|-----|------------|----------------|
-| <a href="https://scryfall.com/card/sos/22/interjection" class="card-link" target="_blank">Interjection<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/5/0534cff6-299c-4155-b318-eb7581989e8a.jpg?1775937061" alt="Interjection"></span></a> | White | C | 1 | Grants First Strike, P/T Buff | target creature gets +2/+2 and gains first strike until end of turn. |
-| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | Blue | C | 1 | Protection, P/T Buff, Grants Hexproof | target creature you control gets +0/+3 and gains hexproof until end of turn. (it |
-| <a href="https://scryfall.com/card/sos/50/fractal-anomaly" class="card-link" target="_blank">Fractal Anomaly<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/1/e1975a61-aef0-49a6-a6d6-c3a37e2e2b22.jpg?1775937257" alt="Fractal Anomaly"></span></a> | Blue | U | 1 | Counters | create a 0/0 green and blue fractal creature token and put x +1/+1 counters on i |
-| <a href="https://scryfall.com/card/sos/46/encouraging-aviator-jump" class="card-link" target="_blank">Encouraging Aviator // Jump<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/2/72654b84-9902-41db-92ab-a3499c31221c.jpg?1775937230" alt="Encouraging Aviator // Jump"></span></a> | Blue | U | 3 | Grants Flying | target creature gains flying until end of turn. |
-| <a href="https://scryfall.com/card/sos/79/dissection-practice" class="card-link" target="_blank">Dissection Practice<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/d/ddbf1242-6832-475e-9a77-65dd9b4bb32a.jpg?1775937462" alt="Dissection Practice"></span></a> | Black | U | 1 | P/T Buff | up to one target creature gets +1/+1 until end of turn. |
-| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | Black | C | 1 | P/T Buff, Protection, Grants Indestructible | target creature you control gets +1/+0 and gains indestructible until end of tur |
-| <a href="https://scryfall.com/card/sos/96/rabid-attack" class="card-link" target="_blank">Rabid Attack<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/5/f5e67560-3135-4b27-a344-5859edf8bcd9.jpg?1775937579" alt="Rabid Attack"></span></a> | Black | U | 2 | P/T Buff | until end of turn, any number of target creatures you control each get +1/+0 and |
-| <a href="https://scryfall.com/card/sos/112/duel-tactics" class="card-link" target="_blank">Duel Tactics<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/f/8f3a1675-0cc7-4dfd-a12e-4740a2cf81e8.jpg?1775937718" alt="Duel Tactics"></span></a> | Red | U | 1 | Falter | duel tactics deals 1 damage to target creature. it can't block this turn. |
-| <a href="https://scryfall.com/card/sos/141/burrog-barrage" class="card-link" target="_blank">Burrog Barrage<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/5/95d5b0a8-2b66-418e-9e5e-ecf7b304c31e.jpg?1775937957" alt="Burrog Barrage"></span></a> | Green | C | 2 | P/T Buff | target creature you control gets +1/+0 until end of turn if you've cast another  |
-| <a href="https://scryfall.com/card/sos/153/lumarets-favor" class="card-link" target="_blank">Lumaret's Favor<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/c/5/c5e7c856-8b71-44e6-8998-0b0b3ff0ef99.jpg?1775938045" alt="Lumaret's Favor"></span></a> | Green | U | 2 | P/T Buff | target creature gets +2/+4 until end of turn. |
-| <a href="https://scryfall.com/card/sos/144/efflorescence" class="card-link" target="_blank">Efflorescence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79b9ace7-eceb-4f97-9ee7-d5ee3e0b3515.jpg?1775937979" alt="Efflorescence"></span></a> | Green | C | 3 | Counters, Grants Trample | put two +1/+1 counters on target creature. |
-| <a href="https://scryfall.com/card/sos/200/lorehold-charm" class="card-link" target="_blank">Lorehold Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/f/5fe70295-e550-4577-a341-dab6c25aabfd.jpg?1775938389" alt="Lorehold Charm"></span></a> | Multicolor | U | 2 | P/T Buff (Team), Grants Trample | choose one —
+| <a href="https://scryfall.com/card/sos/22/interjection" class="card-link" target="_blank">Interjection<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/5/0534cff6-299c-4155-b318-eb7581989e8a.jpg?1775937061" alt="Interjection"></span></a> | W | C | 1 | Grants First Strike, P/T Buff | target creature gets +2/+2 and gains first strike until end of turn. |
+| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | U | C | 1 | Protection, Grants Hexproof, P/T Buff | target creature you control gets +0/+3 and gains hexproof until end of turn. (it |
+| <a href="https://scryfall.com/card/sos/50/fractal-anomaly" class="card-link" target="_blank">Fractal Anomaly<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/1/e1975a61-aef0-49a6-a6d6-c3a37e2e2b22.jpg?1775937257" alt="Fractal Anomaly"></span></a> | U | U | 1 | Counters | create a 0/0 green and blue fractal creature token and put x +1/+1 counters on i |
+| <a href="https://scryfall.com/card/sos/46/encouraging-aviator-jump" class="card-link" target="_blank">Encouraging Aviator // Jump<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/2/72654b84-9902-41db-92ab-a3499c31221c.jpg?1775937230" alt="Encouraging Aviator // Jump"></span></a> | U | U | 3 | Grants Flying | target creature gains flying until end of turn. |
+| <a href="https://scryfall.com/card/sos/79/dissection-practice" class="card-link" target="_blank">Dissection Practice<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/d/ddbf1242-6832-475e-9a77-65dd9b4bb32a.jpg?1775937462" alt="Dissection Practice"></span></a> | B | U | 1 | P/T Buff | up to one target creature gets +1/+1 until end of turn. |
+| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | B | C | 1 | Grants Indestructible, Protection, P/T Buff | target creature you control gets +1/+0 and gains indestructible until end of tur |
+| <a href="https://scryfall.com/card/sos/96/rabid-attack" class="card-link" target="_blank">Rabid Attack<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/5/f5e67560-3135-4b27-a344-5859edf8bcd9.jpg?1775937579" alt="Rabid Attack"></span></a> | B | U | 2 | P/T Buff | until end of turn, any number of target creatures you control each get +1/+0 and |
+| <a href="https://scryfall.com/card/sos/112/duel-tactics" class="card-link" target="_blank">Duel Tactics<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/f/8f3a1675-0cc7-4dfd-a12e-4740a2cf81e8.jpg?1775937718" alt="Duel Tactics"></span></a> | R | U | 1 | Falter | duel tactics deals 1 damage to target creature. it can't block this turn. |
+| <a href="https://scryfall.com/card/sos/141/burrog-barrage" class="card-link" target="_blank">Burrog Barrage<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/5/95d5b0a8-2b66-418e-9e5e-ecf7b304c31e.jpg?1775937957" alt="Burrog Barrage"></span></a> | G | C | 2 | P/T Buff | target creature you control gets +1/+0 until end of turn if you've cast another  |
+| <a href="https://scryfall.com/card/sos/153/lumarets-favor" class="card-link" target="_blank">Lumaret's Favor<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/c/5/c5e7c856-8b71-44e6-8998-0b0b3ff0ef99.jpg?1775938045" alt="Lumaret's Favor"></span></a> | G | U | 2 | P/T Buff | target creature gets +2/+4 until end of turn. |
+| <a href="https://scryfall.com/card/sos/144/efflorescence" class="card-link" target="_blank">Efflorescence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79b9ace7-eceb-4f97-9ee7-d5ee3e0b3515.jpg?1775937979" alt="Efflorescence"></span></a> | G | C | 3 | Grants Trample, Counters | put two +1/+1 counters on target creature. |
+| <a href="https://scryfall.com/card/sos/200/lorehold-charm" class="card-link" target="_blank">Lorehold Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/f/5fe70295-e550-4577-a341-dab6c25aabfd.jpg?1775938389" alt="Lorehold Charm"></span></a> | MC | U | 2 | Grants Trample, P/T Buff (Team) | choose one —
 • each opponent sacrifices a nontoken artifact of their choice.
 • r |
-| <a href="https://scryfall.com/card/sos/225/silverquill-charm" class="card-link" target="_blank">Silverquill Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/e/3eb73579-f1c6-4762-81d2-9568ab501fac.jpg?1775938570" alt="Silverquill Charm"></span></a> | Multicolor | U | 2 | Counters | • put two +1/+1 counters on target creature. |
+| <a href="https://scryfall.com/card/sos/225/silverquill-charm" class="card-link" target="_blank">Silverquill Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/e/3eb73579-f1c6-4762-81d2-9568ab501fac.jpg?1775938570" alt="Silverquill Charm"></span></a> | MC | U | 2 | Counters | • put two +1/+1 counters on target creature. |
 
 ---
 ## 6. Set Mechanics
@@ -359,57 +406,57 @@ These uncommon gold cards hint at supported archetypes.
 
 | Card | Color | CMC | Categories |
 |------|-------|-----|------------|
-| <a href="https://scryfall.com/card/sos/64/procrastinate" class="card-link" target="_blank">Procrastinate<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/e/1edb449d-620f-4e21-9d76-2c840635eb9d.jpg?1775937356" alt="Procrastinate"></span></a> | Blue | 1 | Tap/Stun |
-| <a href="https://scryfall.com/card/sos/28/rapier-wit" class="card-link" target="_blank">Rapier Wit<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/7/97b50521-5a0f-4dbd-8e15-f0f0d059c258.jpg?1775937109" alt="Rapier Wit"></span></a> | White | 2 | Tap/Stun |
-| <a href="https://scryfall.com/card/sos/38/banishing-betrayal" class="card-link" target="_blank">Banishing Betrayal<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/a/1ae9d2f3-7a9f-433a-aa1f-14337ae6f9d4.jpg?1775937176" alt="Banishing Betrayal"></span></a> | Blue | 2 | Bounce |
-| <a href="https://scryfall.com/card/sos/47/essence-scatter" class="card-link" target="_blank">Essence Scatter<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/2/32840097-0531-4c43-b6a8-e76c17420b04.jpg?1775937236" alt="Essence Scatter"></span></a> | Blue | 2 | Counter |
-| <a href="https://scryfall.com/card/sos/86/last-gasp" class="card-link" target="_blank">Last Gasp<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/a/da5f3729-6ec7-4482-90cb-83b973edeae4.jpg?1775937510" alt="Last Gasp"></span></a> | Black | 2 | -X/-X |
-| <a href="https://scryfall.com/card/sos/135/tome-blast" class="card-link" target="_blank">Tome Blast<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/2/72a3b17d-1e00-48e9-8402-c81bacd595a7.jpg?1775937914" alt="Tome Blast"></span></a> | Red | 2 | Damage |
-| <a href="https://scryfall.com/card/sos/141/burrog-barrage" class="card-link" target="_blank">Burrog Barrage<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/5/95d5b0a8-2b66-418e-9e5e-ecf7b304c31e.jpg?1775937957" alt="Burrog Barrage"></span></a> | Green | 2 | Damage, Bite |
-| <a href="https://scryfall.com/card/sos/150/glorious-decay" class="card-link" target="_blank">Glorious Decay<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/3/a335f396-1004-4fee-842a-a35ff6ba17f2.jpg?1775938023" alt="Glorious Decay"></span></a> | Green | 2 | Damage |
-| <a href="https://scryfall.com/card/sos/42/deluge-virtuoso" class="card-link" target="_blank">Deluge Virtuoso<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/2/e/2e3b16ed-8727-48fd-8b1f-c0cbd329385e.jpg?1775937202" alt="Deluge Virtuoso"></span></a> | Blue | 3 | Tap/Stun |
-| <a href="https://scryfall.com/card/sos/128/rubble-rouser" class="card-link" target="_blank">Rubble Rouser<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/f/afe61957-a9bb-42b0-98e8-b5fa418cbaff.jpg?1775937860" alt="Rubble Rouser"></span></a> | Red | 3 | Damage |
-| <a href="https://scryfall.com/card/sos/136/unsubtle-mockery" class="card-link" target="_blank">Unsubtle Mockery<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/2/b/2b7cb1a3-761e-470e-a164-6e29dd9448cd.jpg?1775937921" alt="Unsubtle Mockery"></span></a> | Red | 3 | Damage |
-| <a href="https://scryfall.com/card/sos/66/run-behind" class="card-link" target="_blank">Run Behind<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/4/0/40ecc34b-4cd0-4998-bbf4-7faa6fd3d7e0.jpg?1775937369" alt="Run Behind"></span></a> | Blue | 4 | Bounce (Library) |
-| <a href="https://scryfall.com/card/sos/104/wander-off" class="card-link" target="_blank">Wander Off<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/d/3d409512-50b9-4a38-91b0-19ba25227992.jpg?1775937643" alt="Wander Off"></span></a> | Black | 4 | Exile |
-| <a href="https://scryfall.com/card/sos/243/wilt-in-the-heat" class="card-link" target="_blank">Wilt in the Heat<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/6/f63f7209-fc0f-400c-8076-125f3131cb32.jpg?1775938697" alt="Wilt in the Heat"></span></a> | Multicolor | 4 | Damage |
-| <a href="https://scryfall.com/card/sos/6/ajanis-response" class="card-link" target="_blank">Ajani's Response<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/c/9cd1417a-badc-4abd-a8ca-5b31f85c1072.jpg?1776047920" alt="Ajani's Response"></span></a> | White | 5 | Destroy |
-| <a href="https://scryfall.com/card/sos/118/heated-argument" class="card-link" target="_blank">Heated Argument<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/0/0038d212-3d95-4f98-8c2e-7b2404d0ced7.jpg?1775937767" alt="Heated Argument"></span></a> | Red | 5 | Damage |
-| <a href="https://scryfall.com/card/sos/189/fractal-mascot" class="card-link" target="_blank">Fractal Mascot<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/c/f/cf5b19e3-eed1-4b36-9756-660ffb3baa08.jpg?1775938311" alt="Fractal Mascot"></span></a> | Multicolor | 6 | Tap/Stun |
+| <a href="https://scryfall.com/card/sos/64/procrastinate" class="card-link" target="_blank">Procrastinate<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/e/1edb449d-620f-4e21-9d76-2c840635eb9d.jpg?1775937356" alt="Procrastinate"></span></a> | U | 1 | Tap/Stun |
+| <a href="https://scryfall.com/card/sos/28/rapier-wit" class="card-link" target="_blank">Rapier Wit<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/7/97b50521-5a0f-4dbd-8e15-f0f0d059c258.jpg?1775937109" alt="Rapier Wit"></span></a> | W | 2 | Tap/Stun |
+| <a href="https://scryfall.com/card/sos/38/banishing-betrayal" class="card-link" target="_blank">Banishing Betrayal<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/a/1ae9d2f3-7a9f-433a-aa1f-14337ae6f9d4.jpg?1775937176" alt="Banishing Betrayal"></span></a> | U | 2 | Bounce |
+| <a href="https://scryfall.com/card/sos/47/essence-scatter" class="card-link" target="_blank">Essence Scatter<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/2/32840097-0531-4c43-b6a8-e76c17420b04.jpg?1775937236" alt="Essence Scatter"></span></a> | U | 2 | Counter |
+| <a href="https://scryfall.com/card/sos/86/last-gasp" class="card-link" target="_blank">Last Gasp<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/a/da5f3729-6ec7-4482-90cb-83b973edeae4.jpg?1775937510" alt="Last Gasp"></span></a> | B | 2 | -X/-X |
+| <a href="https://scryfall.com/card/sos/135/tome-blast" class="card-link" target="_blank">Tome Blast<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/2/72a3b17d-1e00-48e9-8402-c81bacd595a7.jpg?1775937914" alt="Tome Blast"></span></a> | R | 2 | Damage |
+| <a href="https://scryfall.com/card/sos/141/burrog-barrage" class="card-link" target="_blank">Burrog Barrage<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/5/95d5b0a8-2b66-418e-9e5e-ecf7b304c31e.jpg?1775937957" alt="Burrog Barrage"></span></a> | G | 2 | Damage, Bite |
+| <a href="https://scryfall.com/card/sos/150/glorious-decay" class="card-link" target="_blank">Glorious Decay<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/3/a335f396-1004-4fee-842a-a35ff6ba17f2.jpg?1775938023" alt="Glorious Decay"></span></a> | G | 2 | Damage |
+| <a href="https://scryfall.com/card/sos/42/deluge-virtuoso" class="card-link" target="_blank">Deluge Virtuoso<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/2/e/2e3b16ed-8727-48fd-8b1f-c0cbd329385e.jpg?1775937202" alt="Deluge Virtuoso"></span></a> | U | 3 | Tap/Stun |
+| <a href="https://scryfall.com/card/sos/128/rubble-rouser" class="card-link" target="_blank">Rubble Rouser<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/f/afe61957-a9bb-42b0-98e8-b5fa418cbaff.jpg?1775937860" alt="Rubble Rouser"></span></a> | R | 3 | Damage |
+| <a href="https://scryfall.com/card/sos/136/unsubtle-mockery" class="card-link" target="_blank">Unsubtle Mockery<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/2/b/2b7cb1a3-761e-470e-a164-6e29dd9448cd.jpg?1775937921" alt="Unsubtle Mockery"></span></a> | R | 3 | Damage |
+| <a href="https://scryfall.com/card/sos/66/run-behind" class="card-link" target="_blank">Run Behind<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/4/0/40ecc34b-4cd0-4998-bbf4-7faa6fd3d7e0.jpg?1775937369" alt="Run Behind"></span></a> | U | 4 | Bounce (Library) |
+| <a href="https://scryfall.com/card/sos/104/wander-off" class="card-link" target="_blank">Wander Off<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/d/3d409512-50b9-4a38-91b0-19ba25227992.jpg?1775937643" alt="Wander Off"></span></a> | B | 4 | Exile |
+| <a href="https://scryfall.com/card/sos/243/wilt-in-the-heat" class="card-link" target="_blank">Wilt in the Heat<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/6/f63f7209-fc0f-400c-8076-125f3131cb32.jpg?1775938697" alt="Wilt in the Heat"></span></a> | MC | 4 | Damage |
+| <a href="https://scryfall.com/card/sos/6/ajanis-response" class="card-link" target="_blank">Ajani's Response<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/c/9cd1417a-badc-4abd-a8ca-5b31f85c1072.jpg?1776047920" alt="Ajani's Response"></span></a> | W | 5 | Destroy |
+| <a href="https://scryfall.com/card/sos/118/heated-argument" class="card-link" target="_blank">Heated Argument<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/0/0038d212-3d95-4f98-8c2e-7b2404d0ced7.jpg?1775937767" alt="Heated Argument"></span></a> | R | 5 | Damage |
+| <a href="https://scryfall.com/card/sos/189/fractal-mascot" class="card-link" target="_blank">Fractal Mascot<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/c/f/cf5b19e3-eed1-4b36-9756-660ffb3baa08.jpg?1775938311" alt="Fractal Mascot"></span></a> | MC | 6 | Tap/Stun |
 
 ### Common Combat Tricks
 
 | Card | Color | CMC | Categories |
 |------|-------|-----|------------|
-| <a href="https://scryfall.com/card/sos/22/interjection" class="card-link" target="_blank">Interjection<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/5/0534cff6-299c-4155-b318-eb7581989e8a.jpg?1775937061" alt="Interjection"></span></a> | White | 1 | Grants First Strike, P/T Buff |
-| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | Blue | 1 | Protection, P/T Buff, Grants Hexproof |
-| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | Black | 1 | P/T Buff, Protection, Grants Indestructible |
-| <a href="https://scryfall.com/card/sos/141/burrog-barrage" class="card-link" target="_blank">Burrog Barrage<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/5/95d5b0a8-2b66-418e-9e5e-ecf7b304c31e.jpg?1775937957" alt="Burrog Barrage"></span></a> | Green | 2 | P/T Buff |
-| <a href="https://scryfall.com/card/sos/144/efflorescence" class="card-link" target="_blank">Efflorescence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79b9ace7-eceb-4f97-9ee7-d5ee3e0b3515.jpg?1775937979" alt="Efflorescence"></span></a> | Green | 3 | Counters, Grants Trample |
+| <a href="https://scryfall.com/card/sos/22/interjection" class="card-link" target="_blank">Interjection<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/5/0534cff6-299c-4155-b318-eb7581989e8a.jpg?1775937061" alt="Interjection"></span></a> | W | 1 | Grants First Strike, P/T Buff |
+| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | U | 1 | Protection, Grants Hexproof, P/T Buff |
+| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | B | 1 | Grants Indestructible, Protection, P/T Buff |
+| <a href="https://scryfall.com/card/sos/141/burrog-barrage" class="card-link" target="_blank">Burrog Barrage<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/5/95d5b0a8-2b66-418e-9e5e-ecf7b304c31e.jpg?1775937957" alt="Burrog Barrage"></span></a> | G | 2 | P/T Buff |
+| <a href="https://scryfall.com/card/sos/144/efflorescence" class="card-link" target="_blank">Efflorescence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79b9ace7-eceb-4f97-9ee7-d5ee3e0b3515.jpg?1775937979" alt="Efflorescence"></span></a> | G | 3 | Grants Trample, Counters |
 
 ### Uncommon Removal
 
 | Card | Color | CMC | Categories |
 |------|-------|-----|------------|
-| <a href="https://scryfall.com/card/sos/9/daydream" class="card-link" target="_blank">Daydream<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/2/e2b16cb2-b8b2-45df-9695-3c16e9d89e28.jpg?1775936973" alt="Daydream"></span></a> | White | 1 | Exile |
-| <a href="https://scryfall.com/card/sos/79/dissection-practice" class="card-link" target="_blank">Dissection Practice<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/d/ddbf1242-6832-475e-9a77-65dd9b4bb32a.jpg?1775937462" alt="Dissection Practice"></span></a> | Black | 1 | -X/-X |
-| <a href="https://scryfall.com/card/sos/112/duel-tactics" class="card-link" target="_blank">Duel Tactics<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/f/8f3a1675-0cc7-4dfd-a12e-4740a2cf81e8.jpg?1775937718" alt="Duel Tactics"></span></a> | Red | 1 | Damage |
-| <a href="https://scryfall.com/card/sos/18/harsh-annotation" class="card-link" target="_blank">Harsh Annotation<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/0/e07a8fc7-c11c-4469-a31d-0abf40e57bbf.jpg?1775937033" alt="Harsh Annotation"></span></a> | White | 2 | Destroy |
-| <a href="https://scryfall.com/card/sos/81/end-of-the-hunt" class="card-link" target="_blank">End of the Hunt<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/8/0809b51a-6a05-4f18-9bf4-1b8382da648f.jpg?1775937476" alt="End of the Hunt"></span></a> | Black | 2 | Edict |
-| <a href="https://scryfall.com/card/sos/134/thunderdrum-soloist" class="card-link" target="_blank">Thunderdrum Soloist<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/9/590d1d95-ed13-4121-899f-f5a2d8a6617a.jpg?1775937905" alt="Thunderdrum Soloist"></span></a> | Red | 2 | Damage |
-| <a href="https://scryfall.com/card/sos/200/lorehold-charm" class="card-link" target="_blank">Lorehold Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/f/5fe70295-e550-4577-a341-dab6c25aabfd.jpg?1775938389" alt="Lorehold Charm"></span></a> | Multicolor | 2 | Edict |
-| <a href="https://scryfall.com/card/sos/211/prismari-charm" class="card-link" target="_blank">Prismari Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/f/8f6c2a5e-fe13-407c-aadd-c9caf2884ff1.jpg?1775938465" alt="Prismari Charm"></span></a> | Multicolor | 2 | Bounce |
-| <a href="https://scryfall.com/card/sos/217/quandrix-charm" class="card-link" target="_blank">Quandrix Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/1/318486e0-f255-40f5-8150-dc272eec9d7d.jpg?1775938509" alt="Quandrix Charm"></span></a> | Multicolor | 2 | Counter |
-| <a href="https://scryfall.com/card/sos/225/silverquill-charm" class="card-link" target="_blank">Silverquill Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/e/3eb73579-f1c6-4762-81d2-9568ab501fac.jpg?1775938570" alt="Silverquill Charm"></span></a> | Multicolor | 2 | Exile |
-| <a href="https://scryfall.com/card/sos/240/vibrant-outburst" class="card-link" target="_blank">Vibrant Outburst<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/9/f9ba68ef-6efc-4249-8b74-e33f47173902.jpg?1775938674" alt="Vibrant Outburst"></span></a> | Multicolor | 2 | Damage |
-| <a href="https://scryfall.com/card/sos/244/witherbloom-charm" class="card-link" target="_blank">Witherbloom Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/2/5/254437f7-7a8a-4b11-9cea-e8e7ea23c59e.jpg?1775938703" alt="Witherbloom Charm"></span></a> | Multicolor | 2 | Conditional Destroy |
-| <a href="https://scryfall.com/card/sos/34/stand-up-for-yourself" class="card-link" target="_blank">Stand Up for Yourself<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/7/b756ca13-b904-4510-9bbb-5bc2864abfbd.jpg?1775937151" alt="Stand Up for Yourself"></span></a> | White | 3 | Conditional Destroy |
-| <a href="https://scryfall.com/card/sos/83/foolish-fate" class="card-link" target="_blank">Foolish Fate<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/2/d278f4c9-d20b-4a76-8c5c-4d3e985948b9.jpg?1775937489" alt="Foolish Fate"></span></a> | Black | 3 | Destroy |
-| <a href="https://scryfall.com/card/sos/142/chelonian-tackle" class="card-link" target="_blank">Chelonian Tackle<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/8/a82a4d8c-4105-4923-85a2-ef58241f725c.jpg?1775937964" alt="Chelonian Tackle"></span></a> | Green | 3 | Damage, Fight |
-| <a href="https://scryfall.com/card/sos/39/brush-off" class="card-link" target="_blank">Brush Off<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/5/151eab82-d20f-433b-b3bb-1d44e2871d5c.jpg?1775937183" alt="Brush Off"></span></a> | Blue | 4 | Counter |
-| <a href="https://scryfall.com/card/sos/107/archaics-agony" class="card-link" target="_blank">Archaic's Agony<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d99f8b2-5c1c-4059-bf68-c6b2e9e5b275.jpg?1775937675" alt="Archaic's Agony"></span></a> | Red | 5 | Damage |
-| <a href="https://scryfall.com/card/sos/108/artistic-process" class="card-link" target="_blank">Artistic Process<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/c/bce9d933-be58-4301-beb4-07b04d0b69f0.jpg?1775937683" alt="Artistic Process"></span></a> | Red | 5 | Damage |
-| <a href="https://scryfall.com/card/sos/3/sundering-archaic" class="card-link" target="_blank">Sundering Archaic<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/c/3/c35b57e4-2358-46c0-8f09-cd27c10eaf2d.jpg?1775936933" alt="Sundering Archaic"></span></a> | Colorless | 6 | Exile |
-| <a href="https://scryfall.com/card/sos/53/homesickness" class="card-link" target="_blank">Homesickness<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/e/6e4a1f82-b0b1-4608-91f8-130bee731435.jpg?1775937280" alt="Homesickness"></span></a> | Blue | 6 | Tap/Stun |
-| <a href="https://scryfall.com/card/sos/181/colossus-of-the-blood-age" class="card-link" target="_blank">Colossus of the Blood Age<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/f/bfa7f0a4-6b65-4e53-ba00-848df260d8e3.jpg?1775938248" alt="Colossus of the Blood Age"></span></a> | Multicolor | 6 | Damage |
+| <a href="https://scryfall.com/card/sos/9/daydream" class="card-link" target="_blank">Daydream<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/2/e2b16cb2-b8b2-45df-9695-3c16e9d89e28.jpg?1775936973" alt="Daydream"></span></a> | W | 1 | Exile |
+| <a href="https://scryfall.com/card/sos/79/dissection-practice" class="card-link" target="_blank">Dissection Practice<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/d/ddbf1242-6832-475e-9a77-65dd9b4bb32a.jpg?1775937462" alt="Dissection Practice"></span></a> | B | 1 | -X/-X |
+| <a href="https://scryfall.com/card/sos/112/duel-tactics" class="card-link" target="_blank">Duel Tactics<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/f/8f3a1675-0cc7-4dfd-a12e-4740a2cf81e8.jpg?1775937718" alt="Duel Tactics"></span></a> | R | 1 | Damage |
+| <a href="https://scryfall.com/card/sos/18/harsh-annotation" class="card-link" target="_blank">Harsh Annotation<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/0/e07a8fc7-c11c-4469-a31d-0abf40e57bbf.jpg?1775937033" alt="Harsh Annotation"></span></a> | W | 2 | Destroy |
+| <a href="https://scryfall.com/card/sos/81/end-of-the-hunt" class="card-link" target="_blank">End of the Hunt<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/8/0809b51a-6a05-4f18-9bf4-1b8382da648f.jpg?1775937476" alt="End of the Hunt"></span></a> | B | 2 | Edict |
+| <a href="https://scryfall.com/card/sos/134/thunderdrum-soloist" class="card-link" target="_blank">Thunderdrum Soloist<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/9/590d1d95-ed13-4121-899f-f5a2d8a6617a.jpg?1775937905" alt="Thunderdrum Soloist"></span></a> | R | 2 | Damage |
+| <a href="https://scryfall.com/card/sos/200/lorehold-charm" class="card-link" target="_blank">Lorehold Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/f/5fe70295-e550-4577-a341-dab6c25aabfd.jpg?1775938389" alt="Lorehold Charm"></span></a> | MC | 2 | Edict |
+| <a href="https://scryfall.com/card/sos/211/prismari-charm" class="card-link" target="_blank">Prismari Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/f/8f6c2a5e-fe13-407c-aadd-c9caf2884ff1.jpg?1775938465" alt="Prismari Charm"></span></a> | MC | 2 | Bounce |
+| <a href="https://scryfall.com/card/sos/217/quandrix-charm" class="card-link" target="_blank">Quandrix Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/1/318486e0-f255-40f5-8150-dc272eec9d7d.jpg?1775938509" alt="Quandrix Charm"></span></a> | MC | 2 | Counter |
+| <a href="https://scryfall.com/card/sos/225/silverquill-charm" class="card-link" target="_blank">Silverquill Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/e/3eb73579-f1c6-4762-81d2-9568ab501fac.jpg?1775938570" alt="Silverquill Charm"></span></a> | MC | 2 | Exile |
+| <a href="https://scryfall.com/card/sos/240/vibrant-outburst" class="card-link" target="_blank">Vibrant Outburst<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/9/f9ba68ef-6efc-4249-8b74-e33f47173902.jpg?1775938674" alt="Vibrant Outburst"></span></a> | MC | 2 | Damage |
+| <a href="https://scryfall.com/card/sos/244/witherbloom-charm" class="card-link" target="_blank">Witherbloom Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/2/5/254437f7-7a8a-4b11-9cea-e8e7ea23c59e.jpg?1775938703" alt="Witherbloom Charm"></span></a> | MC | 2 | Conditional Destroy |
+| <a href="https://scryfall.com/card/sos/34/stand-up-for-yourself" class="card-link" target="_blank">Stand Up for Yourself<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/7/b756ca13-b904-4510-9bbb-5bc2864abfbd.jpg?1775937151" alt="Stand Up for Yourself"></span></a> | W | 3 | Conditional Destroy |
+| <a href="https://scryfall.com/card/sos/83/foolish-fate" class="card-link" target="_blank">Foolish Fate<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/2/d278f4c9-d20b-4a76-8c5c-4d3e985948b9.jpg?1775937489" alt="Foolish Fate"></span></a> | B | 3 | Destroy |
+| <a href="https://scryfall.com/card/sos/142/chelonian-tackle" class="card-link" target="_blank">Chelonian Tackle<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/8/a82a4d8c-4105-4923-85a2-ef58241f725c.jpg?1775937964" alt="Chelonian Tackle"></span></a> | G | 3 | Damage, Fight |
+| <a href="https://scryfall.com/card/sos/39/brush-off" class="card-link" target="_blank">Brush Off<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/5/151eab82-d20f-433b-b3bb-1d44e2871d5c.jpg?1775937183" alt="Brush Off"></span></a> | U | 4 | Counter |
+| <a href="https://scryfall.com/card/sos/107/archaics-agony" class="card-link" target="_blank">Archaic's Agony<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d99f8b2-5c1c-4059-bf68-c6b2e9e5b275.jpg?1775937675" alt="Archaic's Agony"></span></a> | R | 5 | Damage |
+| <a href="https://scryfall.com/card/sos/108/artistic-process" class="card-link" target="_blank">Artistic Process<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/c/bce9d933-be58-4301-beb4-07b04d0b69f0.jpg?1775937683" alt="Artistic Process"></span></a> | R | 5 | Damage |
+| <a href="https://scryfall.com/card/sos/3/sundering-archaic" class="card-link" target="_blank">Sundering Archaic<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/c/3/c35b57e4-2358-46c0-8f09-cd27c10eaf2d.jpg?1775936933" alt="Sundering Archaic"></span></a> | NC | 6 | Exile |
+| <a href="https://scryfall.com/card/sos/53/homesickness" class="card-link" target="_blank">Homesickness<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/e/6e4a1f82-b0b1-4608-91f8-130bee731435.jpg?1775937280" alt="Homesickness"></span></a> | U | 6 | Tap/Stun |
+| <a href="https://scryfall.com/card/sos/181/colossus-of-the-blood-age" class="card-link" target="_blank">Colossus of the Blood Age<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/f/bfa7f0a4-6b65-4e53-ba00-848df260d8e3.jpg?1775938248" alt="Colossus of the Blood Age"></span></a> | MC | 6 | Damage |
 
