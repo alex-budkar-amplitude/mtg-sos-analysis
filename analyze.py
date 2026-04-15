@@ -492,18 +492,53 @@ def classify_card_draw(card):
     """Classify card draw/selection effects.
 
     Categories:
-      Card Advantage (2+) -- net positive: draw 2+ cards, or look at N put 2+ in hand
-      Loot                -- draw then discard
-      Rummage             -- discard then draw
-      Selection           -- surveil, scry, look at top N put 1 in hand, draw 1 with no discard
+      Card Advantage (2+)  -- net positive: draw 2+ cards, or look at N put 2+ in hand
+      Loot                 -- draw then discard
+      Rummage              -- discard then draw
+      Replacement          -- draw 1 as a rider on another primary effect (damage, removal,
+                             keyword grant, creature trigger, etc.)
+      Selection            -- surveil, scry, look at top N put 1 in hand (no other primary)
 
     A card can have multiple categories (e.g. a modal spell with one mode that loots and
     another that gives card advantage).
-    Cards that only draw 1 with no other filter go in Selection (neutral).
     """
     ot = get_oracle_text(card)
     otl = ot.lower()
+    tl = get_type_line(card)
     cats = set()
+
+    # ── Detect primary non-draw effects ──
+    PRIMARY_EFFECTS = [
+        r"deals? \d+ damage",
+        r"deals? x damage",
+        r"destroy target",
+        r"exile target",
+        r"counter target",
+        r"gains? \+\d+/",
+        r"gets? \+\d+/",
+        r"gains? (flying|trample|vigilance|lifelink|deathtouch|hexproof|indestructible|first strike|haste|menace)",
+        r"return target.{0,30}hand",
+        r"create.{0,20}token",
+        r"put.{0,20}\+1/\+1 counter",
+        r"you gain \d+ life",
+        r"tap target",
+        r"stun counter",
+        r"(each player|each opponent) loses",
+    ]
+    has_primary = any(re.search(pat, otl) for pat in PRIMARY_EFFECTS)
+
+    # Triggered draw on creature ("whenever X, draw a card")
+    is_creature = "creature" in tl.lower()
+    has_triggered_single_draw = bool(
+        re.search(r"(whenever|when ).{0,100}draw (a|one) card", otl)
+        and not re.search(
+            r"(whenever|when ).{0,100}draw[s]? (\d*[2-9]|x|two) card", otl
+        )
+    )
+    # Activated ability draw on non-land ("t}: draw a card")
+    has_activated_single_draw = bool(
+        re.search(r"\{[^}]+\}.{0,20}:.*draw (a|one) card", otl)
+    )
 
     # ── Pure draw counts ──
     # "draw 2 cards", "draw X cards", "draw 2^X cards" (Mathemagics)
@@ -574,7 +609,17 @@ def classify_card_draw(card):
     elif multi_draw:
         cats.add("Card Advantage (2+)")
     elif single_draw:
-        cats.add("Selection")  # draw 1 = neutral
+        # Is the draw a rider on a primary effect, or a triggered/activated ability
+        # on a creature/artifact? → Replacement
+        is_replacement = (
+            has_primary  # non-draw primary effect on same card
+            or has_triggered_single_draw  # triggered draw ("whenever X, draw a card")
+            or has_activated_single_draw  # activated ability draws 1
+        )
+        if is_replacement:
+            cats.add("Replacement")
+        else:
+            cats.add("Selection")  # pure draw-1 spell with no other primary effect
 
     # Exclude lands (Surveil lands are lands first, not draw cards)
     tl = get_type_line(card)
@@ -1351,18 +1396,27 @@ def build_report(cards):
     w(
         "**Card Advantage (2+)** = net positive (draws 2+, or looks at N puts 2+ in hand).  "
     )
-    w(
-        "**Selection** = net neutral card quality (draw 1, Surveil, Scry, Impulse/look put 1).  "
-    )
     w("**Loot** = draw then discard.  ")
     w("**Rummage** = discard then draw.  ")
+    w(
+        "**Replacement** = draw 1 as a rider on a primary effect (damage, removal, keyword grant, creature trigger, activated ability).  "
+    )
+    w(
+        "**Selection** = the draw IS the primary effect: Surveil, Scry, Impulse (look at top N, put 1 in hand).  "
+    )
     w("")
 
     draw_cards = [d for d in card_data if d["draw_cats"]]
     draw_by_color = {c: [d for d in draw_cards if d["color"] == c] for c in COLOR_ORDER}
     draw_by_rar = {r: [d for d in draw_cards if d["rarity"] == r] for r in RARITY_ORDER}
 
-    DRAW_CAT_ORDER = ["Card Advantage (2+)", "Loot", "Rummage", "Selection"]
+    DRAW_CAT_ORDER = [
+        "Card Advantage (2+)",
+        "Loot",
+        "Rummage",
+        "Replacement",
+        "Selection",
+    ]
 
     # Summary by color
     w("### Card Draw by Color")
