@@ -172,11 +172,10 @@ def card_link(name, scryfall_uri, image_url):
     return f'<a href="{scryfall_uri}" target="_blank">{name}</a>'
 
 
-# CSS for hover card previews
+# CSS + JS for hover card previews
 HOVER_CSS = """\
 <style>
 .card-link {
-  position: relative;
   text-decoration: none;
   border-bottom: 1px dotted #666;
   color: inherit;
@@ -185,32 +184,55 @@ HOVER_CSS = """\
 .card-link:hover {
   color: #1a6baa;
 }
+/* Hidden inline span -- the image is positioned by JS */
 .card-preview {
   display: none;
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  padding: 4px;
+}
+#card-hover-img {
+  display: none;
+  position: fixed;
+  z-index: 10000;
   pointer-events: none;
-}
-.card-link:hover .card-preview {
-  display: block;
-}
-.card-preview img {
   width: 244px;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.4);
 }
-/* Keep preview in viewport */
-td:first-child .card-preview,
-td:nth-child(1) .card-preview {
-  left: 0;
-  transform: translateX(0);
-}
 </style>
+
+<img id="card-hover-img" src="" alt="">
+
+<script>
+(function() {
+  var img = document.getElementById('card-hover-img');
+  document.addEventListener('mouseover', function(e) {
+    var link = e.target.closest('.card-link');
+    if (!link) return;
+    var preview = link.querySelector('.card-preview img');
+    if (!preview) return;
+    img.src = preview.src;
+    img.style.display = 'block';
+  });
+  document.addEventListener('mouseout', function(e) {
+    var link = e.target.closest('.card-link');
+    if (link) {
+      img.style.display = 'none';
+      img.src = '';
+    }
+  });
+  document.addEventListener('mousemove', function(e) {
+    if (img.style.display !== 'block') return;
+    var x = e.clientX + 16;
+    var y = e.clientY - 180;
+    // Keep within viewport
+    if (x + 260 > window.innerWidth) x = e.clientX - 260;
+    if (y < 4) y = 4;
+    if (y + 340 > window.innerHeight) y = window.innerHeight - 344;
+    img.style.left = x + 'px';
+    img.style.top = y + 'px';
+  });
+})();
+</script>
 """
 
 
