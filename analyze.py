@@ -380,8 +380,22 @@ def classify_removal_and_burn(card):
         removal.append(f"Board Wipe ({wipe_debuff.group(1)})")
 
     # ── Exile ──
+    # Blink (exile + return immediately or end of turn) is NOT removal.
+    # Exile until source leaves the battlefield IS removal.
+    # Permanent exile IS removal.
+    is_blink = bool(
+        re.search(
+            r"exile.*(target|another|up to one).*(creature|permanent).*return (that|it|the exiled|those)",
+            ot,
+            re.DOTALL,
+        )
+    )
+    is_exile_until_leaves = bool(re.search(r"exile.*until .* leaves", ot))
     if re.search(r"exile target (creature|permanent|nonland permanent)", ot):
-        removal.append("Exile")
+        if is_exile_until_leaves:
+            removal.append("Exile (until leaves)")
+        elif not is_blink:
+            removal.append("Exile")
 
     # ── Damage ──
     # Targets that can hit creatures/permanents
@@ -474,52 +488,61 @@ def classify_combat_trick(card):
     tl = get_type_line(card)
     categories = []
 
-    # Must be instant speed (Instant type or has Flash)
+    # ── Blink (any speed -- creature ETB, instant, sorcery) ──
+    # Exile + return immediately or at end of turn. NOT exile-until-leaves.
+    is_blink = bool(
+        re.search(
+            r"exile.*(target|another|up to one).*(creature|permanent).*return (that|it|the exiled|those)",
+            ot,
+            re.DOTALL,
+        )
+    )
+    is_exile_until_leaves = bool(re.search(r"exile.*until .* leaves", ot))
+    if is_blink and not is_exile_until_leaves:
+        categories.append("Blink")
+
+    # ── Instant-speed tricks (require instant or flash) ──
     is_instant = "instant" in tl.lower()
     has_flash = "flash" in card.get("keywords", []) or "flash" in ot
 
-    if not (is_instant or has_flash):
-        return []
+    if is_instant or has_flash:
+        # Power/toughness buff
+        if re.search(r"gets? \+\d+/\+\d+", ot) or re.search(
+            r"each get \+\d+/\+\d+", ot
+        ):
+            if re.search(r"target creature.*(gets?|each get) \+", ot):
+                categories.append("P/T Buff")
+            elif re.search(r"creatures you control (each )?get \+", ot):
+                categories.append("P/T Buff (Team)")
+            elif re.search(r"target creatures you control each get \+", ot):
+                categories.append("P/T Buff (Team)")
 
-    # Already classified as removal -- skip pure removal
-    # (some cards are both, that's fine)
+        # +1/+1 counters at instant speed
+        if re.search(r"put .* \+1/\+1 counter", ot) and is_instant:
+            categories.append("Counters")
 
-    # Power/toughness buff
-    if re.search(r"gets? \+\d+/\+\d+", ot) or re.search(r"each get \+\d+/\+\d+", ot):
-        # Check it targets own creatures (not opponent's)
-        if re.search(r"target creature.*(gets?|each get) \+", ot):
-            categories.append("P/T Buff")
-        elif re.search(r"creatures you control (each )?get \+", ot):
-            categories.append("P/T Buff (Team)")
-        elif re.search(r"target creatures you control each get \+", ot):
-            categories.append("P/T Buff (Team)")
+        # Keyword grant
+        for kw in [
+            "indestructible",
+            "hexproof",
+            "first strike",
+            "double strike",
+            "trample",
+            "flying",
+            "lifelink",
+            "protection from",
+        ]:
+            if re.search(rf"gains? {kw}", ot):
+                categories.append(f"Grants {kw.title()}")
 
-    # +1/+1 counters at instant speed
-    if re.search(r"put .* \+1/\+1 counter", ot) and is_instant:
-        categories.append("Counters")
+        # Protection / save
+        if re.search(r"gains? hexproof", ot) or re.search(r"gains? indestructible", ot):
+            if "Protection" not in categories:
+                categories.append("Protection")
 
-    # Keyword grant
-    for kw in [
-        "indestructible",
-        "hexproof",
-        "first strike",
-        "double strike",
-        "trample",
-        "flying",
-        "lifelink",
-        "protection from",
-    ]:
-        if re.search(rf"gains? {kw}", ot):
-            categories.append(f"Grants {kw.title()}")
-
-    # Protection / save
-    if re.search(r"gains? hexproof", ot) or re.search(r"gains? indestructible", ot):
-        if "Protection" not in categories:
-            categories.append("Protection")
-
-    # Falter
-    if re.search(r"can't block", ot):
-        categories.append("Falter")
+        # Falter
+        if re.search(r"can't block", ot):
+            categories.append("Falter")
 
     return list(set(categories))
 

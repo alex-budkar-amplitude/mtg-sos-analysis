@@ -558,7 +558,7 @@ layout: page
 
 | Category | W | U | B | R | G | MC | NC |
 |----------|---|---|---|---|---|---|---|
-| **Total** | 7 | 8 | 7 | 9 | 3 | 14 | 2 |
+| **Total** | 6 | 8 | 7 | 9 | 3 | 14 | 2 |
 | -X/-X | 0 | 0 | 3 | 0 | 0 | 0 | 0 |
 | Bite | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
 | Board Wipe | 0 | 0 | 1 | 0 | 0 | 0 | 0 |
@@ -569,7 +569,7 @@ layout: page
 | Damage | 0 | 0 | 0 | 9 | 3 | 5 | 1 |
 | Destroy | 3 | 0 | 1 | 0 | 0 | 2 | 0 |
 | Edict | 0 | 0 | 1 | 0 | 0 | 1 | 0 |
-| Exile | 2 | 0 | 1 | 0 | 0 | 2 | 1 |
+| Exile | 1 | 0 | 1 | 0 | 0 | 2 | 1 |
 | Fight | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
 | Tap/Stun | 1 | 3 | 0 | 0 | 0 | 1 | 0 |
 
@@ -577,7 +577,7 @@ layout: page
 
 | Category | C | U | R | M |
 |----------|---|---|---|---|
-| **Total** | 16 | 22 | 8 | 4 |
+| **Total** | 16 | 21 | 8 | 4 |
 | -X/-X | 1 | 2 | 0 | 0 |
 | Bite | 1 | 0 | 0 | 0 |
 | Board Wipe | 0 | 0 | 0 | 1 |
@@ -588,7 +588,7 @@ layout: page
 | Damage | 6 | 7 | 4 | 1 |
 | Destroy | 1 | 2 | 2 | 1 |
 | Edict | 0 | 2 | 0 | 0 |
-| Exile | 1 | 3 | 1 | 1 |
+| Exile | 1 | 2 | 1 | 1 |
 | Fight | 0 | 1 | 0 | 0 |
 | Tap/Stun | 4 | 1 | 0 | 0 |
 
@@ -598,7 +598,6 @@ layout: page
 
 | Card | P/T | Rarity | CMC | Type | Categories |
 |------|-----|--------|-----|------|------------|
-| <a href="https://scryfall.com/card/sos/9/daydream" class="card-link" target="_blank">Daydream<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/2/e2b16cb2-b8b2-45df-9695-3c16e9d89e28.jpg?1775936973" alt="Daydream"></span></a> | - | U | 1 | Sorc | Exile |
 | <a href="https://scryfall.com/card/sos/15/erode" class="card-link" target="_blank">Erode<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/2/32e670da-7563-4f6a-a7db-4c126a440eb8.jpg?1775937013" alt="Erode"></span></a> | - | R | 1 | Inst | Destroy |
 | <a href="https://scryfall.com/card/sos/18/harsh-annotation" class="card-link" target="_blank">Harsh Annotation<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/0/e07a8fc7-c11c-4469-a31d-0abf40e57bbf.jpg?1775937033" alt="Harsh Annotation"></span></a> | - | U | 2 | Inst | Destroy |
 | <a href="https://scryfall.com/card/sos/28/rapier-wit" class="card-link" target="_blank">Rapier Wit<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/7/97b50521-5a0f-4dbd-8e15-f0f0d059c258.jpg?1775937109" alt="Rapier Wit"></span></a> | - | C | 2 | Inst | Tap/Stun |
@@ -698,7 +697,8 @@ layout: page
 
 | Category | W | U | B | R | G | MC |
 |----------|---|---|---|---|---|---|
-| **Total** | 1 | 3 | 3 | 1 | 3 | 2 |
+| **Total** | 3 | 4 | 3 | 1 | 3 | 3 |
+| Blink | 2 | 1 | 0 | 0 | 0 | 1 |
 | Counters | 0 | 1 | 0 | 0 | 1 | 1 |
 | Falter | 0 | 0 | 0 | 1 | 0 | 0 |
 | Grants First Strike | 1 | 0 | 0 | 0 | 0 | 0 |
@@ -712,19 +712,20 @@ layout: page
 
 ### Combat Trick Count by Rarity
 
-| Category | C | U |
-|----------|---|---|
-| **Total** | 5 | 8 |
-| Counters | 1 | 2 |
-| Falter | 0 | 1 |
-| Grants First Strike | 1 | 0 |
-| Grants Flying | 0 | 1 |
-| Grants Hexproof | 1 | 0 |
-| Grants Indestructible | 1 | 0 |
-| Grants Trample | 1 | 1 |
-| P/T Buff | 4 | 3 |
-| P/T Buff (Team) | 0 | 1 |
-| Protection | 2 | 0 |
+| Category | C | U | R |
+|----------|---|---|---|
+| **Total** | 5 | 10 | 2 |
+| Blink | 0 | 2 | 2 |
+| Counters | 1 | 2 | 0 |
+| Falter | 0 | 1 | 0 |
+| Grants First Strike | 1 | 0 | 0 |
+| Grants Flying | 0 | 1 | 0 |
+| Grants Hexproof | 1 | 0 | 0 |
+| Grants Indestructible | 1 | 0 | 0 |
+| Grants Trample | 1 | 1 | 0 |
+| P/T Buff | 4 | 3 | 0 |
+| P/T Buff (Team) | 0 | 1 | 0 |
+| Protection | 2 | 0 | 0 |
 
 ### Full Combat Tricks List by Color
 
@@ -732,7 +733,9 @@ layout: page
 
 | Card | P/T | Rarity | CMC | Categories | Effect Summary |
 |------|-----|--------|-----|------------|----------------|
+| <a href="https://scryfall.com/card/sos/9/daydream" class="card-link" target="_blank">Daydream<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/2/e2b16cb2-b8b2-45df-9695-3c16e9d89e28.jpg?1775936973" alt="Daydream"></span></a> | - | U | 1 | Blink | exile target creature you control, then return that card to the battlefield unde |
 | <a href="https://scryfall.com/card/sos/22/interjection" class="card-link" target="_blank">Interjection<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/5/0534cff6-299c-4155-b318-eb7581989e8a.jpg?1775937061" alt="Interjection"></span></a> | - | C | 1 | Grants First Strike, P/T Buff | target creature gets +2/+2 and gains first strike until end of turn. |
+| <a href="https://scryfall.com/card/sos/14/ennis-debate-moderator" class="card-link" target="_blank">Ennis, Debate Moderator<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/2/d2ef31b4-24fa-4443-9f05-c8e99c3522e5.jpg?1775937005" alt="Ennis, Debate Moderator"></span></a> | 1/1 | U | 2 | Blink | at the beginning of your end step, if one or more cards were put into exile this |
 
 #### Blue
 
@@ -741,13 +744,14 @@ layout: page
 | <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | - | C | 1 | Grants Hexproof, P/T Buff, Protection | target creature you control gets +0/+3 and gains hexproof until end of turn. (it |
 | <a href="https://scryfall.com/card/sos/50/fractal-anomaly" class="card-link" target="_blank">Fractal Anomaly<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/1/e1975a61-aef0-49a6-a6d6-c3a37e2e2b22.jpg?1775937257" alt="Fractal Anomaly"></span></a> | - | U | 1 | Counters | create a 0/0 green and blue fractal creature token and put x +1/+1 counters on i |
 | <a href="https://scryfall.com/card/sos/46/encouraging-aviator-jump" class="card-link" target="_blank">Encouraging Aviator // Jump<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/2/72654b84-9902-41db-92ab-a3499c31221c.jpg?1775937230" alt="Encouraging Aviator // Jump"></span></a> | 2/3 | U | 3 | Grants Flying | target creature gains flying until end of turn. |
+| <a href="https://scryfall.com/card/sos/67/skycoach-conductor-all-aboard" class="card-link" target="_blank">Skycoach Conductor // All Aboard<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/4/e/4ecbca71-9a1d-44c5-b709-d6f565941d5e.jpg?1775937376" alt="Skycoach Conductor // All Aboard"></span></a> | 2/3 | R | 3 | Blink | flash flying, vigilance this creature enters prepared. (while it's prepared, you |
 
 #### Black
 
 | Card | P/T | Rarity | CMC | Categories | Effect Summary |
 |------|-----|--------|-----|------------|----------------|
 | <a href="https://scryfall.com/card/sos/79/dissection-practice" class="card-link" target="_blank">Dissection Practice<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/d/ddbf1242-6832-475e-9a77-65dd9b4bb32a.jpg?1775937462" alt="Dissection Practice"></span></a> | - | U | 1 | P/T Buff | up to one target creature gets +1/+1 until end of turn. |
-| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | - | C | 1 | P/T Buff, Protection, Grants Indestructible | target creature you control gets +1/+0 and gains indestructible until end of tur |
+| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | - | C | 1 | Protection, P/T Buff, Grants Indestructible | target creature you control gets +1/+0 and gains indestructible until end of tur |
 | <a href="https://scryfall.com/card/sos/96/rabid-attack" class="card-link" target="_blank">Rabid Attack<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/5/f5e67560-3135-4b27-a344-5859edf8bcd9.jpg?1775937579" alt="Rabid Attack"></span></a> | - | U | 2 | P/T Buff | until end of turn, any number of target creatures you control each get +1/+0 and |
 
 #### Red
@@ -768,8 +772,9 @@ layout: page
 
 | Card | P/T | Rarity | CMC | Categories | Effect Summary |
 |------|-----|--------|-----|------------|----------------|
-| <a href="https://scryfall.com/card/sos/200/lorehold-charm" class="card-link" target="_blank">Lorehold Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/f/5fe70295-e550-4577-a341-dab6c25aabfd.jpg?1775938389" alt="Lorehold Charm"></span></a> | - | U | 2 | Grants Trample, P/T Buff (Team) | creatures you control get +1/+1 and gain trample until end of turn. |
+| <a href="https://scryfall.com/card/sos/200/lorehold-charm" class="card-link" target="_blank">Lorehold Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/f/5fe70295-e550-4577-a341-dab6c25aabfd.jpg?1775938389" alt="Lorehold Charm"></span></a> | - | U | 2 | P/T Buff (Team), Grants Trample | creatures you control get +1/+1 and gain trample until end of turn. |
 | <a href="https://scryfall.com/card/sos/225/silverquill-charm" class="card-link" target="_blank">Silverquill Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/e/3eb73579-f1c6-4762-81d2-9568ab501fac.jpg?1775938570" alt="Silverquill Charm"></span></a> | - | U | 2 | Counters | put two +1/+1 counters on target creature. |
+| <a href="https://scryfall.com/card/sos/182/conciliators-duelist" class="card-link" target="_blank">Conciliator's Duelist<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/2/e225929b-6197-4550-969e-3c4a97206a68.jpg?1775938257" alt="Conciliator's Duelist"></span></a> | 4/3 | R | 4 | Blink | when this creature enters, draw a card. each player loses 1 life. repartee — whe |
 
 ---
 ## 7. Set Mechanics
@@ -856,7 +861,7 @@ These uncommon gold cards hint at supported archetypes.
 |------|-----|-------|-----|------------|
 | <a href="https://scryfall.com/card/sos/22/interjection" class="card-link" target="_blank">Interjection<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/5/0534cff6-299c-4155-b318-eb7581989e8a.jpg?1775937061" alt="Interjection"></span></a> | - | W | 1 | Grants First Strike, P/T Buff |
 | <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | - | U | 1 | Grants Hexproof, P/T Buff, Protection |
-| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | - | B | 1 | P/T Buff, Protection, Grants Indestructible |
+| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | - | B | 1 | Protection, P/T Buff, Grants Indestructible |
 | <a href="https://scryfall.com/card/sos/141/burrog-barrage" class="card-link" target="_blank">Burrog Barrage<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/5/95d5b0a8-2b66-418e-9e5e-ecf7b304c31e.jpg?1775937957" alt="Burrog Barrage"></span></a> | - | G | 2 | P/T Buff |
 | <a href="https://scryfall.com/card/sos/144/efflorescence" class="card-link" target="_blank">Efflorescence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79b9ace7-eceb-4f97-9ee7-d5ee3e0b3515.jpg?1775937979" alt="Efflorescence"></span></a> | - | G | 3 | Counters, Grants Trample |
 
@@ -864,7 +869,6 @@ These uncommon gold cards hint at supported archetypes.
 
 | Card | P/T | Color | CMC | Categories |
 |------|-----|-------|-----|------------|
-| <a href="https://scryfall.com/card/sos/9/daydream" class="card-link" target="_blank">Daydream<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/2/e2b16cb2-b8b2-45df-9695-3c16e9d89e28.jpg?1775936973" alt="Daydream"></span></a> | - | W | 1 | Exile |
 | <a href="https://scryfall.com/card/sos/79/dissection-practice" class="card-link" target="_blank">Dissection Practice<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/d/ddbf1242-6832-475e-9a77-65dd9b4bb32a.jpg?1775937462" alt="Dissection Practice"></span></a> | - | B | 1 | -1/-1 |
 | <a href="https://scryfall.com/card/sos/112/duel-tactics" class="card-link" target="_blank">Duel Tactics<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/f/8f3a1675-0cc7-4dfd-a12e-4740a2cf81e8.jpg?1775937718" alt="Duel Tactics"></span></a> | - | R | 1 | Damage: 1 |
 | <a href="https://scryfall.com/card/sos/119/impractical-joke" class="card-link" target="_blank">Impractical Joke<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/9/39a816b4-39b8-421c-b828-68db901d34b7.jpg?1775937777" alt="Impractical Joke"></span></a> | - | R | 1 | Damage: 3 |
