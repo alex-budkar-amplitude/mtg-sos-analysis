@@ -67,6 +67,30 @@ def is_standard_basic(card):
     )
 
 
+def land_mana_colors(card):
+    """Return a display string of mana colors a land can produce, e.g. 'B/G'.
+
+    Uses color_identity (which reflects mana symbols in oracle text).
+    Returns '{C}' for colorless-only producers, 'Any' for any-color lands,
+    and '-' if we can't determine.
+    """
+    ot = (card.get("oracle_text") or "").lower()
+    # Any-color lands
+    if "add one mana of any color" in ot or "add mana of any" in ot:
+        return "Any"
+    # Use color_identity -- it lists every colored mana symbol in the card text
+    ci = card.get("color_identity", [])
+    if ci:
+        return "/".join(sorted(ci))
+    # Colorless producer ({C} or generic)
+    if "{c}" in ot or "add {c}" in ot:
+        return "{C}"
+    # Fetch lands -- can get any basic
+    if "search your library for a basic land" in ot:
+        return "Fetch"
+    return "-"
+
+
 def load_cards():
     path = os.path.join(DATA_DIR, "all_cards.json")
     with open(path) as f:
@@ -1242,19 +1266,12 @@ def build_report(cards):
 
     land_cards = [d for d in card_data if d["is_land"]]
     if land_cards:
-        w("| Card | Color | Rarity | Type |")
-        w("|------|-------|--------|------|")
-        for d in sorted(
-            land_cards,
-            key=lambda x: (
-                COLOR_ORDER.index(x["color"]) if x["color"] in COLOR_ORDER else 99,
-                x["name"],
-            ),
-        ):
-            cshort = COLOR_SHORT.get(d["color"], d["color"])
+        w("| Card | Produces | Rarity |")
+        w("|------|----------|--------|")
+        for d in sorted(land_cards, key=lambda x: x["name"]):
             rarity_char = d["rarity"][0].upper()
-            tl = d["type_line"].replace("|", "/")
-            w(f"| {d['linked_name']} | {cshort} | {rarity_char} | {tl} |")
+            produces = land_mana_colors(d["card"])
+            w(f"| {d['linked_name']} | {produces} | {rarity_char} |")
         w("")
 
     # ── SECTION 11: Other Cards ──────────────────────────────────────
