@@ -117,6 +117,21 @@ def get_power_toughness(card):
         return None
 
 
+def get_pt_display(card):
+    """Return P/T as a display string like '2/3', '*/4', or '-' for non-creatures."""
+    p = card.get("power")
+    t = card.get("toughness")
+    if p is None and "card_faces" in card:
+        for face in card["card_faces"]:
+            if face.get("power") is not None:
+                p = face["power"]
+                t = face["toughness"]
+                break
+    if p is None:
+        return "-"
+    return f"{p}/{t}"
+
+
 def is_type(card, card_type):
     """Check if card has a given type (handles DFCs)."""
     tl = get_type_line(card)
@@ -383,12 +398,14 @@ def build_report(cards):
         image_url = get_image_url(c)
         name = c.get("name", "?")
         linked_name = card_link(name, scryfall_uri, image_url)
+        pt_display = get_pt_display(c)
 
         card_data.append(
             {
                 "card": c,
                 "name": name,
                 "linked_name": linked_name,
+                "pt_display": pt_display,
                 "color": color,
                 "rarity": rarity,
                 "type_line": tl,
@@ -640,12 +657,11 @@ def build_report(cards):
         cname = COLOR_NAMES.get(color, color) if color in COLOR_NAMES else color
         w(f"#### {cname}")
         w("")
-        w("| Card | Rarity | CMC | Type | Categories |")
-        w("|------|--------|-----|------|------------|")
+        w("| Card | P/T | Rarity | CMC | Type | Categories |")
+        w("|------|-----|--------|-----|------|------------|")
         for d in sorted(subset, key=lambda x: x["cmc"]):
             cats = ", ".join(d["removal_cats"])
             rarity_char = d["rarity"][0].upper()
-            # Abbreviate type
             tl = d["type_line"]
             short_type = []
             for t in [
@@ -659,7 +675,7 @@ def build_report(cards):
                 if t.lower() in tl.lower():
                     short_type.append(t[:4])
             w(
-                f"| {d['linked_name']} | {rarity_char} | {d['cmc']:.0f} | {'/'.join(short_type)} | {cats} |"
+                f"| {d['linked_name']} | {d['pt_display']} | {rarity_char} | {d['cmc']:.0f} | {'/'.join(short_type)} | {cats} |"
             )
         w("")
 
@@ -722,8 +738,8 @@ def build_report(cards):
 
     w("### Full Combat Tricks List")
     w("")
-    w("| Card | Color | Rarity | CMC | Categories | Effect Summary |")
-    w("|------|-------|--------|-----|------------|----------------|")
+    w("| Card | P/T | Color | Rarity | CMC | Categories | Effect Summary |")
+    w("|------|-----|-------|--------|-----|------------|----------------|")
     for d in sorted(
         trick_cards,
         key=lambda x: (
@@ -755,7 +771,7 @@ def build_report(cards):
             summary = ot[:80]
         summary = summary.replace("|", "/")
         w(
-            f"| {d['linked_name']} | {cshort} | {rarity_char} | {d['cmc']:.0f} | {cats} | {summary} |"
+            f"| {d['linked_name']} | {d['pt_display']} | {cshort} | {rarity_char} | {d['cmc']:.0f} | {cats} | {summary} |"
         )
     w("")
 
@@ -800,13 +816,15 @@ def build_report(cards):
     signposts = [
         d for d in card_data if d["color"] == "Multicolor" and d["rarity"] == "uncommon"
     ]
-    w("| Card | Colors | Type | CMC | Effect |")
-    w("|------|--------|------|-----|--------|")
+    w("| Card | P/T | Colors | Type | CMC | Effect |")
+    w("|------|-----|--------|------|-----|--------|")
     for d in sorted(signposts, key=lambda x: x["name"]):
         colors = ",".join(d["card"].get("colors", []))
         tl = d["type_line"].split("//")[0].strip()
         short_ot = d["oracle_text"].replace("\n", " ")[:100].replace("|", "/")
-        w(f"| {d['linked_name']} | {colors} | {tl} | {d['cmc']:.0f} | {short_ot} |")
+        w(
+            f"| {d['linked_name']} | {d['pt_display']} | {colors} | {tl} | {d['cmc']:.0f} | {short_ot} |"
+        )
     w("")
 
     # ── SECTION 8: Top Limited Picks ─────────────────────────────────
@@ -816,34 +834,40 @@ def build_report(cards):
     w("### Common Removal")
     w("")
     common_removal = [d for d in removal_cards if d["rarity"] == "common"]
-    w("| Card | Color | CMC | Categories |")
-    w("|------|-------|-----|------------|")
+    w("| Card | P/T | Color | CMC | Categories |")
+    w("|------|-----|-------|-----|------------|")
     for d in sorted(common_removal, key=lambda x: x["cmc"]):
         cshort = COLOR_SHORT.get(d["color"], d["color"])
         cats = ", ".join(d["removal_cats"])
-        w(f"| {d['linked_name']} | {cshort} | {d['cmc']:.0f} | {cats} |")
+        w(
+            f"| {d['linked_name']} | {d['pt_display']} | {cshort} | {d['cmc']:.0f} | {cats} |"
+        )
     w("")
 
     w("### Common Combat Tricks")
     w("")
     common_tricks = [d for d in trick_cards if d["rarity"] == "common"]
-    w("| Card | Color | CMC | Categories |")
-    w("|------|-------|-----|------------|")
+    w("| Card | P/T | Color | CMC | Categories |")
+    w("|------|-----|-------|-----|------------|")
     for d in sorted(common_tricks, key=lambda x: x["cmc"]):
         cshort = COLOR_SHORT.get(d["color"], d["color"])
         cats = ", ".join(d["trick_cats"])
-        w(f"| {d['linked_name']} | {cshort} | {d['cmc']:.0f} | {cats} |")
+        w(
+            f"| {d['linked_name']} | {d['pt_display']} | {cshort} | {d['cmc']:.0f} | {cats} |"
+        )
     w("")
 
     w("### Uncommon Removal")
     w("")
     unc_removal = [d for d in removal_cards if d["rarity"] == "uncommon"]
-    w("| Card | Color | CMC | Categories |")
-    w("|------|-------|-----|------------|")
+    w("| Card | P/T | Color | CMC | Categories |")
+    w("|------|-----|-------|-----|------------|")
     for d in sorted(unc_removal, key=lambda x: x["cmc"]):
         cshort = COLOR_SHORT.get(d["color"], d["color"])
         cats = ", ".join(d["removal_cats"])
-        w(f"| {d['linked_name']} | {cshort} | {d['cmc']:.0f} | {cats} |")
+        w(
+            f"| {d['linked_name']} | {d['pt_display']} | {cshort} | {d['cmc']:.0f} | {cats} |"
+        )
     w("")
 
     report_content = "\n".join(lines) + "\n"
