@@ -734,7 +734,7 @@
 
 | Card | P/T | Rarity | CMC | Categories | Effect Summary |
 |------|-----|--------|-----|------------|----------------|
-| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | - | C | 1 | Protection, Grants Hexproof, P/T Buff | target creature you control gets +0/+3 and gains hexproof until end of turn. (it |
+| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | - | C | 1 | Grants Hexproof, P/T Buff, Protection | target creature you control gets +0/+3 and gains hexproof until end of turn. (it |
 | <a href="https://scryfall.com/card/sos/50/fractal-anomaly" class="card-link" target="_blank">Fractal Anomaly<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/1/e1975a61-aef0-49a6-a6d6-c3a37e2e2b22.jpg?1775937257" alt="Fractal Anomaly"></span></a> | - | U | 1 | Counters | create a 0/0 green and blue fractal creature token and put x +1/+1 counters on i |
 | <a href="https://scryfall.com/card/sos/46/encouraging-aviator-jump" class="card-link" target="_blank">Encouraging Aviator // Jump<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/2/72654b84-9902-41db-92ab-a3499c31221c.jpg?1775937230" alt="Encouraging Aviator // Jump"></span></a> | 2/3 | U | 3 | Grants Flying | target creature gains flying until end of turn. |
 
@@ -743,7 +743,7 @@
 | Card | P/T | Rarity | CMC | Categories | Effect Summary |
 |------|-----|--------|-----|------------|----------------|
 | <a href="https://scryfall.com/card/sos/79/dissection-practice" class="card-link" target="_blank">Dissection Practice<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/d/ddbf1242-6832-475e-9a77-65dd9b4bb32a.jpg?1775937462" alt="Dissection Practice"></span></a> | - | U | 1 | P/T Buff | up to one target creature gets +1/+1 until end of turn. |
-| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | - | C | 1 | Grants Indestructible, Protection, P/T Buff | target creature you control gets +1/+0 and gains indestructible until end of tur |
+| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | - | C | 1 | P/T Buff, Protection, Grants Indestructible | target creature you control gets +1/+0 and gains indestructible until end of tur |
 | <a href="https://scryfall.com/card/sos/96/rabid-attack" class="card-link" target="_blank">Rabid Attack<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/5/f5e67560-3135-4b27-a344-5859edf8bcd9.jpg?1775937579" alt="Rabid Attack"></span></a> | - | U | 2 | P/T Buff | until end of turn, any number of target creatures you control each get +1/+0 and |
 
 #### Red
@@ -758,16 +758,14 @@
 |------|-----|--------|-----|------------|----------------|
 | <a href="https://scryfall.com/card/sos/141/burrog-barrage" class="card-link" target="_blank">Burrog Barrage<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/5/95d5b0a8-2b66-418e-9e5e-ecf7b304c31e.jpg?1775937957" alt="Burrog Barrage"></span></a> | - | C | 2 | P/T Buff | target creature you control gets +1/+0 until end of turn if you've cast another  |
 | <a href="https://scryfall.com/card/sos/153/lumarets-favor" class="card-link" target="_blank">Lumaret's Favor<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/c/5/c5e7c856-8b71-44e6-8998-0b0b3ff0ef99.jpg?1775938045" alt="Lumaret's Favor"></span></a> | - | U | 2 | P/T Buff | target creature gets +2/+4 until end of turn. |
-| <a href="https://scryfall.com/card/sos/144/efflorescence" class="card-link" target="_blank">Efflorescence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79b9ace7-eceb-4f97-9ee7-d5ee3e0b3515.jpg?1775937979" alt="Efflorescence"></span></a> | - | C | 3 | Grants Trample, Counters | put two +1/+1 counters on target creature. |
+| <a href="https://scryfall.com/card/sos/144/efflorescence" class="card-link" target="_blank">Efflorescence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79b9ace7-eceb-4f97-9ee7-d5ee3e0b3515.jpg?1775937979" alt="Efflorescence"></span></a> | - | C | 3 | Counters, Grants Trample | put two +1/+1 counters on target creature. |
 
 #### Multicolor
 
 | Card | P/T | Rarity | CMC | Categories | Effect Summary |
 |------|-----|--------|-----|------------|----------------|
-| <a href="https://scryfall.com/card/sos/200/lorehold-charm" class="card-link" target="_blank">Lorehold Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/f/5fe70295-e550-4577-a341-dab6c25aabfd.jpg?1775938389" alt="Lorehold Charm"></span></a> | - | U | 2 | Grants Trample, P/T Buff (Team) | choose one —
-• each opponent sacrifices a nontoken artifact of their choice.
-• r |
-| <a href="https://scryfall.com/card/sos/225/silverquill-charm" class="card-link" target="_blank">Silverquill Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/e/3eb73579-f1c6-4762-81d2-9568ab501fac.jpg?1775938570" alt="Silverquill Charm"></span></a> | - | U | 2 | Counters | • put two +1/+1 counters on target creature. |
+| <a href="https://scryfall.com/card/sos/200/lorehold-charm" class="card-link" target="_blank">Lorehold Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/f/5fe70295-e550-4577-a341-dab6c25aabfd.jpg?1775938389" alt="Lorehold Charm"></span></a> | - | U | 2 | Grants Trample, P/T Buff (Team) | creatures you control get +1/+1 and gain trample until end of turn. |
+| <a href="https://scryfall.com/card/sos/225/silverquill-charm" class="card-link" target="_blank">Silverquill Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/e/3eb73579-f1c6-4762-81d2-9568ab501fac.jpg?1775938570" alt="Silverquill Charm"></span></a> | - | U | 2 | Counters | put two +1/+1 counters on target creature. |
 
 ---
 ## 7. Set Mechanics
@@ -853,10 +851,10 @@ These uncommon gold cards hint at supported archetypes.
 | Card | P/T | Color | CMC | Categories |
 |------|-----|-------|-----|------------|
 | <a href="https://scryfall.com/card/sos/22/interjection" class="card-link" target="_blank">Interjection<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/5/0534cff6-299c-4155-b318-eb7581989e8a.jpg?1775937061" alt="Interjection"></span></a> | - | W | 1 | Grants First Strike, P/T Buff |
-| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | - | U | 1 | Protection, Grants Hexproof, P/T Buff |
-| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | - | B | 1 | Grants Indestructible, Protection, P/T Buff |
+| <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | - | U | 1 | Grants Hexproof, P/T Buff, Protection |
+| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | - | B | 1 | P/T Buff, Protection, Grants Indestructible |
 | <a href="https://scryfall.com/card/sos/141/burrog-barrage" class="card-link" target="_blank">Burrog Barrage<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/5/95d5b0a8-2b66-418e-9e5e-ecf7b304c31e.jpg?1775937957" alt="Burrog Barrage"></span></a> | - | G | 2 | P/T Buff |
-| <a href="https://scryfall.com/card/sos/144/efflorescence" class="card-link" target="_blank">Efflorescence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79b9ace7-eceb-4f97-9ee7-d5ee3e0b3515.jpg?1775937979" alt="Efflorescence"></span></a> | - | G | 3 | Grants Trample, Counters |
+| <a href="https://scryfall.com/card/sos/144/efflorescence" class="card-link" target="_blank">Efflorescence<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/9/79b9ace7-eceb-4f97-9ee7-d5ee3e0b3515.jpg?1775937979" alt="Efflorescence"></span></a> | - | G | 3 | Counters, Grants Trample |
 
 ### Uncommon Removal
 

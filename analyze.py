@@ -895,6 +895,7 @@ def build_report(cards):
                 pat in line
                 for pat in [
                     "gets +",
+                    "get +",
                     "gains ",
                     "+1/+1 counter",
                     "can't block",
@@ -902,8 +903,11 @@ def build_report(cards):
                     "indestructible",
                 ]
             ):
-                return line[:80].replace("|", "/")
-        return ot[:80].replace("|", "/")
+                clean = line.strip().lstrip("• ").replace("|", "/").replace("\n", " ")
+                return clean[:80]
+        # Fallback: flatten entire text, strip newlines
+        flat = ot.replace("\n", " ").replace("|", "/")
+        return flat[:80]
 
     # ── SECTION 4: Removal ───────────────────────────────────────────
     w("---")
