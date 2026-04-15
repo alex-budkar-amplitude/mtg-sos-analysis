@@ -248,6 +248,89 @@ HOVER_CSS = """\
 """
 
 
+# ── Creature ability detection ────────────────────────────────────────────
+
+EVASION_KEYWORDS = [
+    "flying",
+    "menace",
+    "trample",
+    "skulk",
+    "shadow",
+    "fear",
+    "intimidate",
+]
+
+
+def has_evasion(d):
+    """Check if creature has evasion keywords or 'can't be blocked'."""
+    kws = d["keywords"]
+    if any(k in kws for k in EVASION_KEYWORDS):
+        return True
+    if "can't be blocked" in d["oracle_text"]:
+        return True
+    return False
+
+
+def get_evasion_types(d):
+    """Return list of evasion types this creature has."""
+    types = [k.title() for k in EVASION_KEYWORDS if k in d["keywords"]]
+    if "can't be blocked" in d["oracle_text"]:
+        types.append("Unblockable")
+    return types
+
+
+def has_etb(d):
+    """Check if creature has an enters-the-battlefield trigger."""
+    ot = d["oracle_text"]
+    return bool(re.search(r"when (this creature|it) enters", ot) or "enters, " in ot)
+
+
+def get_etb_summary(d):
+    """Extract a short ETB effect summary."""
+    ot = d["card"].get("oracle_text", "") or ""
+    if "card_faces" in d["card"] and not ot:
+        ot = "\n".join(f.get("oracle_text", "") for f in d["card"]["card_faces"])
+    for line in ot.split("\n"):
+        if "enters" in line.lower() or "enter" in line.lower():
+            # Trim the "When this creature enters, " prefix for brevity
+            short = re.sub(r"^.*?enters,?\s*", "", line, flags=re.IGNORECASE)
+            return short[:90].replace("|", "/")
+    return ""
+
+
+def is_mana_producer(d):
+    """Check if creature produces mana."""
+    ot = d["oracle_text"]
+    return bool(re.search(r"add \{", ot) or "add one mana" in ot)
+
+
+def get_keyword_display(d):
+    """Return a short comma-separated list of notable keywords."""
+    kws = d["keywords"]
+    notable = [
+        k.title()
+        for k in [
+            "flying",
+            "trample",
+            "vigilance",
+            "lifelink",
+            "deathtouch",
+            "first strike",
+            "double strike",
+            "menace",
+            "reach",
+            "haste",
+            "ward",
+            "hexproof",
+            "indestructible",
+            "flash",
+            "defender",
+        ]
+        if k in kws
+    ]
+    return ", ".join(notable) if notable else "-"
+
+
 # ── Classification ───────────────────────────────────────────────────────
 
 
@@ -618,12 +701,21 @@ def build_report(cards):
     w("## 3. Creature Analysis")
     w("")
 
+    all_creatures = [d for d in card_data if d["is_creature"]]
+    creatures_by_color = {
+        c: [d for d in all_creatures if d["color"] == c] for c in COLOR_ORDER
+    }
+    creatures_by_rar = {
+        r: [d for d in all_creatures if d["rarity"] == r] for r in RARITY_ORDER
+    }
+
+    # ── 3.1 Stats summary ──
     w("### Creature Stats by Color")
     w("")
-    w("| Color | Count | Avg P | Avg T | Avg CMC | Keywords |")
-    w("|-------|-------|-------|-------|---------|----------|")
+    w("| Color | Count | Avg P | Avg T | Avg CMC | Evasion | ETB | Keywords |")
+    w("|-------|-------|-------|-------|---------|---------|-----|----------|")
     for color in COLOR_ORDER:
-        creatures = [d for d in card_data if d["color"] == color and d["is_creature"]]
+        creatures = creatures_by_color[color]
         if not creatures:
             continue
         cshort = COLOR_SHORT[color]
@@ -631,18 +723,20 @@ def build_report(cards):
         avg_p = sum(p for p, t in pts) / len(pts) if pts else 0
         avg_t = sum(t for p, t in pts) / len(pts) if pts else 0
         avg_cmc = sum(d["cmc"] for d in creatures) / len(creatures)
+        n_evasion = sum(1 for d in creatures if has_evasion(d))
+        n_etb = sum(1 for d in creatures if has_etb(d))
         with_kw = sum(1 for d in creatures if d["keywords"])
         w(
-            f"| {cshort} | {len(creatures)} | {avg_p:.1f} | {avg_t:.1f} | {avg_cmc:.1f} | {with_kw} |"
+            f"| {cshort} | {len(creatures)} | {avg_p:.1f} | {avg_t:.1f} | {avg_cmc:.1f} | {n_evasion} | {n_etb} | {with_kw} |"
         )
     w("")
 
     w("### Creature Stats by Rarity")
     w("")
-    w("| Rarity | Count | Avg P | Avg T | Avg CMC |")
-    w("|--------|-------|-------|-------|---------|")
+    w("| Rarity | Count | Avg P | Avg T | Avg CMC | Evasion | ETB |")
+    w("|--------|-------|-------|-------|---------|---------|-----|")
     for rarity in RARITY_ORDER:
-        creatures = [d for d in card_data if d["rarity"] == rarity and d["is_creature"]]
+        creatures = creatures_by_rar[rarity]
         if not creatures:
             continue
         rname = RARITY_SHORT[rarity]
@@ -650,9 +744,32 @@ def build_report(cards):
         avg_p = sum(p for p, t in pts) / len(pts) if pts else 0
         avg_t = sum(t for p, t in pts) / len(pts) if pts else 0
         avg_cmc = sum(d["cmc"] for d in creatures) / len(creatures)
-        w(f"| {rname} | {len(creatures)} | {avg_p:.1f} | {avg_t:.1f} | {avg_cmc:.1f} |")
+        n_evasion = sum(1 for d in creatures if has_evasion(d))
+        n_etb = sum(1 for d in creatures if has_etb(d))
+        w(
+            f"| {rname} | {len(creatures)} | {avg_p:.1f} | {avg_t:.1f} | {avg_cmc:.1f} | {n_evasion} | {n_etb} |"
+        )
     w("")
 
+    # ── 3.2 Creature mana curve ──
+    w("### Creature Mana Curve by Color")
+    w("")
+    cmc_labels = ["0", "1", "2", "3", "4", "5", "6", "7+"]
+    cmc_vals = list(range(8))
+
+    def cmc_bucket(cmc_val, subset):
+        if cmc_val < 7:
+            return sum(1 for d in subset if int(d["cmc"]) == cmc_val)
+        return sum(1 for d in subset if int(d["cmc"]) >= 7)
+
+    w("| CMC | " + " | ".join(col_hdr) + " |")
+    w("|-----|" + "|".join("---" for _ in COLOR_ORDER) + "|")
+    for i, label in zip(cmc_vals, cmc_labels):
+        counts = [str(cmc_bucket(i, creatures_by_color[c])) for c in COLOR_ORDER]
+        w(f"| {label} | " + " | ".join(counts) + " |")
+    w("")
+
+    # ── 3.3 Keyword Frequency ──
     w("### Keyword Frequency (Creatures)")
     w("")
     w("| Keyword | Total | " + " | ".join(col_hdr) + " |")
@@ -661,9 +778,7 @@ def build_report(cards):
         counts = []
         total = 0
         for color in COLOR_ORDER:
-            creatures = [
-                d for d in card_data if d["color"] == color and d["is_creature"]
-            ]
+            creatures = creatures_by_color[color]
             cnt = sum(
                 1 for d in creatures if kw in d["keywords"] or kw in d["oracle_text"]
             )
@@ -673,6 +788,89 @@ def build_report(cards):
             continue
         w(f"| {kw.title()} | {total} | " + " | ".join(counts) + " |")
     w("")
+
+    # ── 3.4 Full Creature List by Color ──
+    w("### Full Creature List by Color")
+    w("")
+    for color in COLOR_ORDER:
+        subset = creatures_by_color[color]
+        if not subset:
+            continue
+        cname = COLOR_NAMES.get(color, color) if color in COLOR_NAMES else color
+        w(f"#### {cname}")
+        w("")
+        w("| Card | P/T | CMC | Rarity | Keywords |")
+        w("|------|-----|-----|--------|----------|")
+        for d in sorted(subset, key=lambda x: (x["cmc"], x["name"])):
+            rarity_char = d["rarity"][0].upper()
+            kws = get_keyword_display(d)
+            w(
+                f"| {d['linked_name']} | {d['pt_display']} | {d['cmc']:.0f} | {rarity_char} | {kws} |"
+            )
+        w("")
+
+    # ── 3.5 Evasion Creatures ──
+    w("### Evasion Creatures")
+    w("")
+    w("*Creatures with flying, menace, trample, or that can't be blocked.*")
+    w("")
+    evasion_creatures = [d for d in all_creatures if has_evasion(d)]
+    for color in COLOR_ORDER:
+        subset = [d for d in evasion_creatures if d["color"] == color]
+        if not subset:
+            continue
+        cname = COLOR_NAMES.get(color, color) if color in COLOR_NAMES else color
+        w(f"#### {cname}")
+        w("")
+        w("| Card | P/T | CMC | Rarity | Evasion |")
+        w("|------|-----|-----|--------|---------|")
+        for d in sorted(subset, key=lambda x: x["cmc"]):
+            rarity_char = d["rarity"][0].upper()
+            ev = ", ".join(get_evasion_types(d))
+            w(
+                f"| {d['linked_name']} | {d['pt_display']} | {d['cmc']:.0f} | {rarity_char} | {ev} |"
+            )
+        w("")
+
+    # ── 3.6 ETB Creatures ──
+    w("### ETB Creatures (Enters-the-Battlefield)")
+    w("")
+    w("*Creatures with enters-the-battlefield triggers -- key for limited value.*")
+    w("")
+    etb_creatures = [d for d in all_creatures if has_etb(d)]
+    for color in COLOR_ORDER:
+        subset = [d for d in etb_creatures if d["color"] == color]
+        if not subset:
+            continue
+        cname = COLOR_NAMES.get(color, color) if color in COLOR_NAMES else color
+        w(f"#### {cname}")
+        w("")
+        w("| Card | P/T | CMC | Rarity | ETB Effect |")
+        w("|------|-----|-----|--------|------------|")
+        for d in sorted(subset, key=lambda x: x["cmc"]):
+            rarity_char = d["rarity"][0].upper()
+            etb_eff = get_etb_summary(d)
+            w(
+                f"| {d['linked_name']} | {d['pt_display']} | {d['cmc']:.0f} | {rarity_char} | {etb_eff} |"
+            )
+        w("")
+
+    # ── 3.7 Mana Creatures ──
+    mana_creatures = [d for d in all_creatures if is_mana_producer(d)]
+    if mana_creatures:
+        w("### Mana Creatures")
+        w("")
+        w("*Creatures that produce mana -- enable splashing and ramp.*")
+        w("")
+        w("| Card | P/T | Color | CMC | Rarity |")
+        w("|------|-----|-------|-----|--------|")
+        for d in sorted(mana_creatures, key=lambda x: x["cmc"]):
+            cshort = COLOR_SHORT.get(d["color"], d["color"])
+            rarity_char = d["rarity"][0].upper()
+            w(
+                f"| {d['linked_name']} | {d['pt_display']} | {cshort} | {d['cmc']:.0f} | {rarity_char} |"
+            )
+        w("")
 
     # ── Helper: short type abbreviation ──
     def short_type(d):
