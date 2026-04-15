@@ -251,104 +251,138 @@ HOVER_CSS = """\
 # ── Classification ───────────────────────────────────────────────────────
 
 
-def classify_removal(card):
-    """Classify a card as removal. Returns a list of removal categories or []."""
+def _categorize_generic(cat):
+    """Map a detailed removal/burn category to its generic form for summary tables."""
+    if cat.startswith("Damage:"):
+        return "Damage"
+    if cat.startswith("Burn:"):
+        return "Burn"
+    if re.match(r"^-\d+/-\d+$", cat):
+        return "-X/-X"
+    if cat.startswith("Board Wipe"):
+        return "Board Wipe"
+    return cat
+
+
+def classify_removal_and_burn(card):
+    """Classify a card as removal and/or burn.
+
+    Returns (removal_cats, burn_cats) -- each a list of detailed category strings.
+    Removal = can remove/interact with creatures/permanents.
+    Burn = deals damage to players/opponents only (not creatures).
+    """
     ot = get_oracle_text(card)
     tl = get_type_line(card)
-    categories = []
+    removal = []
+    burn = []
 
-    # Must be an instant, sorcery, or have relevant ability
-    # (creatures with ETB removal or adventures count too)
-
-    # Unconditional destroy
+    # ── Destroy ──
     if re.search(r"destroy target (creature|permanent|nonland permanent)", ot):
         if re.search(
             r"destroy target (creature|permanent|nonland permanent) (with|that|an opponent|if)",
             ot,
         ):
-            categories.append("Conditional Destroy")
+            removal.append("Conditional Destroy")
         else:
-            categories.append("Destroy")
+            removal.append("Destroy")
 
-    # Destroy all / board wipe
+    # ── Board wipe ──
     wipe_debuff = re.search(r"all creatures get (-\d+/-\d+)", ot)
     has_destroy_all = re.search(r"destroy all creatures", ot)
     if has_destroy_all and wipe_debuff:
-        categories.append(f"Board Wipe / {wipe_debuff.group(1)}")
+        removal.append(f"Board Wipe / {wipe_debuff.group(1)}")
     elif has_destroy_all:
-        categories.append("Board Wipe")
+        removal.append("Board Wipe")
     elif wipe_debuff:
-        categories.append(f"Board Wipe ({wipe_debuff.group(1)})")
+        removal.append(f"Board Wipe ({wipe_debuff.group(1)})")
 
-    # Exile-based removal
+    # ── Exile ──
     if re.search(r"exile target (creature|permanent|nonland permanent)", ot):
-        categories.append("Exile")
+        removal.append("Exile")
 
-    # Damage to creature/any target -- extract value
-    dmg_fixed = re.findall(
-        r"deals? (\d+) damage to (target|any target|up to one target|each creature|each opponent|target creature|target creature or planeswalker)",
-        ot,
-    )
+    # ── Damage ──
+    # Targets that can hit creatures/permanents
+    creature_targets = r"(target creature|any target|each creature|target creature or planeswalker|up to one target creature)"
+    # Targets that only hit players
+    player_targets = r"(each opponent|target (opponent|player))"
+
+    dmg_creature = re.findall(r"deals? (\d+) damage to " + creature_targets, ot)
+    dmg_player = re.findall(r"deals? (\d+) damage to " + player_targets, ot)
     dmg_equal = re.search(r"deals? damage equal to", ot)
-    dmg_x = re.search(r"deals? x damage", ot)
-    if dmg_fixed:
-        # Pick the highest targeted damage value (some cards have multiple modes)
-        vals = [int(m[0]) for m in dmg_fixed]
-        categories.append(f"Damage: {max(vals)}")
+    dmg_x = re.search(r"deals? x damage to " + creature_targets, ot)
+    dmg_x_player = re.search(r"deals? x damage to " + player_targets, ot)
+    # "deals N damage to target" (plain "target" = any target = can hit creatures)
+    dmg_plain_target = re.findall(
+        r"deals? (\d+) damage to (target\b|up to one target\b)", ot
+    )
+
+    # Creature-hitting damage -> removal
+    creature_vals = [int(m[0]) for m in dmg_creature] + [
+        int(m[0]) for m in dmg_plain_target
+    ]
+    if creature_vals:
+        removal.append(f"Damage: {max(creature_vals)}")
     elif dmg_equal:
         if re.search(r"deals? damage equal to its power", ot):
-            categories.append("Damage: P")
+            removal.append("Damage: P")
         else:
-            categories.append("Damage: X")
+            removal.append("Damage: X")
     elif dmg_x:
-        categories.append("Damage: X")
+        removal.append("Damage: X")
 
-    # Fight / bite
+    # Player-only damage -> burn (only if no creature damage was found)
+    if dmg_player and not creature_vals and not dmg_equal and not dmg_x:
+        player_vals = [int(m[0]) for m in dmg_player]
+        burn.append(f"Burn: {max(player_vals)}")
+    elif dmg_x_player and not creature_vals and not dmg_equal and not dmg_x:
+        burn.append("Burn: X")
+
+    # ── Fight / Bite ──
     if re.search(r"fights? (up to one )?target", ot) or re.search(
         r"fights? another target", ot
     ):
-        categories.append("Fight")
+        removal.append("Fight")
     if re.search(r"deals damage equal to its power to (up to one )?target", ot):
-        categories.append("Bite")
+        removal.append("Bite")
 
-    # -X/-X -- extract value
+    # ── -X/-X ──
     debuff_targeted = re.search(r"target creature.*?gets? (-\d+/-\d+)", ot)
     debuff_all = re.search(r"all creatures get (-\d+/-\d+)", ot)
     if debuff_all:
-        if not any(c.startswith("Board Wipe") for c in categories):
-            categories.append(f"{debuff_all.group(1)}")
+        if not any(c.startswith("Board Wipe") for c in removal):
+            removal.append(f"{debuff_all.group(1)}")
     elif debuff_targeted:
-        categories.append(f"{debuff_targeted.group(1)}")
+        removal.append(f"{debuff_targeted.group(1)}")
 
-    # Bounce
+    # ── Bounce ──
     if re.search(
         r"return target (creature|nonland permanent|permanent).*(to (its|their) owner'?s hand|top.*(library|deck))",
         ot,
     ):
-        categories.append("Bounce")
+        removal.append("Bounce")
     if re.search(r"owner puts it on .*(top|bottom).*library", ot):
-        categories.append("Bounce (Library)")
+        removal.append("Bounce (Library)")
 
-    # Sacrifice-based
+    # ── Edict ──
     if re.search(r"(each opponent|target (opponent|player)) sacrifices", ot):
-        categories.append("Edict")
+        removal.append("Edict")
     if re.search(r"exiles? a creature.*they control", ot):
-        categories.append("Edict")
+        removal.append("Edict")
 
-    # Tapping / stunning (pseudo-removal)
+    # ── Tap/Stun ──
     if re.search(r"tap target creature.*stun counter", ot) or re.search(
         r"put .* stun counter", ot
     ):
         if re.search(r"target creature", ot) or re.search(
             r"target (nonland )?permanent", ot
         ):
-            categories.append("Tap/Stun")
+            removal.append("Tap/Stun")
 
-    # Counter spells
+    # ── Counter ──
     if re.search(r"counter target (spell|creature spell|instant|sorcery)", ot):
-        categories.append("Counter")
+        removal.append("Counter")
 
-    return list(set(categories))
+    return (list(set(removal)), list(set(burn)))
 
 
 def classify_combat_trick(card):
@@ -432,7 +466,7 @@ def build_report(cards):
         rarity = c.get("rarity", "unknown")
         tl = get_type_line(c)
         ot = get_oracle_text(c)
-        removal_cats = classify_removal(c)
+        removal_cats, burn_cats = classify_removal_and_burn(c)
         trick_cats = classify_combat_trick(c)
         pt = get_power_toughness(c)
         cmc = get_cmc(c)
@@ -461,6 +495,7 @@ def build_report(cards):
                 "is_planeswalker": is_type(c, "planeswalker"),
                 "is_land": is_type(c, "land"),
                 "removal_cats": removal_cats,
+                "burn_cats": burn_cats,
                 "trick_cats": trick_cats,
                 "pt": pt,
                 "cmc": cmc,
@@ -639,6 +674,39 @@ def build_report(cards):
         w(f"| {kw.title()} | {total} | " + " | ".join(counts) + " |")
     w("")
 
+    # ── Helper: short type abbreviation ──
+    def short_type(d):
+        parts = []
+        for t in [
+            "Instant",
+            "Sorcery",
+            "Creature",
+            "Enchantment",
+            "Artifact",
+            "Planeswalker",
+        ]:
+            if t.lower() in d["type_line"].lower():
+                parts.append(t[:4])
+        return "/".join(parts)
+
+    # ── Helper: effect summary for tricks ──
+    def effect_summary(d):
+        ot = d["oracle_text"]
+        for line in ot.split("\n"):
+            if any(
+                pat in line
+                for pat in [
+                    "gets +",
+                    "gains ",
+                    "+1/+1 counter",
+                    "can't block",
+                    "hexproof",
+                    "indestructible",
+                ]
+            ):
+                return line[:80].replace("|", "/")
+        return ot[:80].replace("|", "/")
+
     # ── SECTION 4: Removal ───────────────────────────────────────────
     w("---")
     w("## 4. Removal Spells")
@@ -646,7 +714,12 @@ def build_report(cards):
 
     removal_cards = [d for d in card_data if d["removal_cats"]]
 
-    all_rem_cats = sorted(set(cat for d in removal_cards for cat in d["removal_cats"]))
+    # Generic categories for summary tables
+    generic_rem_cats = sorted(
+        set(
+            _categorize_generic(cat) for d in removal_cards for cat in d["removal_cats"]
+        )
+    )
     rem_by_color = {
         c: [d for d in removal_cards if d["color"] == c] for c in COLOR_ORDER
     }
@@ -654,26 +727,32 @@ def build_report(cards):
         r: [d for d in removal_cards if d["rarity"] == r] for r in RARITY_ORDER
     }
 
-    # Removal by color -- transposed: categories as rows, colors as columns
+    # Summary by color -- generic categories
     w("### Removal Count by Color")
     w("")
     w("| Category | " + " | ".join(col_hdr) + " |")
     w("|----------|" + "|".join("---" for _ in COLOR_ORDER) + "|")
-    # Total row first
     w(
         "| **Total** | "
         + " | ".join(str(len(rem_by_color[c])) for c in COLOR_ORDER)
         + " |"
     )
-    for cat in all_rem_cats:
+    for gcat in generic_rem_cats:
         counts = [
-            str(sum(1 for d in rem_by_color[c] if cat in d["removal_cats"]))
+            str(
+                sum(
+                    1
+                    for d in rem_by_color[c]
+                    for cat in d["removal_cats"]
+                    if _categorize_generic(cat) == gcat
+                )
+            )
             for c in COLOR_ORDER
         ]
-        w(f"| {cat} | " + " | ".join(counts) + " |")
+        w(f"| {gcat} | " + " | ".join(counts) + " |")
     w("")
 
-    # Removal by rarity -- transposed: categories as rows, rarities as columns
+    # Summary by rarity -- generic categories
     w("### Removal Count by Rarity")
     w("")
     w("| Category | " + " | ".join(rar_hdr) + " |")
@@ -683,14 +762,22 @@ def build_report(cards):
         + " | ".join(str(len(rem_by_rar[r])) for r in RARITY_ORDER)
         + " |"
     )
-    for cat in all_rem_cats:
+    for gcat in generic_rem_cats:
         counts = [
-            str(sum(1 for d in rem_by_rar[r] if cat in d["removal_cats"]))
+            str(
+                sum(
+                    1
+                    for d in rem_by_rar[r]
+                    for cat in d["removal_cats"]
+                    if _categorize_generic(cat) == gcat
+                )
+            )
             for r in RARITY_ORDER
         ]
-        w(f"| {cat} | " + " | ".join(counts) + " |")
+        w(f"| {gcat} | " + " | ".join(counts) + " |")
     w("")
 
+    # Full removal list -- per color, with detailed categories
     w("### Full Removal List by Color")
     w("")
     for color in COLOR_ORDER:
@@ -705,31 +792,49 @@ def build_report(cards):
         for d in sorted(subset, key=lambda x: x["cmc"]):
             cats = ", ".join(d["removal_cats"])
             rarity_char = d["rarity"][0].upper()
-            tl = d["type_line"]
-            short_type = []
-            for t in [
-                "Instant",
-                "Sorcery",
-                "Creature",
-                "Enchantment",
-                "Artifact",
-                "Planeswalker",
-            ]:
-                if t.lower() in tl.lower():
-                    short_type.append(t[:4])
             w(
-                f"| {d['linked_name']} | {d['pt_display']} | {rarity_char} | {d['cmc']:.0f} | {'/'.join(short_type)} | {cats} |"
+                f"| {d['linked_name']} | {d['pt_display']} | {rarity_char} | {d['cmc']:.0f} | {short_type(d)} | {cats} |"
             )
         w("")
 
-    # ── SECTION 5: Combat Tricks ─────────────────────────────────────
+    # ── SECTION 5: Burn ──────────────────────────────────────────────
     w("---")
-    w("## 5. Combat Tricks")
+    w("## 5. Burn (Player-Only Damage)")
+    w("")
+    w("*Cards that deal damage to opponents only -- cannot remove creatures.*")
+    w("")
+
+    burn_cards = [d for d in card_data if d["burn_cats"]]
+
+    if burn_cards:
+        w("| Card | P/T | Color | Rarity | CMC | Type | Categories |")
+        w("|------|-----|-------|--------|-----|------|------------|")
+        for d in sorted(
+            burn_cards,
+            key=lambda x: (
+                COLOR_ORDER.index(x["color"]) if x["color"] in COLOR_ORDER else 99,
+                x["cmc"],
+            ),
+        ):
+            cshort = COLOR_SHORT.get(d["color"], d["color"])
+            cats = ", ".join(d["burn_cats"])
+            rarity_char = d["rarity"][0].upper()
+            w(
+                f"| {d['linked_name']} | {d['pt_display']} | {cshort} | {rarity_char} | {d['cmc']:.0f} | {short_type(d)} | {cats} |"
+            )
+        w("")
+
+    # ── SECTION 6: Combat Tricks ─────────────────────────────────────
+    w("---")
+    w("## 6. Combat Tricks")
     w("")
 
     trick_cards = [d for d in card_data if d["trick_cats"]]
 
-    all_trick_cats = sorted(set(cat for d in trick_cards for cat in d["trick_cats"]))
+    # Generic categories for summary
+    generic_trick_cats = sorted(
+        set(cat for d in trick_cards for cat in d["trick_cats"])
+    )
     trick_by_color = {
         c: [d for d in trick_cards if d["color"] == c] for c in COLOR_ORDER
     }
@@ -737,10 +842,10 @@ def build_report(cards):
         r: [d for d in trick_cards if d["rarity"] == r] for r in RARITY_ORDER
     }
 
-    # By color -- transposed: categories as rows, colors as columns
+    # Summary by color
     w("### Combat Trick Count by Color")
     w("")
-    if all_trick_cats:
+    if generic_trick_cats:
         active_colors = [c for c in COLOR_ORDER if trick_by_color[c]]
         active_hdr = [COLOR_SHORT[c] for c in active_colors]
         w("| Category | " + " | ".join(active_hdr) + " |")
@@ -750,7 +855,7 @@ def build_report(cards):
             + " | ".join(str(len(trick_by_color[c])) for c in active_colors)
             + " |"
         )
-        for cat in all_trick_cats:
+        for cat in generic_trick_cats:
             counts = [
                 str(sum(1 for d in trick_by_color[c] if cat in d["trick_cats"]))
                 for c in active_colors
@@ -758,10 +863,10 @@ def build_report(cards):
             w(f"| {cat} | " + " | ".join(counts) + " |")
         w("")
 
-    # By rarity -- transposed
+    # Summary by rarity
     w("### Combat Trick Count by Rarity")
     w("")
-    if all_trick_cats:
+    if generic_trick_cats:
         active_rars = [r for r in RARITY_ORDER if trick_by_rar[r]]
         active_rhdr = [RARITY_SHORT[r] for r in active_rars]
         w("| Category | " + " | ".join(active_rhdr) + " |")
@@ -771,7 +876,7 @@ def build_report(cards):
             + " | ".join(str(len(trick_by_rar[r])) for r in active_rars)
             + " |"
         )
-        for cat in all_trick_cats:
+        for cat in generic_trick_cats:
             counts = [
                 str(sum(1 for d in trick_by_rar[r] if cat in d["trick_cats"]))
                 for r in active_rars
@@ -779,48 +884,29 @@ def build_report(cards):
             w(f"| {cat} | " + " | ".join(counts) + " |")
         w("")
 
-    w("### Full Combat Tricks List")
+    # Full combat tricks list -- per color sub-tables
+    w("### Full Combat Tricks List by Color")
     w("")
-    w("| Card | P/T | Color | Rarity | CMC | Categories | Effect Summary |")
-    w("|------|-----|-------|--------|-----|------------|----------------|")
-    for d in sorted(
-        trick_cards,
-        key=lambda x: (
-            COLOR_ORDER.index(x["color"]) if x["color"] in COLOR_ORDER else 99,
-            x["cmc"],
-        ),
-    ):
-        cshort = COLOR_SHORT.get(d["color"], d["color"])
-        cats = ", ".join(d["trick_cats"])
-        rarity_char = RARITY_SHORT[d["rarity"]]
-        # Extract a short effect summary from oracle text
-        ot = d["oracle_text"]
-        summary = ""
-        for line in ot.split("\n"):
-            if any(
-                pat in line
-                for pat in [
-                    "gets +",
-                    "gains ",
-                    "+1/+1 counter",
-                    "can't block",
-                    "hexproof",
-                    "indestructible",
-                ]
-            ):
-                summary = line[:80]
-                break
-        if not summary:
-            summary = ot[:80]
-        summary = summary.replace("|", "/")
-        w(
-            f"| {d['linked_name']} | {d['pt_display']} | {cshort} | {rarity_char} | {d['cmc']:.0f} | {cats} | {summary} |"
-        )
-    w("")
+    for color in COLOR_ORDER:
+        subset = [d for d in trick_cards if d["color"] == color]
+        if not subset:
+            continue
+        cname = COLOR_NAMES.get(color, color) if color in COLOR_NAMES else color
+        w(f"#### {cname}")
+        w("")
+        w("| Card | P/T | Rarity | CMC | Categories | Effect Summary |")
+        w("|------|-----|--------|-----|------------|----------------|")
+        for d in sorted(subset, key=lambda x: x["cmc"]):
+            cats = ", ".join(d["trick_cats"])
+            rarity_char = d["rarity"][0].upper()
+            w(
+                f"| {d['linked_name']} | {d['pt_display']} | {rarity_char} | {d['cmc']:.0f} | {cats} | {effect_summary(d)} |"
+            )
+        w("")
 
-    # ── SECTION 6: Notable Cycles & Mechanics ────────────────────────
+    # ── SECTION 7: Notable Cycles & Mechanics ────────────────────────
     w("---")
-    w("## 6. Set Mechanics")
+    w("## 7. Set Mechanics")
     w("")
 
     # Detect mechanics from keywords
@@ -850,9 +936,9 @@ def build_report(cards):
         w(f"| {mech.title()} | {mechanics[mech]} | {examples} |")
     w("")
 
-    # ── SECTION 7: Draft Signposts (Uncommon Gold) ───────────────────
+    # ── SECTION 8: Draft Signposts (Uncommon Gold) ───────────────────
     w("---")
-    w("## 7. Draft Signposts (Uncommon Multicolor)")
+    w("## 8. Draft Signposts (Uncommon Multicolor)")
     w("")
     w("These uncommon gold cards hint at supported archetypes.")
     w("")
@@ -870,9 +956,9 @@ def build_report(cards):
         )
     w("")
 
-    # ── SECTION 8: Top Limited Picks ─────────────────────────────────
+    # ── SECTION 9: Top Limited Picks ─────────────────────────────────
     w("---")
-    w("## 8. Notable Cards for Limited (by Rarity)")
+    w("## 9. Notable Cards for Limited (by Rarity)")
     w("")
     w("### Common Removal")
     w("")
@@ -928,6 +1014,7 @@ def build_report(cards):
     print(f"Index written to {INDEX_PATH}")
     print(f"  Total cards analyzed: {len(card_data)}")
     print(f"  Removal spells found: {len(removal_cards)}")
+    print(f"  Burn cards found: {len(burn_cards)}")
     print(f"  Combat tricks found: {len(trick_cards)}")
 
 
