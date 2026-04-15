@@ -554,7 +554,7 @@
 
 | Category | W | U | B | R | G | MC | NC |
 |----------|---|---|---|---|---|---|---|
-| **Total** | 6 | 8 | 7 | 9 | 3 | 14 | 2 |
+| **Total** | 6 | 8 | 7 | 9 | 3 | 15 | 2 |
 | -X/-X | 0 | 0 | 3 | 0 | 0 | 0 | 0 |
 | Bite | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
 | Board Wipe | 0 | 0 | 1 | 0 | 0 | 0 | 0 |
@@ -564,7 +564,7 @@
 | Counter | 0 | 3 | 0 | 0 | 0 | 1 | 0 |
 | Damage | 0 | 0 | 0 | 9 | 3 | 5 | 1 |
 | Destroy | 3 | 0 | 1 | 0 | 0 | 2 | 0 |
-| Edict | 0 | 0 | 1 | 0 | 0 | 1 | 0 |
+| Edict | 0 | 0 | 1 | 0 | 0 | 2 | 0 |
 | Exile | 1 | 0 | 1 | 0 | 0 | 2 | 1 |
 | Fight | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
 | Tap/Stun | 1 | 3 | 0 | 0 | 0 | 1 | 0 |
@@ -573,7 +573,7 @@
 
 | Category | C | U | R | M |
 |----------|---|---|---|---|
-| **Total** | 16 | 21 | 8 | 4 |
+| **Total** | 16 | 22 | 8 | 4 |
 | -X/-X | 1 | 2 | 0 | 0 |
 | Bite | 1 | 0 | 0 | 0 |
 | Board Wipe | 0 | 0 | 0 | 1 |
@@ -583,7 +583,7 @@
 | Counter | 1 | 2 | 1 | 0 |
 | Damage | 6 | 7 | 4 | 1 |
 | Destroy | 1 | 2 | 2 | 1 |
-| Edict | 0 | 2 | 0 | 0 |
+| Edict | 0 | 3 | 0 | 0 |
 | Exile | 1 | 2 | 1 | 1 |
 | Fight | 0 | 1 | 0 | 0 |
 | Tap/Stun | 4 | 1 | 0 | 0 |
@@ -659,6 +659,7 @@
 | <a href="https://scryfall.com/card/sos/239/traumatic-critique" class="card-link" target="_blank">Traumatic Critique<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/2/a/2a812fa7-4599-4e25-97db-20ffc6bc0b26.jpg?1775938668" alt="Traumatic Critique"></span></a> | - | R | 2 | Inst | Damage: X |
 | <a href="https://scryfall.com/card/sos/240/vibrant-outburst" class="card-link" target="_blank">Vibrant Outburst<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/9/f9ba68ef-6efc-4249-8b74-e33f47173902.jpg?1775938674" alt="Vibrant Outburst"></span></a> | - | U | 2 | Inst | Damage: 3 |
 | <a href="https://scryfall.com/card/sos/244/witherbloom-charm" class="card-link" target="_blank">Witherbloom Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/2/5/254437f7-7a8a-4b11-9cea-e8e7ea23c59e.jpg?1775938703" alt="Witherbloom Charm"></span></a> | - | U | 2 | Inst | Conditional Destroy |
+| <a href="https://scryfall.com/card/sos/228/social-snub" class="card-link" target="_blank">Social Snub<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/0/a04b6900-0436-4920-a0d4-c0186d605ae3.jpg?1775938590" alt="Social Snub"></span></a> | - | U | 3 | Sorc | Edict |
 | <a href="https://scryfall.com/card/sos/236/suspend-aggression" class="card-link" target="_blank">Suspend Aggression<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/3/135c0696-d86d-4e48-988c-5c218de451fc.jpg?1775938648" alt="Suspend Aggression"></span></a> | - | R | 3 | Inst | Exile |
 | <a href="https://scryfall.com/card/sos/214/professor-dellian-fel" class="card-link" target="_blank">Professor Dellian Fel<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/f/6ff3b4d8-1271-4c5d-8834-7662244f173d.jpg?1775938486" alt="Professor Dellian Fel"></span></a> | - | M | 4 | Plan | Destroy |
 | <a href="https://scryfall.com/card/sos/243/wilt-in-the-heat" class="card-link" target="_blank">Wilt in the Heat<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/6/f63f7209-fc0f-400c-8076-125f3131cb32.jpg?1775938697" alt="Wilt in the Heat"></span></a> | - | C | 4 | Inst | Damage: 5 |
@@ -758,7 +759,7 @@
 |------|-----|--------|-----|------------|----------------|
 | <a href="https://scryfall.com/card/sos/79/dissection-practice" class="card-link" target="_blank">Dissection Practice<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/d/ddbf1242-6832-475e-9a77-65dd9b4bb32a.jpg?1775937462" alt="Dissection Practice"></span></a> | - | U | 1 | P/T Buff | up to one target creature gets +1/+1 until end of turn. |
 | <a href="https://scryfall.com/card/sos/87/lecturing-scornmage" class="card-link" target="_blank">Lecturing Scornmage<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/d/ad07091e-8c24-43af-8ce8-031847bcaf30.jpg?1775937516" alt="Lecturing Scornmage"></span></a> | 1/1 | U | 1 | Counters | repartee — whenever you cast an instant or sorcery spell that targets a creature |
-| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | - | C | 1 | Protection, P/T Buff, Grants Indestructible | target creature you control gets +1/+0 and gains indestructible until end of tur |
+| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | - | C | 1 | Grants Indestructible, Protection, P/T Buff | target creature you control gets +1/+0 and gains indestructible until end of tur |
 | <a href="https://scryfall.com/card/sos/96/rabid-attack" class="card-link" target="_blank">Rabid Attack<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/f/5/f5e67560-3135-4b27-a344-5859edf8bcd9.jpg?1775937579" alt="Rabid Attack"></span></a> | - | U | 2 | P/T Buff | until end of turn, any number of target creatures you control each get +1/+0 and |
 | <a href="https://scryfall.com/card/sos/72/adventurous-eater-have-a-bite" class="card-link" target="_blank">Adventurous Eater // Have a Bite<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/4/d40cc7da-c731-418e-8547-7033d1939450.jpg?1775937412" alt="Adventurous Eater // Have a Bite"></span></a> | 3/2 | C | 3 | Counters | put a +1/+1 counter on target creature. you gain 1 life. |
 | <a href="https://scryfall.com/card/sos/77/cost-of-brilliance" class="card-link" target="_blank">Cost of Brilliance<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/a/3a46816b-9f75-4c72-9ec6-cded6a4a0d01.jpg?1775937447" alt="Cost of Brilliance"></span></a> | - | C | 3 | Counters | target player draws two cards and loses 2 life. put a +1/+1 counter on up to one |
@@ -795,7 +796,7 @@
 | <a href="https://scryfall.com/card/sos/193/growth-curve" class="card-link" target="_blank">Growth Curve<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/6/1675a445-86ae-413b-b95a-a1c254a7f252.jpg?1775938339" alt="Growth Curve"></span></a> | - | U | 2 | Counters | put a +1/+1 counter on target creature you control, then double the number of +1 |
 | <a href="https://scryfall.com/card/sos/194/hardened-academic" class="card-link" target="_blank">Hardened Academic<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06c9e8a7-2840-4cff-90af-c6636e598f78.jpg?1775938346" alt="Hardened Academic"></span></a> | 2/1 | R | 2 | Counters | discard a card: this creature gains lifelink until end of turn. |
 | <a href="https://scryfall.com/card/sos/198/kirol-history-buff-pack-a-punch" class="card-link" target="_blank">Kirol, History Buff // Pack a Punch<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/7/676ba521-66e4-42cf-a315-70d03cb7334e.jpg?1775938375" alt="Kirol, History Buff // Pack a Punch"></span></a> | 2/3 | U | 2 | Counters | mill a card. put two +1/+1 counters on target creature. it gains trample until e |
-| <a href="https://scryfall.com/card/sos/200/lorehold-charm" class="card-link" target="_blank">Lorehold Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/f/5fe70295-e550-4577-a341-dab6c25aabfd.jpg?1775938389" alt="Lorehold Charm"></span></a> | - | U | 2 | P/T Buff (Team), Grants Trample | creatures you control get +1/+1 and gain trample until end of turn. |
+| <a href="https://scryfall.com/card/sos/200/lorehold-charm" class="card-link" target="_blank">Lorehold Charm<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/5/f/5fe70295-e550-4577-a341-dab6c25aabfd.jpg?1775938389" alt="Lorehold Charm"></span></a> | - | U | 2 | Grants Trample, P/T Buff (Team) | creatures you control get +1/+1 and gain trample until end of turn. |
 | <a href="https://scryfall.com/card/sos/224/scolding-administrator" class="card-link" target="_blank">Scolding Administrator<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/9/69757177-aefa-44a6-81db-5ae9b5d2f117.jpg?1775938562" alt="Scolding Administrator"></span></a> | 2/2 | U | 2 | Counters | repartee — whenever you cast an instant or sorcery spell that targets a creature |
 | <a href="https://scryfall.com/card/sos/230/spirit-mascot" class="card-link" target="_blank">Spirit Mascot<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/2/123f1fde-d8de-4640-baa1-bb3781713168.jpg?1775938605" alt="Spirit Mascot"></span></a> | 2/2 | C | 2 | Counters | whenever one or more cards leave your graveyard, put a +1/+1 counter on this cre |
 | <a href="https://scryfall.com/card/sos/170/abigale-poet-laureate-heroic-stanza" class="card-link" target="_blank">Abigale, Poet Laureate // Heroic Stanza<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/7/77285d12-e658-4eb3-ba13-ff202afab9c8.jpg?1775938164" alt="Abigale, Poet Laureate // Heroic Stanza"></span></a> | 2/3 | U | 3 | Counters | put a +1/+1 counter on target creature. |
@@ -964,7 +965,7 @@ These uncommon gold cards hint at supported archetypes.
 | <a href="https://scryfall.com/card/sos/10/dig-site-inventory" class="card-link" target="_blank">Dig Site Inventory<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/e/5/e52464ee-df8b-41ec-af93-4b0eb004383e.jpg?1775936980" alt="Dig Site Inventory"></span></a> | - | W | 1 | Counters |
 | <a href="https://scryfall.com/card/sos/22/interjection" class="card-link" target="_blank">Interjection<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/5/0534cff6-299c-4155-b318-eb7581989e8a.jpg?1775937061" alt="Interjection"></span></a> | - | W | 1 | Grants First Strike, P/T Buff |
 | <a href="https://scryfall.com/card/sos/41/chase-inspiration" class="card-link" target="_blank">Chase Inspiration<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/6/06f9f257-c7ef-44b7-8b2b-f038fba900af.jpg?1775937195" alt="Chase Inspiration"></span></a> | - | U | 1 | Protection, Grants Hexproof, P/T Buff |
-| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | - | B | 1 | Protection, P/T Buff, Grants Indestructible |
+| <a href="https://scryfall.com/card/sos/89/masterful-flourish" class="card-link" target="_blank">Masterful Flourish<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d93d14d-7760-4af2-a237-2df326dd28d3.jpg?1775937531" alt="Masterful Flourish"></span></a> | - | B | 1 | Grants Indestructible, Protection, P/T Buff |
 | <a href="https://scryfall.com/card/sos/167/wild-hypothesis" class="card-link" target="_blank">Wild Hypothesis<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/0/4/04fdfabc-c247-4384-a5bb-f49035f8aae0.jpg?1775938142" alt="Wild Hypothesis"></span></a> | - | G | 1 | Counters |
 | <a href="https://scryfall.com/card/sos/141/burrog-barrage" class="card-link" target="_blank">Burrog Barrage<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/5/95d5b0a8-2b66-418e-9e5e-ecf7b304c31e.jpg?1775937957" alt="Burrog Barrage"></span></a> | - | G | 2 | P/T Buff |
 | <a href="https://scryfall.com/card/sos/230/spirit-mascot" class="card-link" target="_blank">Spirit Mascot<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/2/123f1fde-d8de-4640-baa1-bb3781713168.jpg?1775938605" alt="Spirit Mascot"></span></a> | 2/2 | MC | 2 | Counters |
@@ -997,6 +998,7 @@ These uncommon gold cards hint at supported archetypes.
 | <a href="https://scryfall.com/card/sos/83/foolish-fate" class="card-link" target="_blank">Foolish Fate<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/d/2/d278f4c9-d20b-4a76-8c5c-4d3e985948b9.jpg?1775937489" alt="Foolish Fate"></span></a> | - | B | 3 | Destroy |
 | <a href="https://scryfall.com/card/sos/92/poisoners-apprentice" class="card-link" target="_blank">Poisoner's Apprentice<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/3/7/3755a2e9-af55-4625-a006-2a86c7893a96.jpg?1775937552" alt="Poisoner's Apprentice"></span></a> | 2/2 | B | 3 | -4/-4 |
 | <a href="https://scryfall.com/card/sos/142/chelonian-tackle" class="card-link" target="_blank">Chelonian Tackle<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/8/a82a4d8c-4105-4923-85a2-ef58241f725c.jpg?1775937964" alt="Chelonian Tackle"></span></a> | - | G | 3 | Damage: P, Fight |
+| <a href="https://scryfall.com/card/sos/228/social-snub" class="card-link" target="_blank">Social Snub<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/0/a04b6900-0436-4920-a0d4-c0186d605ae3.jpg?1775938590" alt="Social Snub"></span></a> | - | MC | 3 | Edict |
 | <a href="https://scryfall.com/card/sos/39/brush-off" class="card-link" target="_blank">Brush Off<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/1/5/151eab82-d20f-433b-b3bb-1d44e2871d5c.jpg?1775937183" alt="Brush Off"></span></a> | - | U | 4 | Counter |
 | <a href="https://scryfall.com/card/sos/107/archaics-agony" class="card-link" target="_blank">Archaic's Agony<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/8/d/8d99f8b2-5c1c-4059-bf68-c6b2e9e5b275.jpg?1775937675" alt="Archaic's Agony"></span></a> | - | R | 5 | Damage: X |
 | <a href="https://scryfall.com/card/sos/108/artistic-process" class="card-link" target="_blank">Artistic Process<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/c/bce9d933-be58-4301-beb4-07b04d0b69f0.jpg?1775937683" alt="Artistic Process"></span></a> | - | R | 5 | Damage: 6 |
@@ -1090,7 +1092,6 @@ These uncommon gold cards hint at supported archetypes.
 | <a href="https://scryfall.com/card/sos/184/dinas-guidance" class="card-link" target="_blank">Dina's Guidance<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/7/7/775c1e50-08a4-413f-ab0f-f1c2a79cfe94.jpg?1775938273" alt="Dina's Guidance"></span></a> | R | 3 | Inst |
 | <a href="https://scryfall.com/card/sos/192/grapple-with-death" class="card-link" target="_blank">Grapple with Death<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/6/2/62842fb4-8bd3-4d80-b4f9-5bc3c5cebd3a.jpg?1775938332" alt="Grapple with Death"></span></a> | C | 3 | Sorc |
 | <a href="https://scryfall.com/card/sos/203/mind-roots" class="card-link" target="_blank">Mind Roots<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/9/d/9d5fdbda-ebbe-45d6-a668-5ddee057a063.jpg?1775938410" alt="Mind Roots"></span></a> | U | 3 | Sorc |
-| <a href="https://scryfall.com/card/sos/228/social-snub" class="card-link" target="_blank">Social Snub<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/0/a04b6900-0436-4920-a0d4-c0186d605ae3.jpg?1775938590" alt="Social Snub"></span></a> | U | 3 | Sorc |
 | <a href="https://scryfall.com/card/sos/178/borrowed-knowledge" class="card-link" target="_blank">Borrowed Knowledge<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/a/3/a3226e14-554d-47c9-b8b6-dfeb53cc41ba.jpg?1775938224" alt="Borrowed Knowledge"></span></a> | U | 4 | Sorc |
 | <a href="https://scryfall.com/card/sos/188/fix-whats-broken" class="card-link" target="_blank">Fix What's Broken<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/c/0/c0cd1d71-8e4a-4e00-80cd-83aec231fa57.jpg?1775938304" alt="Fix What's Broken"></span></a> | R | 4 | Sorc |
 | <a href="https://scryfall.com/card/sos/213/proctors-gaze" class="card-link" target="_blank">Proctor's Gaze<span class="card-preview"><img src="https://cards.scryfall.io/normal/front/b/1/b127d543-0a90-4af6-9410-94d5cd30389e.jpg?1775938479" alt="Proctor's Gaze"></span></a> | U | 4 | Inst |

@@ -609,7 +609,10 @@ def classify_removal_and_burn(card):
         removal.append("Bounce (Library)")
 
     # ── Edict ──
-    if re.search(r"(each opponent|target (opponent|player)) sacrifices", ot):
+    # "each player sacrifices" hits opponents too -- counts as removal
+    if re.search(
+        r"(each opponent|each player|target (opponent|player)) sacrifices", ot
+    ):
         removal.append("Edict")
     if re.search(r"exiles? a creature.*they control", ot):
         removal.append("Edict")
