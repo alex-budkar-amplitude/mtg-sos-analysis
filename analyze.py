@@ -1059,6 +1059,35 @@ def build_report(cards):
         pseudo_rarity = 0 if d["rarity"] in ("common", "uncommon") else 1
         return (pseudo_rarity, d["cmc"], d["name"])
 
+    # Faculty ordering for multicolor cards
+    # Colors stored as sorted tuple, e.g. ('B','G') for Witherbloom
+    FACULTY_ORDER = {
+        ("B", "G"): (0, "Witherbloom"),
+        ("B", "W"): (1, "Silverquill"),
+        ("G", "U"): (2, "Quandrix"),
+        ("R", "U"): (3, "Prismari"),
+        ("R", "W"): (4, "Lorehold"),
+    }
+
+    def mc_card_sort_key(d):
+        """For multicolor cards: faculty order, then C/U vs R/M, then CMC, then name."""
+        colors = tuple(sorted(d["card"].get("colors", [])))
+        faculty_idx = FACULTY_ORDER.get(colors, (99, "Other"))[0]
+        pseudo_rarity = 0 if d["rarity"] in ("common", "uncommon") else 1
+        return (faculty_idx, pseudo_rarity, d["cmc"], d["name"])
+
+    def get_faculty(d):
+        """Return faculty name for a card, or 'Other' for 3+ colors."""
+        colors = tuple(sorted(d["card"].get("colors", [])))
+        return FACULTY_ORDER.get(colors, (99, "Other"))[1]
+
+    def faculty_separator(w_fn, col_count, faculty_name):
+        """Emit a faculty separator row spanning all columns."""
+        # Use a markdown trick: a row with the faculty name merged via colspan-like bold
+        # Since GFM tables don't support colspan, use a row where first cell is bold faculty
+        # and the rest are empty
+        w_fn(f"| **{faculty_name}** |" + " |" * (col_count - 1))
+
     # ── SECTION 3: Creatures ─────────────────────────────────────────
     w("---")
     w("## 3. Creature Analysis")
@@ -1164,7 +1193,15 @@ def build_report(cards):
         w("")
         w("| Card | P/T | CMC | Rarity | Keywords |")
         w("|------|-----|-----|--------|----------|")
-        for d in sorted(subset, key=card_sort_key):
+        cur_faculty = None
+        for d in sorted(
+            subset, key=mc_card_sort_key if color == "Multicolor" else card_sort_key
+        ):
+            if color == "Multicolor":
+                fac = get_faculty(d)
+                if fac != cur_faculty:
+                    faculty_separator(w, 5, fac)
+                    cur_faculty = fac
             rarity_char = d["rarity"][0].upper()
             kws_parts = []
             kw = get_keyword_display(d)
@@ -1193,7 +1230,15 @@ def build_report(cards):
         w("")
         w("| Card | P/T | CMC | Rarity | Evasion |")
         w("|------|-----|-----|--------|---------|")
-        for d in sorted(subset, key=card_sort_key):
+        cur_faculty = None
+        for d in sorted(
+            subset, key=mc_card_sort_key if color == "Multicolor" else card_sort_key
+        ):
+            if color == "Multicolor":
+                fac = get_faculty(d)
+                if fac != cur_faculty:
+                    faculty_separator(w, 5, fac)
+                    cur_faculty = fac
             rarity_char = d["rarity"][0].upper()
             ev = ", ".join(get_evasion_types(d))
             w(
@@ -1216,7 +1261,15 @@ def build_report(cards):
         w("")
         w("| Card | P/T | CMC | Rarity | ETB Effect |")
         w("|------|-----|-----|--------|------------|")
-        for d in sorted(subset, key=card_sort_key):
+        cur_faculty = None
+        for d in sorted(
+            subset, key=mc_card_sort_key if color == "Multicolor" else card_sort_key
+        ):
+            if color == "Multicolor":
+                fac = get_faculty(d)
+                if fac != cur_faculty:
+                    faculty_separator(w, 5, fac)
+                    cur_faculty = fac
             rarity_char = d["rarity"][0].upper()
             etb_eff = get_etb_summary(d)
             w(
@@ -1360,7 +1413,15 @@ def build_report(cards):
         w("")
         w("| Card | P/T | Rarity | CMC | Type | Categories |")
         w("|------|-----|--------|-----|------|------------|")
-        for d in sorted(subset, key=card_sort_key):
+        cur_faculty = None
+        for d in sorted(
+            subset, key=mc_card_sort_key if color == "Multicolor" else card_sort_key
+        ):
+            if color == "Multicolor":
+                fac = get_faculty(d)
+                if fac != cur_faculty:
+                    faculty_separator(w, 6, fac)
+                    cur_faculty = fac
             cats = ", ".join(d["removal_cats"])
             rarity_char = d["rarity"][0].upper()
             w(
@@ -1478,10 +1539,15 @@ def build_report(cards):
         w("")
         w("| Card | P/T | Rarity | CMC | Type | Category |")
         w("|------|-----|--------|-----|------|----------|")
+        cur_faculty = None
         for d in sorted(
-            subset,
-            key=card_sort_key,
+            subset, key=mc_card_sort_key if color == "Multicolor" else card_sort_key
         ):
+            if color == "Multicolor":
+                fac = get_faculty(d)
+                if fac != cur_faculty:
+                    faculty_separator(w, 6, fac)
+                    cur_faculty = fac
             rarity_char = d["rarity"][0].upper()
             cats = ", ".join(d["draw_cats"])
             w(
@@ -1561,7 +1627,15 @@ def build_report(cards):
         w("")
         w("| Card | P/T | Rarity | CMC | Categories | Effect Summary |")
         w("|------|-----|--------|-----|------------|----------------|")
-        for d in sorted(subset, key=card_sort_key):
+        cur_faculty = None
+        for d in sorted(
+            subset, key=mc_card_sort_key if color == "Multicolor" else card_sort_key
+        ):
+            if color == "Multicolor":
+                fac = get_faculty(d)
+                if fac != cur_faculty:
+                    faculty_separator(w, 6, fac)
+                    cur_faculty = fac
             cats = ", ".join(d["trick_cats"])
             rarity_char = d["rarity"][0].upper()
             w(
@@ -1610,7 +1684,15 @@ def build_report(cards):
         w("")
         w("| Card | P/T | Rarity | CMC | Type | Categories |")
         w("|------|-----|--------|-----|------|------------|")
-        for d in sorted(subset, key=card_sort_key):
+        cur_faculty = None
+        for d in sorted(
+            subset, key=mc_card_sort_key if color == "Multicolor" else card_sort_key
+        ):
+            if color == "Multicolor":
+                fac = get_faculty(d)
+                if fac != cur_faculty:
+                    faculty_separator(w, 6, fac)
+                    cur_faculty = fac
             rarity_char = d["rarity"][0].upper()
             cats = ", ".join(d["pump_cats"])
             w(
@@ -1636,7 +1718,15 @@ def build_report(cards):
         w("")
         w("| Card | P/T | Rarity | CMC | Type | Tokens |")
         w("|------|-----|--------|-----|------|--------|")
-        for d in sorted(subset, key=card_sort_key):
+        cur_faculty = None
+        for d in sorted(
+            subset, key=mc_card_sort_key if color == "Multicolor" else card_sort_key
+        ):
+            if color == "Multicolor":
+                fac = get_faculty(d)
+                if fac != cur_faculty:
+                    faculty_separator(w, 6, fac)
+                    cur_faculty = fac
             rarity_char = d["rarity"][0].upper()
             tokens_str = ", ".join(d["token_cats"])
             w(
@@ -1799,7 +1889,15 @@ def build_report(cards):
             w("")
             w("| Card | Rarity | CMC | Type |")
             w("|------|--------|-----|------|")
-            for d in sorted(subset, key=card_sort_key):
+            cur_faculty = None
+            for d in sorted(
+                subset, key=mc_card_sort_key if color == "Multicolor" else card_sort_key
+            ):
+                if color == "Multicolor":
+                    fac = get_faculty(d)
+                    if fac != cur_faculty:
+                        faculty_separator(w, 4, fac)
+                        cur_faculty = fac
                 rarity_char = d["rarity"][0].upper()
                 w(
                     f"| {d['linked_name']} | {rarity_char} | {d['cmc']:.0f} | {short_type(d)} |"
