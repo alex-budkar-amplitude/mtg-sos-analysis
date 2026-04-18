@@ -1053,6 +1053,12 @@ def build_report(cards):
     w(f"| **Avg** | " + " | ".join(avgs) + " |")
     w("")
 
+    # ── Shared sort key for all card listing tables ──────────────────
+    def card_sort_key(d):
+        """C/U first (pseudo_rarity=0), R/M second (1), then CMC, then name."""
+        pseudo_rarity = 0 if d["rarity"] in ("common", "uncommon") else 1
+        return (pseudo_rarity, d["cmc"], d["name"])
+
     # ── SECTION 3: Creatures ─────────────────────────────────────────
     w("---")
     w("## 3. Creature Analysis")
@@ -1158,7 +1164,7 @@ def build_report(cards):
         w("")
         w("| Card | P/T | CMC | Rarity | Keywords |")
         w("|------|-----|-----|--------|----------|")
-        for d in sorted(subset, key=lambda x: (x["cmc"], x["name"])):
+        for d in sorted(subset, key=card_sort_key):
             rarity_char = d["rarity"][0].upper()
             kws_parts = []
             kw = get_keyword_display(d)
@@ -1187,7 +1193,7 @@ def build_report(cards):
         w("")
         w("| Card | P/T | CMC | Rarity | Evasion |")
         w("|------|-----|-----|--------|---------|")
-        for d in sorted(subset, key=lambda x: x["cmc"]):
+        for d in sorted(subset, key=card_sort_key):
             rarity_char = d["rarity"][0].upper()
             ev = ", ".join(get_evasion_types(d))
             w(
@@ -1210,7 +1216,7 @@ def build_report(cards):
         w("")
         w("| Card | P/T | CMC | Rarity | ETB Effect |")
         w("|------|-----|-----|--------|------------|")
-        for d in sorted(subset, key=lambda x: x["cmc"]):
+        for d in sorted(subset, key=card_sort_key):
             rarity_char = d["rarity"][0].upper()
             etb_eff = get_etb_summary(d)
             w(
@@ -1354,7 +1360,7 @@ def build_report(cards):
         w("")
         w("| Card | P/T | Rarity | CMC | Type | Categories |")
         w("|------|-----|--------|-----|------|------------|")
-        for d in sorted(subset, key=lambda x: x["cmc"]):
+        for d in sorted(subset, key=card_sort_key):
             cats = ", ".join(d["removal_cats"])
             rarity_char = d["rarity"][0].upper()
             w(
@@ -1474,13 +1480,7 @@ def build_report(cards):
         w("|------|-----|--------|-----|------|----------|")
         for d in sorted(
             subset,
-            key=lambda x: (
-                DRAW_CAT_ORDER.index(d["draw_cats"][0])
-                if d["draw_cats"] and d["draw_cats"][0] in DRAW_CAT_ORDER
-                else 99,
-                x["cmc"],
-                x["name"],
-            ),
+            key=card_sort_key,
         ):
             rarity_char = d["rarity"][0].upper()
             cats = ", ".join(d["draw_cats"])
@@ -1561,7 +1561,7 @@ def build_report(cards):
         w("")
         w("| Card | P/T | Rarity | CMC | Categories | Effect Summary |")
         w("|------|-----|--------|-----|------------|----------------|")
-        for d in sorted(subset, key=lambda x: x["cmc"]):
+        for d in sorted(subset, key=card_sort_key):
             cats = ", ".join(d["trick_cats"])
             rarity_char = d["rarity"][0].upper()
             w(
@@ -1610,7 +1610,7 @@ def build_report(cards):
         w("")
         w("| Card | P/T | Rarity | CMC | Type | Categories |")
         w("|------|-----|--------|-----|------|------------|")
-        for d in sorted(subset, key=lambda x: x["cmc"]):
+        for d in sorted(subset, key=card_sort_key):
             rarity_char = d["rarity"][0].upper()
             cats = ", ".join(d["pump_cats"])
             w(
@@ -1636,7 +1636,7 @@ def build_report(cards):
         w("")
         w("| Card | P/T | Rarity | CMC | Type | Tokens |")
         w("|------|-----|--------|-----|------|--------|")
-        for d in sorted(subset, key=lambda x: x["cmc"]):
+        for d in sorted(subset, key=card_sort_key):
             rarity_char = d["rarity"][0].upper()
             tokens_str = ", ".join(d["token_cats"])
             w(
@@ -1799,7 +1799,7 @@ def build_report(cards):
             w("")
             w("| Card | Rarity | CMC | Type |")
             w("|------|--------|-----|------|")
-            for d in sorted(subset, key=lambda x: (x["cmc"], x["name"])):
+            for d in sorted(subset, key=card_sort_key):
                 rarity_char = d["rarity"][0].upper()
                 w(
                     f"| {d['linked_name']} | {rarity_char} | {d['cmc']:.0f} | {short_type(d)} |"
