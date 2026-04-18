@@ -296,12 +296,20 @@ EVASION_KEYWORDS = [
 ]
 
 
+def _is_unblockable(oracle_text):
+    """True if oracle text grants unblockability (not just menace reminder text)."""
+    # "can't be blocked except by" is menace reminder -- not unblockable
+    import re as _re
+
+    return bool(_re.search(r"can't be blocked(?! except)", oracle_text.lower()))
+
+
 def has_evasion(d):
     """Check if creature has evasion keywords or 'can't be blocked'."""
     kws = d["keywords"]
     if any(k in kws for k in EVASION_KEYWORDS):
         return True
-    if "can't be blocked" in d["oracle_text"]:
+    if _is_unblockable(d["oracle_text"]):
         return True
     return False
 
@@ -309,7 +317,7 @@ def has_evasion(d):
 def get_evasion_types(d):
     """Return list of evasion types this creature has."""
     types = [k.title() for k in EVASION_KEYWORDS if k in d["keywords"]]
-    if "can't be blocked" in d["oracle_text"]:
+    if _is_unblockable(d["oracle_text"]):
         types.append("Unblockable")
     return types
 
